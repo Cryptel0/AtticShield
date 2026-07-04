@@ -406,9 +406,9 @@
       .as-hero-bg video { display: none; }
       .as-hero-bg { background: url(images/AtticShield-Hero.webp) center/cover no-repeat; }
       .as-trust-badges { padding: 50px 20px 60px; }
-      .as-trust-badge { padding: 16px 22px 16px 18px; gap: 14px; }
-      .as-trust-badge-icon { width: 48px; height: 48px; font-size: 18px; }
-      .as-trust-badge-name { font-size: 14px; }
+      .as-trust-badge { padding: 18px 24px 18px 20px; gap: 16px; }
+      .as-trust-badge-icon { width: 56px; height: 56px; font-size: 22px; }
+      .as-trust-badge-name { font-size: 15px; }
     }
     @media (max-width: 480px) {
       .as-hero-body { padding: 0 20px 60px; }
@@ -558,9 +558,9 @@
     }
     .as-trust-badges-track {
       display: flex;
-      gap: 14px;
+      gap: 18px;
       width: max-content;
-      animation: asTrustScroll 56s linear infinite;
+      animation: asTrustScroll 60s linear infinite;
       padding: 4px 0;
     }
     .as-trust-badges-marquee:hover .as-trust-badges-track { animation-play-state: paused; }
@@ -569,8 +569,8 @@
       to { transform: translateX(-50%); }
     }
     .as-trust-badge {
-      display: inline-flex; align-items: center; gap: 18px;
-      padding: 24px 36px 24px 28px;
+      display: inline-flex; align-items: center; gap: 22px;
+      padding: 28px 42px 28px 32px;
       border-radius: 18px;
       background: rgba(255,255,255,.04);
       backdrop-filter: blur(12px);
@@ -583,9 +583,9 @@
     }
     .as-trust-badge:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(242,185,71,.12); border-color: rgba(242,185,71,.2); }
     .as-trust-badge-icon {
-      width: 64px; height: 64px; border-radius: 16px; flex-shrink: 0;
+      width: 80px; height: 80px; border-radius: 18px; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
-      font-weight: 900; font-size: 24px;
+      font-weight: 900; font-size: 30px;
       overflow: hidden;
     }
     .as-trust-badge-icon img {
@@ -599,7 +599,7 @@
     .as-trust-badge-icon.dark { background: var(--as-dark); color: var(--as-accent); border: 1px solid rgba(242,185,71,.2); }
     .as-trust-badge-info { display: flex; flex-direction: column; }
     .as-trust-badge-name {
-      font-size: 18px; font-weight: 700; color: #fff;
+      font-size: 20px; font-weight: 700; color: #fff;
       line-height: 1.2; letter-spacing: -.01em;
     }
     .as-trust-badge-sub {
