@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attic Shield — Hero Mirror</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&family=Roboto+Slab:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --as-accent: #F2B947;
+      --as-accent-dim: rgba(242,185,71,0.15);
+      --as-dark: #0D0D0D;
+      --as-dark2: #1A1A1A;
+      --as-text: #F5F3EF;
+      --as-muted: rgba(245,243,239,0.5);
+      --as-font: 'Roboto', sans-serif;
+      --as-font-heading: 'Roboto Slab', serif;
+    }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--as-font); background: var(--as-dark); }
+
+    .as-hero {
+      min-height: 100vh;
+      background: var(--as-dark);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Subtle geometric pattern overlay */
+    .as-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(2px 2px at 15% 25%, rgba(242,185,71,0.35), transparent),
+        radial-gradient(2px 2px at 35% 65%, rgba(242,185,71,0.2), transparent),
+        radial-gradient(2px 2px at 55% 20%, rgba(242,185,71,0.25), transparent),
+        radial-gradient(2px 2px at 75% 55%, rgba(242,185,71,0.15), transparent),
+        radial-gradient(3px 3px at 5% 85%, rgba(242,185,71,0.2), transparent),
+        radial-gradient(3px 3px at 95% 8%, rgba(242,185,71,0.15), transparent),
+        radial-gradient(2px 2px at 45% 45%, rgba(242,185,71,0.08), transparent),
+        radial-gradient(2px 2px at 65% 35%, rgba(242,185,71,0.2), transparent);
+      background-size: 200px 200px;
+      animation: asParticles 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes asParticles {
+      0% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0; }
+      100% { background-position: 40px 50px, -30px -40px, 50px -30px, -40px 30px, 30px 40px, -50px -20px, 20px -50px, -30px 60px; }
+    }
+
+    /* Warm gradient glow at bottom */
+    .as-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: linear-gradient(to top, rgba(242,185,71,0.06) 0%, transparent 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Background mesh gradient */
+    .as-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .as-hero-bg::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 70vmax;
+      height: 70vmax;
+      background: radial-gradient(circle, rgba(242,185,71,0.06) 0%, transparent 65%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .as-hero-bg::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -10%;
+      width: 60vmax;
+      height: 60vmax;
+      background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 60%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* Diagonal slash */
+    .as-hero-slash {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 38%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(135deg, transparent 45%, rgba(242,185,71,0.02) 45%, rgba(242,185,71,0.04) 55%, transparent 55%);
+    }
+
+    /* ─── NAV ─── */
+    .as-nav {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 48px;
+      background: transparent;
+    }
+    .as-nav-logo {
+      font-family: var(--as-font-heading);
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      padding: 10px 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(242,185,71,0.10);
+      backdrop-filter: blur(24px) saturate(1.5);
+      -webkit-backdrop-filter: blur(24px) saturate(1.5);
+      border: 1px solid rgba(242,185,71,0.2);
+      border-radius: 100px;
+      box-shadow: inset 0 0 22px rgba(242,185,71,0.08), inset 0 1px 0 rgba(255,255,255,0.08), 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .as-nav-logo-mark {
+      width: 28px;
+      height: 28px;
+      background: var(--as-accent);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 900;
+      color: var(--as-dark);
+    }
+    .as-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 10px 24px;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(24px) saturate(1.5);
+      -webkit-backdrop-filter: blur(24px) saturate(1.5);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 100px;
+    }
+    .as-nav-links a {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.18s;
+      white-space: nowrap;
+    }
+    .as-nav-links a:hover { color: var(--as-accent); }
+    .as-nav-phone {
+      font-family: var(--as-font);
+      font-size: 13px;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      background: var(--as-accent);
+      border-radius: 100px;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .as-nav-phone:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    /* ─── BODY ─── */
+    .as-hero-body {
+      position: relative;
+      z-index: 6;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 0 48px 100px;
+      max-width: 1360px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .as-hero-content { max-width: 720px; }
+
+    /* Trust badge */
+    .as-trust {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--as-accent);
+      background: rgba(0,0,0,0.4);
+      border: 1.5px solid rgba(242,185,71,0.4);
+      border-radius: 100px;
+      padding: 6px 14px;
+      margin-bottom: 20px;
+      letter-spacing: 0.06em;
+      backdrop-filter: blur(8px);
+      animation: asFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+    }
+    .as-trust-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #4ADE80;
+      flex-shrink: 0;
+      animation: asPulse 2s ease-in-out infinite;
+    }
+    @keyframes asPulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.7); }
+    }
+
+    /* Headline word-rise */
+    .as-word-wrap { display: block; overflow: hidden; padding-bottom: 0.06em; margin-bottom: -0.06em; }
+    .as-word { display: block; transform: translateY(108%); animation: asWordRise 0.82s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .as-word-wrap:nth-child(1) .as-word { animation-delay: 0.12s; }
+    .as-word-wrap:nth-child(2) .as-word { animation-delay: 0.30s; }
+    .as-word-wrap:nth-child(3) .as-word { animation-delay: 0.48s; }
+    @keyframes asWordRise { from { transform: translateY(108%); } to { transform: translateY(0); } }
+
+    .as-headline {
+      font-family: var(--as-font-heading);
+      font-size: clamp(48px, 7vw, 96px);
+      font-weight: 800;
+      line-height: 0.92;
+      color: #fff;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      text-shadow: 0 2px 30px rgba(0,0,0,0.35);
+    }
+    .as-headline .as-accent { color: var(--as-accent); }
+
+    .as-tagline {
+      max-width: 600px;
+      margin-bottom: 32px;
+      animation: asFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.68s both;
+    }
+    .as-tagline p {
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+      text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+    }
+    .as-tagline strong { color: var(--as-accent); font-weight: 600; }
+
+    .as-ctas {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      animation: asFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.86s both;
+      flex-wrap: wrap;
+    }
+    .as-btn-primary {
+      font-family: var(--as-font);
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--as-dark);
+      background: var(--as-accent);
+      text-decoration: none;
+      padding: 17px 34px;
+      border-radius: 100px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 24px rgba(242,185,71,0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .as-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 36px rgba(242,185,71,0.45);
+    }
+    .as-btn-secondary {
+      font-family: var(--as-font);
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      padding: 16px 28px;
+      border-radius: 100px;
+      border: 2px solid rgba(255,255,255,0.35);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,0.06);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .as-btn-secondary:hover {
+      border-color: var(--as-accent);
+      color: var(--as-accent);
+      background: rgba(242,185,71,0.08);
+    }
+
+    .as-btn-arrow {
+      display: inline-flex;
+      transition: transform 0.2s ease;
+    }
+    .as-btn-primary:hover .as-btn-arrow,
+    .as-btn-secondary:hover .as-btn-arrow {
+      transform: translateX(4px);
+    }
+
+    /* Trust row */
+    .as-trust-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-top: 48px;
+      animation: asFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.05s both;
+    }
+    .as-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.02em;
+    }
+    .as-trust-item svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    .as-trust-item .as-check { fill: var(--as-accent); }
+
+    /* Scroll */
+    .as-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 48px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      z-index: 3;
+      animation: asFadeUp 0.6s ease 1.3s both;
+    }
+    .as-scroll-line {
+      width: 36px;
+      height: 1.5px;
+      background: rgba(255,255,255,0.25);
+    }
+
+    @keyframes asFadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .as-nav { padding: 20px 28px; }
+      .as-hero-body { padding: 0 28px 80px; }
+      .as-scroll { left: 28px; }
+    }
+    @media (max-width: 768px) {
+      .as-nav-links { display: none; }
+      .as-nav { padding: 16px 20px; }
+      .as-hero-body { padding: 0 20px 70px; }
+      .as-headline { font-size: clamp(40px, 10vw, 56px); }
+      .as-scroll { left: 20px; bottom: 20px; }
+      .as-trust-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+    @media (max-width: 480px) {
+      .as-hero-body { padding: 0 20px 60px; }
+      .as-headline { font-size: clamp(32px, 12vw, 48px); }
+      .as-tagline p { font-size: 14px; }
+      .as-ctas { flex-direction: column; width: 100%; }
+      .as-btn-primary, .as-btn-secondary { width: 100%; justify-content: center; }
+      .as-nav { padding: 14px 16px; }
+      .as-nav-logo { font-size: 15px; padding: 8px 14px; }
+      .as-nav-phone { font-size: 12px; padding: 8px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <section class="as-hero">
+    <div class="as-hero-bg"></div>
+    <div class="as-hero-slash"></div>
+
+    <!-- NAV -->
+    <nav class="as-nav">
+      <a href="/" class="as-nav-logo">
+        <span class="as-nav-logo-mark">AS</span>
+        Attic Shield
+      </a>
+      <div class="as-nav-links">
+        <a href="/about-us/">About</a>
+        <a href="/services/">Services</a>
+        <a href="/blogs/">Blog</a>
+        <a href="/contact-us/">Contact</a>
+      </div>
+      <a href="tel:+18584020066" class="as-nav-phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (858) 402-0066
+      </a>
+    </nav>
+
+    <!-- HERO BODY -->
+    <div class="as-hero-body">
+      <div class="as-hero-content">
+        <div class="as-trust">
+          <span class="as-trust-dot"></span>
+          Licensed &amp; Insured &middot; C-2 #1127450
+        </div>
+
+        <h1 class="as-headline">
+          <span class="as-word-wrap"><span class="as-word">Shield.</span></span>
+          <span class="as-word-wrap"><span class="as-word">Insulate.</span></span>
+          <span class="as-word-wrap"><span class="as-word"><span class="as-accent">Protect.</span></span></span>
+        </h1>
+
+        <div class="as-tagline">
+          <p>
+            San Diego's trusted attic insulation, rodent proofing, and duct specialists.
+            <strong>Free estimates</strong> &mdash; backed by 20+ years of experience.
+          </p>
+        </div>
+
+        <div class="as-ctas">
+          <a href="/contact-us/" class="as-btn-primary">
+            Free Inspection
+            <span class="as-btn-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+          <a href="/services/" class="as-btn-secondary">
+            View Services
+            <span class="as-btn-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+        </div>
+
+        <div class="as-trust-row">
+          <span class="as-trust-item">
+            <svg viewBox="0 0 24 24"><path class="as-check" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            20+ Years Experience
+          </span>
+          <span class="as-trust-item">
+            <svg viewBox="0 0 24 24"><path class="as-check" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            Free Estimates
+          </span>
+          <span class="as-trust-item">
+            <svg viewBox="0 0 24 24"><path class="as-check" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            Licensed &amp; Insured
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="as-scroll" aria-hidden="true">
+      <div class="as-scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+</body>
+</html>

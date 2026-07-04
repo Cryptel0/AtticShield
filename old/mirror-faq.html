@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attic Shield — FAQ Mirror</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&family=Roboto+Slab:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --as-accent: #F2B947;
+      --as-accent-light: rgba(242,185,71,0.10);
+      --as-dark: #1A1A1A;
+      --as-bg: #F7F5F0;
+      --as-text: #0F0E0C;
+    }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Roboto', sans-serif; background: var(--as-bg); }
+
+    .as-faq {
+      padding: 100px 56px 120px;
+      overflow: hidden;
+      background: #FFFFFF;
+    }
+    .as-faq-inner { max-width: 960px; margin: 0 auto; }
+
+    /* ─── HEADER ─── */
+    .as-faq-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .as-faq-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(15,14,12,0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .as-faq-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--as-accent);
+      border-radius: 2px;
+    }
+    .as-faq-eyebrow::after {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--as-accent);
+      border-radius: 2px;
+    }
+    .as-faq-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--as-text);
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .as-faq-title em { font-style: normal; color: var(--as-accent); }
+    .as-faq-sub {
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(15,14,12,0.5);
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .as-faq-sub strong { color: var(--as-text); font-weight: 600; }
+
+    /* ─── ACCORDION ─── */
+    .as-faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .as-faq-item {
+      background: var(--as-bg);
+      border: 1.5px solid rgba(15,14,12,0.07);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+    .as-faq-item.active {
+      border-color: var(--as-accent);
+      box-shadow: 0 4px 20px rgba(242,185,71,0.12);
+    }
+
+    /* Accent bar */
+    .as-faq-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--as-accent);
+      border-radius: 0 3px 3px 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .as-faq-item.active::before {
+      opacity: 1;
+    }
+
+    /* Question button */
+    .as-faq-q {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 28px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Roboto', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--as-text);
+      text-align: left;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      transition: color 0.2s ease;
+      position: relative;
+      z-index: 1;
+    }
+    .as-faq-item.active .as-faq-q {
+      color: var(--as-accent);
+    }
+
+    /* Icon toggle */
+    .as-faq-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(15,14,12,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s ease, transform 0.3s ease;
+    }
+    .as-faq-icon svg {
+      width: 16px;
+      height: 16px;
+      color: rgba(15,14,12,0.3);
+      transition: color 0.2s ease, transform 0.3s ease;
+    }
+    .as-faq-item.active .as-faq-icon {
+      background: var(--as-accent-light);
+      transform: rotate(45deg);
+    }
+    .as-faq-item.active .as-faq-icon svg {
+      color: var(--as-accent);
+    }
+    .as-faq-q:hover .as-faq-icon {
+      background: rgba(15,14,12,0.08);
+    }
+    .as-faq-item.active .as-faq-q:hover .as-faq-icon {
+      background: var(--as-accent-light);
+    }
+
+    /* Answer panel */
+    .as-faq-a-wrap {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .as-faq-item.active .as-faq-a-wrap {
+      max-height: 600px;
+    }
+    .as-faq-a {
+      padding: 0 28px 24px;
+      font-size: 14.5px;
+      font-weight: 400;
+      color: rgba(15,14,12,0.62);
+      line-height: 1.75;
+      position: relative;
+      z-index: 1;
+    }
+    .as-faq-a strong {
+      color: var(--as-text);
+      font-weight: 600;
+    }
+    .as-faq-a a {
+      color: var(--as-accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .as-faq-a a:hover {
+      color: #D49A20;
+      text-decoration: underline;
+    }
+
+    /* Bottom CTA */
+    .as-faq-cta {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1.5px solid rgba(15,14,12,0.06);
+    }
+    .as-faq-cta p {
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(15,14,12,0.5);
+      margin-bottom: 16px;
+    }
+    .as-faq-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--as-dark);
+      background: var(--as-accent);
+      text-decoration: none;
+      padding: 15px 32px;
+      border-radius: 100px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 16px rgba(242,185,71,0.3);
+    }
+    .as-faq-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(242,185,71,0.4);
+    }
+    .as-faq-cta-btn svg {
+      transition: transform 0.2s;
+    }
+    .as-faq-cta-btn:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .as-faq { padding: 72px 28px 80px; }
+      .as-faq-q { padding: 18px 20px; font-size: 14px; }
+      .as-faq-a { padding: 0 20px 20px; font-size: 14px; }
+    }
+    @media (max-width: 480px) {
+      .as-faq { padding: 56px 20px 64px; }
+      .as-faq-q { font-size: 13px; padding: 16px 16px; }
+      .as-faq-a { padding: 0 16px 18px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <section class="as-faq" id="as-faq">
+    <div class="as-faq-inner">
+      <div class="as-faq-header">
+        <span class="as-faq-eyebrow">FAQs</span>
+        <h2 class="as-faq-title">Have Questions? <em>Get Answers.</em></h2>
+        <p class="as-faq-sub">
+          Most homeowners search for answers because something feels off — hot rooms, rising bills, strange odors, or signs of rodents. 
+          Here's what we see every day in attics across <strong>Southern California</strong>.
+        </p>
+      </div>
+
+      <div class="as-faq-list">
+        <!-- 1 -->
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>What services does Attic Shield provide?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              Attic Shield specializes in <strong>attic insulation installation and removal</strong>, full <strong>rodent proofing with sanitation</strong>, <strong>air duct replacement</strong>, <strong>crawl space cleanup &amp; encapsulation</strong>, <strong>attic fans</strong>, and <strong>air sealing</strong> for energy efficiency. We offer comprehensive attic solutions designed to improve your comfort, safety, and home value.
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>Why should I replace or upgrade my attic insulation?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              Old, damaged, or insufficient insulation leads to <strong>high energy bills</strong>, uncomfortable indoor temperatures, and poor air quality. Upgrading your attic insulation improves your home's energy efficiency, increases comfort year-round, and may qualify you for rebates or <strong>federal tax credits</strong> like the 25C Energy Efficient Home Improvement Credit.
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>How does your rodent proofing service work?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              Our rodent proofing includes a <strong>full inspection</strong> of your attic and exterior entry points, sealing with <strong>galvanized steel mesh</strong>, flashing, and permanent materials — no foam, ever. We offer an optional <strong>1-year warranty</strong> covering all work performed. Our goal is to stop rodents from entering — permanently.
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>Do you offer a warranty on your work?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              Yes. We provide a <strong>1-year warranty on rodent proofing</strong> for the specific areas we serviced. Our insulation materials come with manufacturer warranties (typically <strong>10–25 years</strong>), and we stand behind our labor with a quality guarantee. If any issues arise, we'll make it right.
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>Are you licensed and insured?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              Absolutely. Attic Shield is fully licensed in California with a <strong>C-2 Insulation Contractor License (#1127450)</strong> — the only classification legally allowed to perform insulation work under the CSLB. We are also <strong>bonded and insured</strong> for your protection. Many competitors only hold general licenses or no license at all — we do it by the book.
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>What areas do you serve?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              We proudly serve <strong>all of San Diego County</strong> (San Diego, Escondido, Oceanside, Carlsbad, Vista, San Marcos, Poway, and 50+ more cities), <strong>Southwest Riverside County</strong> (Temecula, Murrieta, Lake Elsinore, Menifee, and more), and <strong>South Orange County</strong> (San Clemente, Mission Viejo, Laguna Niguel, Lake Forest, and more). If you're unsure, give us a call!
+            </div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>How much does attic insulation or rodent proofing cost?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              Prices vary based on <strong>square footage, access, condition, and scope</strong>. We offer <strong>free in-home inspections and quotes</strong> so you get an accurate price upfront — no surprises or hidden fees. We also provide <strong>bundled service discounts</strong> and seasonal promotions.
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>Can you work in homes with active rodent infestations?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              Yes. We regularly work in attics with signs of rodent activity. Our process: <strong>remove old insulation</strong>, <strong>sanitize</strong> with commercial-grade disinfectants, <strong>seal all entry points</strong> with permanent materials, install traps, and <strong>install new insulation</strong> once the attic is fully prepped. We make it safe and clean before we rebuild.
+            </div>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>How long does a typical job take?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              Most jobs are completed in <strong>one full day</strong>. Insulation removal and installation for a standard home takes <strong>6–10 hours</strong>. Rodent proofing with sanitation and duct replacement may take longer depending on scope. We'll give you a detailed time estimate when we inspect your attic.
+            </div>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>How do I schedule a free estimate?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              It's easy! Call us at <strong><a href="tel:+18584020066">(858) 402-0066</a></strong>, email <strong><a href="mailto:info@atticshield.com">info@atticshield.com</a></strong>, or fill out our contact form. One of our specialists will reach out to confirm your appointment. We offer flexible scheduling and prompt service — often <strong>same-week</strong>.
+            </div>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>What makes Attic Shield different from other contractors?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              Attic Shield is <strong>specialized</strong> — we focus on attics, crawl spaces, and duct systems only. We follow the correct sequence: <strong>remove → seal → sanitize → restore</strong>. We provide <strong>major-step photo documentation</strong>, use permanent materials (never foam-only), protect your home with floor runners and barriers, and we're <strong>family-operated</strong> — not a franchise or call center.
+            </div>
+          </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>Do you provide photo documentation of the work?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              Yes. We document <strong>each major step</strong> so you can see what we found and what we corrected — rodent activity, air sealing locations, insulation condition, and restoration progress. This transparency is valuable for homeowners and <strong>essential during real estate transactions</strong> when documentation supports negotiations and repairs.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom CTA -->
+      <div class="as-faq-cta">
+        <p>Still have questions? We're here to help.</p>
+        <a href="/contact-us/" class="as-faq-cta-btn">
+          Request an Inspection
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function() {
+      var items = document.querySelectorAll('.as-faq-item');
+      items.forEach(function(item) {
+        var btn = item.querySelector('.as-faq-q');
+        btn.addEventListener('click', function() {
+          var isActive = item.classList.contains('active');
+          items.forEach(function(el) {
+            el.classList.remove('active');
+            el.querySelector('.as-faq-q').setAttribute('aria-expanded', 'false');
+          });
+          if (!isActive) {
+            item.classList.add('active');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

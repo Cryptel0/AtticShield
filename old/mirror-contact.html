@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attic Shield — Contact Mirror</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&family=Roboto+Slab:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --as-accent: #F2B947;
+      --as-accent-light: rgba(242,185,71,0.10);
+      --as-dark: #1A1A1A;
+      --as-bg: #F7F5F0;
+      --as-text: #0F0E0C;
+      --bg-footer: #1A1A1A;
+      --text-primary: #EDEBE4;
+      --text-muted: rgba(237,235,228,0.45);
+      --text-dim: rgba(237,235,228,0.25);
+      --rule: rgba(237,235,228,0.08);
+    }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Roboto', sans-serif; background: var(--as-bg); }
+
+    /* ─── CONTACT SECTION ─── */
+    .as-contact {
+      padding: 100px 56px 100px;
+      overflow: hidden;
+      background: var(--as-bg);
+      background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+    .as-contact-inner { max-width: 1360px; margin: 0 auto; }
+
+    .as-contact-header { text-align: center; margin-bottom: 48px; }
+    .as-contact-eyebrow {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.13em;
+      text-transform: uppercase; color: rgba(15,14,12,0.3);
+      display: inline-flex; align-items: center; gap: 12px; margin-bottom: 16px;
+    }
+    .as-contact-eyebrow::before, .as-contact-eyebrow::after {
+      content: ''; width: 24px; height: 2px;
+      background: var(--as-accent); border-radius: 2px;
+    }
+    .as-contact-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(28px, 3.6vw, 48px); font-weight: 800;
+      line-height: 1.1; color: var(--as-text); letter-spacing: -0.02em;
+    }
+
+    .as-contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 24px; align-items: start;
+    }
+
+    /* ─── FORM CARD ─── */
+    .as-contact-form-card {
+      background: #FFFFFF; border: 1.5px solid rgba(15,14,12,0.07);
+      border-radius: 28px; padding: 36px 36px 40px;
+    }
+    .as-contact-field { margin-bottom: 16px; }
+    .as-contact-field label {
+      display: block; font-size: 10.5px; font-weight: 700;
+      color: rgba(15,14,12,0.35); letter-spacing: 0.09em;
+      text-transform: uppercase; margin-bottom: 6px;
+    }
+    .as-contact-field input,
+    .as-contact-field textarea {
+      width: 100%; font-family: 'Roboto', sans-serif;
+      font-size: 14px; font-weight: 500; color: var(--as-text);
+      background: var(--as-bg); border: 1.5px solid rgba(15,14,12,0.08);
+      border-radius: 14px; padding: 12px 16px; outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .as-contact-field textarea {
+      resize: vertical; min-height: 110px;
+    }
+    .as-contact-field input:focus,
+    .as-contact-field textarea:focus {
+      border-color: var(--as-accent); background: var(--as-accent-light);
+    }
+    .as-contact-submit {
+      width: 100%; font-family: 'Roboto', sans-serif;
+      font-size: 14px; font-weight: 800; color: var(--as-dark);
+      background: var(--as-accent); border: none; border-radius: 100px;
+      padding: 16px 24px; cursor: pointer;
+      text-transform: uppercase; letter-spacing: 0.04em;
+      transition: all 0.2s ease; margin-top: 6px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .as-contact-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(242,185,71,0.3);
+    }
+    .as-contact-submit svg { transition: transform 0.2s; }
+    .as-contact-submit:hover svg { transform: translateX(4px); }
+
+    /* ─── INFO + LINKS CARD ─── */
+    .as-contact-info-card {
+      background: #FFFFFF; border: 1.5px solid rgba(15,14,12,0.07);
+      border-radius: 28px; padding: 36px 32px;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .as-contact-info-item {
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .as-contact-info-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: var(--as-accent-light); display: flex;
+      align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .as-contact-info-icon svg {
+      width: 18px; height: 18px;
+      stroke: var(--as-accent); fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .as-contact-info-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(15,14,12,0.25); margin-bottom: 2px;
+    }
+    .as-contact-info-value {
+      font-size: 15px; font-weight: 600; color: var(--as-text);
+    }
+    .as-contact-info-value a {
+      color: var(--as-text); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .as-contact-info-value a:hover { color: var(--as-accent); }
+
+    /* Hours */
+    .as-contact-hours {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px;
+      margin-top: 4px;
+    }
+    .as-contact-hours-day { font-size: 13px; font-weight: 500; color: rgba(15,14,12,0.5); }
+    .as-contact-hours-time { font-size: 13px; font-weight: 600; color: var(--as-text); text-align: right; }
+    .as-contact-hours-closed { color: #E04545; font-weight: 600; }
+
+    /* Badges row */
+    .as-contact-badges {
+      display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+      padding-top: 4px;
+    }
+    .as-contact-badge {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.04em;
+      padding: 6px 12px; border-radius: 8px;
+      background: var(--as-bg); color: rgba(15,14,12,0.4);
+      border: 1.5px solid rgba(15,14,12,0.06);
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .as-contact-badge .check {
+      width: 12px; height: 12px;
+      fill: var(--as-accent);
+    }
+
+    /* ─── FOOTER WRAP ─── */
+    .as-contact-footer-wrap {
+      margin-top: 48px;
+      background: var(--bg-footer); color: var(--text-primary);
+      border-radius: 28px; padding: 48px 44px 40px;
+      position: relative; overflow: hidden;
+    }
+    .as-contact-footer-wrap::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      background-size: 220px 220px; opacity: 0.02; pointer-events: none; z-index: 0;
+    }
+    .as-contact-footer-inner { position: relative; z-index: 1; }
+
+    .as-footer-desc {
+      font-size: 14px; font-weight: 400; color: var(--text-muted);
+      line-height: 1.7; max-width: 720px; margin-bottom: 32px;
+    }
+    .as-footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      gap: 36px;
+      margin-bottom: 36px;
+    }
+    .as-footer-col-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.13em;
+      text-transform: uppercase; color: var(--text-dim); margin-bottom: 14px;
+    }
+    .as-footer-links { display: flex; flex-direction: column; gap: 4px; }
+    .as-footer-link {
+      font-size: 14px; font-weight: 500; color: var(--text-muted);
+      text-decoration: none; line-height: 1.6;
+      transition: color 0.2s; width: fit-content;
+    }
+    .as-footer-link:hover { color: var(--as-accent); }
+
+    .as-footer-contact-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; font-weight: 500; color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .as-footer-contact-item svg {
+      width: 16px; height: 16px;
+      stroke: var(--as-accent); fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+    .as-footer-contact-item a {
+      color: var(--text-muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .as-footer-contact-item a:hover { color: var(--as-accent); }
+
+    .as-footer-bottom {
+      border-top: 1px solid var(--rule); padding-top: 20px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .as-footer-copy { font-size: 12px; font-weight: 400; color: var(--text-dim); }
+
+    @media (max-width: 860px) {
+      .as-contact-grid { grid-template-columns: 1fr; }
+      .as-contact { padding: 72px 28px 72px; }
+      .as-footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .as-contact-footer-wrap { padding: 36px 28px 32px; }
+    }
+    @media (max-width: 480px) {
+      .as-contact { padding: 56px 20px 48px; }
+      .as-contact-form-card { padding: 24px 20px 28px; }
+      .as-contact-info-card { padding: 24px 20px; }
+      .as-contact-footer-wrap { padding: 28px 20px 24px; border-radius: 20px; }
+      .as-footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .as-footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ─── CONTACT SECTION ─── -->
+  <section class="as-contact">
+    <div class="as-contact-inner">
+      <div class="as-contact-header">
+        <span class="as-contact-eyebrow">Contact</span>
+        <h2 class="as-contact-title">Contact us today to learn more.</h2>
+      </div>
+
+      <div class="as-contact-grid">
+        <!-- Form -->
+        <div class="as-contact-form-card">
+          <form onsubmit="event.preventDefault(); alert('Form submitted — implement POST endpoint.');">
+            <div class="as-contact-field">
+              <label for="cf-name">Name</label>
+              <input type="text" id="cf-name" placeholder="Your name" required />
+            </div>
+            <div class="as-contact-field">
+              <label for="cf-email">Email</label>
+              <input type="email" id="cf-email" placeholder="your@email.com" required />
+            </div>
+            <div class="as-contact-field">
+              <label for="cf-phone">Phone Number</label>
+              <input type="tel" id="cf-phone" placeholder="(858) 555-0123" required />
+            </div>
+            <div class="as-contact-field">
+              <label for="cf-msg">Message</label>
+              <textarea id="cf-msg" placeholder="Tell us about your attic or crawl space..."></textarea>
+            </div>
+            <button type="submit" class="as-contact-submit">
+              Send Message
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- Info -->
+        <div class="as-contact-info-card">
+          <div class="as-contact-info-item">
+            <div class="as-contact-info-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="as-contact-info-label">Call Us</div>
+              <div class="as-contact-info-value"><a href="tel:+18584020066">(858) 402-0066</a></div>
+            </div>
+          </div>
+
+          <div class="as-contact-info-item">
+            <div class="as-contact-info-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="as-contact-info-label">Mail Us</div>
+              <div class="as-contact-info-value"><a href="mailto:info@atticshield.com">Info@AtticShield.com</a></div>
+            </div>
+          </div>
+
+          <div class="as-contact-info-item">
+            <div class="as-contact-info-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="as-contact-info-label">Location</div>
+              <div class="as-contact-info-value">632 Rock Springs Rd, Escondido CA 92025</div>
+            </div>
+          </div>
+
+          <div class="as-contact-info-item">
+            <div class="as-contact-info-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div style="flex:1">
+              <div class="as-contact-info-label">Office Hours</div>
+              <div class="as-contact-hours">
+                <span class="as-contact-hours-day">Mon-Fri</span>
+                <span class="as-contact-hours-time">7:00 AM - 5:00 PM</span>
+                <span class="as-contact-hours-day">Saturday</span>
+                <span class="as-contact-hours-time as-contact-hours-closed">Closed</span>
+                <span class="as-contact-hours-day">Sunday</span>
+                <span class="as-contact-hours-time">9:00 AM - 2:00 PM</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="as-contact-badges">
+            <span class="as-contact-badge">
+              <svg class="check" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Site Encryption Verified
+            </span>
+            <span class="as-contact-badge">
+              <svg class="check" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              CSLB Licensed
+            </span>
+            <span class="as-contact-badge">Verified 06/27/2026</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── FOOTER CONTENT ─── -->
+      <div class="as-contact-footer-wrap">
+        <div class="as-contact-footer-inner">
+          <p class="as-footer-desc">
+            Protect your attic and crawl space with expert insulation, rodent proofing, and air sealing done right the first time. Breathe cleaner air, lower your energy bills, and keep pests out. AtticShield makes home protection simple.
+          </p>
+
+          <div class="as-footer-grid">
+            <!-- Links 1 -->
+            <div class="as-footer-links">
+              <p class="as-footer-col-label">Links</p>
+              <a href="/about-us/" class="as-footer-link">About Us</a>
+              <a href="/blogs/" class="as-footer-link">Blogs</a>
+              <a href="/faqs/" class="as-footer-link">FAQ's</a>
+              <a href="#" class="as-footer-link">Join Our Team</a>
+              <a href="#" class="as-footer-link">CSLB Licence</a>
+              <a href="#" class="as-footer-link">Bond and Insured</a>
+              <a href="#" class="as-footer-link">Testimonials</a>
+              <a href="/contact-us/" class="as-footer-link">Contact Us</a>
+            </div>
+
+            <!-- Links 2 -->
+            <div class="as-footer-links">
+              <p class="as-footer-col-label">Links</p>
+              <a href="/services/" class="as-footer-link">Homeowners</a>
+              <a href="/services/" class="as-footer-link">Home Sellers</a>
+              <a href="/services/" class="as-footer-link">Home Buyers</a>
+              <a href="/services/" class="as-footer-link">Real Estate Agents</a>
+              <a href="/services/" class="as-footer-link">Home Inspectors &amp; Contractors</a>
+              <a href="/services/" class="as-footer-link">HOA &amp; Property Management</a>
+              <a href="#" class="as-footer-link">AtticShield Booklet</a>
+            </div>
+
+            <!-- Get in touch -->
+            <div class="as-footer-links">
+              <p class="as-footer-col-label">Get in touch</p>
+              <div class="as-footer-contact-item">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>call us</span>
+                <a href="tel:+18584020066">(858) 402-0066</a>
+              </div>
+              <div class="as-footer-contact-item">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span>mail us</span>
+                <a href="mailto:info@atticshield.com">Info@AtticShield.com</a>
+              </div>
+              <div class="as-footer-contact-item">
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Location</span>
+                <span>632 Rock Springs Rd, Escondido CA 92025</span>
+              </div>
+            </div>
+
+            <!-- Office Hours duplicate (from footer) -->
+            <div class="as-footer-links">
+              <p class="as-footer-col-label">Office Hours</p>
+              <div class="as-footer-contact-item" style="flex-direction:column;align-items:flex-start;gap:3px">
+                <span style="display:flex;justify-content:space-between;width:100%"><span style="color:var(--text-muted)">Mon-Fri</span><span style="color:var(--text-primary)">7:00 AM - 5:00 PM</span></span>
+                <span style="display:flex;justify-content:space-between;width:100%"><span style="color:var(--text-muted)">Saturday</span><span style="color:#E04545">Closed</span></span>
+                <span style="display:flex;justify-content:space-between;width:100%"><span style="color:var(--text-muted)">Sunday</span><span style="color:var(--text-primary)">9:00 AM - 2:00 PM</span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="as-footer-bottom">
+            <p class="as-footer-copy">&copy; 2025 Attic Shield. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

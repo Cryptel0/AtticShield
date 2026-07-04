@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attic Shield — Promo Popup Mirror</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&family=Roboto+Slab:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --as-accent: #F2B947;
+      --as-accent-light: rgba(242,185,71,0.12);
+      --as-dark: #1A1A1A;
+    }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Roboto', sans-serif; background: #F7F5F0; min-height: 200vh; padding: 40px; }
+
+    /* Trigger button */
+    .demo-trigger {
+      position: fixed; bottom: 30px; right: 30px; z-index: 999;
+      font-family: 'Roboto', sans-serif; font-size: 13px; font-weight: 800;
+      padding: 14px 24px; border: none; border-radius: 100px;
+      background: var(--as-accent); color: var(--as-dark); cursor: pointer;
+      text-transform: uppercase; letter-spacing: 0.04em;
+      box-shadow: 0 4px 20px rgba(242,185,71,0.3);
+      transition: transform 0.2s;
+    }
+    .demo-trigger:hover { transform: translateY(-2px); }
+
+    /* ─── OVERLAY ─── */
+    .as-popup-overlay {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: none;
+      align-items: center; justify-content: center;
+      padding: 24px;
+      animation: asOverlayIn 0.3s ease;
+    }
+    .as-popup-overlay.open { display: flex; }
+
+    @keyframes asOverlayIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ─── POPUP CARD ─── */
+    .as-popup {
+      background: #FFFFFF;
+      border-radius: 32px;
+      max-width: 480px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.25);
+      animation: asPopupIn 0.45s cubic-bezier(0.16,1,0.3,1);
+    }
+    @keyframes asPopupIn {
+      from { opacity: 0; transform: scale(0.9) translateY(20px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    /* Decorative top bar */
+    .as-popup-bar {
+      height: 6px;
+      background: linear-gradient(90deg, var(--as-accent), #D49A20, var(--as-accent));
+      background-size: 200% 100%;
+      animation: asBarShimmer 3s ease-in-out infinite;
+    }
+    @keyframes asBarShimmer {
+      0%,100% { background-position: 0% 0%; }
+      50% { background-position: 100% 0%; }
+    }
+
+    /* Close */
+    .as-popup-close {
+      position: absolute; top: 16px; right: 16px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(15,14,12,0.05); border: none;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s; z-index: 5;
+    }
+    .as-popup-close:hover { background: rgba(15,14,12,0.1); }
+    .as-popup-close svg {
+      width: 18px; height: 18px; color: rgba(15,14,12,0.3);
+    }
+
+    /* Content */
+    .as-popup-body {
+      padding: 40px 40px 44px;
+      text-align: center;
+    }
+
+    /* Badge */
+    .as-popup-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--as-accent);
+      background: var(--as-accent-light);
+      padding: 5px 12px; border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .as-popup-badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #E04545; animation: asPulse 1.5s ease-in-out infinite;
+    }
+    @keyframes asPulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    .as-popup-amount {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(44px, 8vw, 64px);
+      font-weight: 800;
+      line-height: 1;
+      color: var(--as-text);
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+    .as-popup-amount .dollar { color: var(--as-accent); }
+    .as-popup-amount .off { font-size: 0.5em; font-weight: 700; color: rgba(15,14,12,0.3); vertical-align: super; }
+
+    .as-popup-title {
+      font-size: 20px; font-weight: 600; color: var(--as-text);
+      margin-bottom: 12px; line-height: 1.3;
+    }
+
+    .as-popup-desc {
+      font-size: 14px; font-weight: 400;
+      color: rgba(15,14,12,0.5);
+      line-height: 1.6;
+      margin-bottom: 28px;
+      max-width: 360px;
+      margin-left: auto; margin-right: auto;
+    }
+
+    .as-popup-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 15px; font-weight: 800;
+      color: var(--as-dark); background: var(--as-accent);
+      text-decoration: none; padding: 16px 36px;
+      border-radius: 100px; border: none; cursor: pointer;
+      text-transform: uppercase; letter-spacing: 0.04em;
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 24px rgba(242,185,71,0.35);
+    }
+    .as-popup-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(242,185,71,0.45); }
+    .as-popup-btn svg { transition: transform 0.2s; }
+    .as-popup-btn:hover svg { transform: translateX(4px); }
+
+    .as-popup-footnote {
+      font-size: 12px; font-weight: 400;
+      color: rgba(15,14,12,0.3);
+      margin-top: 16px;
+    }
+
+    /* Decorative blobs */
+    .as-popup-blob {
+      position: absolute; pointer-events: none; z-index: 0;
+      border-radius: 50%; filter: blur(60px);
+    }
+    .as-popup-blob-1 {
+      top: -80px; right: -60px;
+      width: 240px; height: 240px;
+      background: rgba(242,185,71,0.12);
+    }
+    .as-popup-blob-2 {
+      bottom: -60px; left: -40px;
+      width: 200px; height: 200px;
+      background: rgba(242,185,71,0.08);
+    }
+
+    .as-popup-body { position: relative; z-index: 1; }
+
+    @media (max-width: 480px) {
+      .as-popup-body { padding: 28px 24px 32px; }
+    }
+  </style>
+</head>
+<body>
+  <p style="font-size:14px;color:rgba(15,14,12,0.4);text-align:center;margin-top:40vh">Scroll down to see the popup trigger button. Click it to show the popup.</p>
+
+  <button class="demo-trigger" id="demoPopupBtn">Show Popup</button>
+
+  <!-- ─── POPUP ─── -->
+  <div class="as-popup-overlay" id="asPopup">
+    <div class="as-popup">
+      <div class="as-popup-bar"></div>
+      <button class="as-popup-close" id="asPopupClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="as-popup-blob as-popup-blob-1"></div>
+      <div class="as-popup-blob as-popup-blob-2"></div>
+
+      <div class="as-popup-body">
+        <div class="as-popup-badge">
+          <span class="as-popup-badge-dot"></span>
+          Limited Time Offer
+        </div>
+
+        <div class="as-popup-amount">
+          <span class="dollar">$750</span><span class="off"> OFF</span>
+        </div>
+
+        <p class="as-popup-title">Any insulation or air duct installation</p>
+
+        <p class="as-popup-desc">
+          Limited availability — spots are filling fast. Schedule your free inspection today and lock in this exclusive discount.
+        </p>
+
+        <a href="/contact-us/" class="as-popup-btn">
+          Claim Now
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+
+        <p class="as-popup-footnote">Cannot be combined with other offers. Expires soon.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var overlay = document.getElementById('asPopup');
+      var openBtn = document.getElementById('demoPopupBtn');
+      var closeBtn = document.getElementById('asPopupClose');
+
+      function open() { overlay.classList.add('open'); }
+      function close() { overlay.classList.remove('open'); }
+
+      if (openBtn) openBtn.addEventListener('click', open);
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      if (overlay) overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) close();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') close();
+      });
+
+      // Auto-show after 5s for demo
+      setTimeout(open, 5000);
+    })();
+  </script>
+</body>
+</html>

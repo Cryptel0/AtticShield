@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attic Shield — Attic Insulation, Rodent Proofing & Crawl Space Experts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scrollbar-width:none;-ms-overflow-style:none;scroll-behavior:smooth}
+html::-webkit-scrollbar{display:none}
+:root{--gold:#F2B947;--gold-dim:rgba(242,185,71,.12);--gold-light:rgba(242,185,71,.06);--dark:#0D0D0D;--dark2:#1A1A1A;--text:#F5F3EF;--muted:rgba(245,243,239,.45);--border:rgba(245,243,239,.08);--font:'Inter',system-ui,-apple-system,sans-serif;--ease:cubic-bezier(.22,.7,.16,1)}
+body{font-family:var(--font);background:var(--dark);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:var(--gold);text-decoration:none}
+
+/* ─── LOADER ─── */
+.loader{position:fixed;inset:0;z-index:20000;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--dark);gap:20px;transition:opacity .8s var(--ease),visibility .8s var(--ease)}
+.loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.loader-logo{display:flex;align-items:center;gap:12px;opacity:0;transform:translateY(-8px);animation:lLogo 1.2s var(--ease) forwards;animation-delay:.2s}
+.loader-logo svg{width:40px;height:40px}
+.loader-wordmark{font-size:1.5rem;font-weight:700;letter-spacing:-.02em;color:var(--text)}
+.loader-bar-wrap{width:min(280px,50vw);height:2px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;opacity:0;animation:lFade .6s forwards;animation-delay:.4s}
+.loader-bar{height:100%;width:0;background:var(--gold);border-radius:2px;animation:lProg 1.6s var(--ease) forwards;animation-delay:.5s}
+@keyframes lLogo{to{opacity:1;transform:translateY(0)}}
+@keyframes lFade{to{opacity:1}}
+@keyframes lProg{to{width:100%}}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:10002;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;transition:background .4s var(--ease),backdrop-filter .4s}
+nav.scrolled{background:rgba(13,13,13,.85);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.125rem;color:var(--text);letter-spacing:-.02em}
+.nav-logo svg{width:32px;height:32px}
+.nav-links{display:flex;align-items:center;gap:6px;list-style:none}
+.nav-links a{padding:8px 14px;border-radius:6px;font-size:.8125rem;font-weight:500;color:var(--muted);transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--text);background:rgba(255,255,255,.04)}
+.nav-cta{padding:10px 22px!important;border-radius:6px!important;background:var(--gold)!important;color:var(--dark)!important;font-weight:600!important;font-size:.8125rem!important}
+.nav-cta:hover{background:#e0a832!important}
+@media(max-width:768px){nav{padding:14px 20px}.nav-links{display:none}}
+
+/* ─── HERO ─── */
+.hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;background:var(--dark);isolation:isolate}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;z-index:5;pointer-events:none;background:linear-gradient(to bottom,transparent,var(--dark))}
+#heroCanvas{position:absolute;inset:0;z-index:1;width:100%;height:100%;display:block}
+.hero-static{position:absolute;inset:0;z-index:2}
+.hero-base{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,#1a1508 0%,var(--dark) 70%)}
+.hero-base::before{content:'';position:absolute;inset:0;background:radial-gradient(2px 2px at 20% 30%,rgba(242,185,71,.3),transparent),radial-gradient(2px 2px at 50% 60%,rgba(242,185,71,.15),transparent),radial-gradient(2px 2px at 75% 25%,rgba(242,185,71,.2),transparent),radial-gradient(3px 3px at 10% 80%,rgba(242,185,71,.15),transparent),radial-gradient(2px 2px at 90% 15%,rgba(242,185,71,.1),transparent);background-size:180px 180px;animation:sparkle 12s ease-in-out infinite alternate;pointer-events:none}
+@keyframes sparkle{to{background-position:50px 60px,-40px -30px,60px -40px,-50px 40px,40px 50px}}
+.hero-video-layer{position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(circle at 50% 50%,rgba(242,185,71,.04),transparent 50%);opacity:0;transition:opacity .6s}
+.hero-video-layer.active{opacity:1}
+.hero-water{position:absolute;inset:0;z-index:3;pointer-events:none}
+.hero-water::after{content:'';position:absolute;left:var(--wx,50%);top:var(--wy,50%);width:var(--ws,clamp(300px,28vw,440px));height:var(--ws,clamp(300px,28vw,440px));border-radius:50%;transform:translate(-50%,-50%);border:1px solid rgba(242,185,71,.15);box-shadow:0 0 0 1px rgba(13,13,13,.3),inset 0 0 0 1px rgba(242,185,71,.08),0 0 40px rgba(242,185,71,.06);opacity:0;transition:opacity .5s;pointer-events:none}
+.hero-water.active::after{opacity:1}
+.hero-content{position:absolute;inset:0;z-index:4;display:flex;align-items:center;padding:0 clamp(32px,6vw,80px)}
+.hero-text{max-width:min(92vw,800px)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 14px 5px 5px;border-radius:100px;border:1px solid var(--border);background:rgba(255,255,255,.03);font-size:.6875rem;font-weight:500;color:var(--gold);letter-spacing:.06em;text-transform:uppercase;margin-bottom:clamp(20px,3vh,32px);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.hero-badge dot{width:5px;height:5px;border-radius:50%;background:#22C55E;display:inline-block}
+.hero-title{font-size:clamp(2.8rem,8vw,7rem);font-weight:800;line-height:.85;letter-spacing:-.04em;margin-bottom:clamp(14px,2vh,24px)}
+.hero-title .ln{display:block;overflow:hidden}
+.hero-title .ln span{display:block;transform:translate3d(0,5em,0);animation:lIn 1s var(--ease) forwards}
+.hero-title .ln:nth-child(1) span{animation-delay:.3s}
+.hero-title .ln:nth-child(2) span{animation-delay:.55s}
+.hero-title .ln:nth-child(3) span{animation-delay:.8s;color:var(--gold)}
+.hero-sub{font-size:clamp(1rem,1.5vw,1.2rem);color:var(--muted);line-height:1.5;max-width:540px;opacity:0;transform:translateY(16px);animation:sIn .8s var(--ease) forwards;animation-delay:1.1s}
+.hero-actions{display:flex;gap:14px;margin-top:clamp(22px,3.5vh,36px);opacity:0;animation:sIn .8s var(--ease) forwards;animation-delay:1.4s;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:8px;font-weight:600;font-size:.875rem;transition:all .2s;font-family:var(--font)}
+.btn-primary{background:var(--gold);color:var(--dark)}
+.btn-primary:hover{background:#e0a832;transform:translateY(-1px)}
+.btn-outline{background:transparent;border:2px solid var(--border);color:var(--text)}
+.btn-outline:hover{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.15)}
+.hero-scroll{position:absolute;bottom:clamp(16px,3.5vh,36px);left:50%;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.25);font-size:.625rem;letter-spacing:.12em;text-transform:uppercase;opacity:0;animation:fIn 1s forwards;animation-delay:2s}
+.hero-scroll-dot{width:1px;height:28px;background:linear-gradient(to bottom,var(--gold),transparent);animation:sPulse 2s ease infinite}
+@keyframes lIn{to{transform:translate3d(0,0,0)}}
+@keyframes sIn{to{opacity:1;transform:translateY(0)}}
+@keyframes fIn{to{opacity:1}}
+@keyframes sPulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* ─── STORY SECTIONS ─── */
+.story{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--dark);isolation:isolate;padding:clamp(40px,5vw,80px) 0}
+.story::before{content:'';position:absolute;inset:0;z-index:0;opacity:.4;transition:opacity 1s}
+.story-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(13,13,13,.92),rgba(13,13,13,.5))}
+.story-inner{position:relative;z-index:2;width:100%;padding:0 clamp(32px,6vw,80px)}
+.story-label{font-size:.625rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:clamp(10px,1.2vh,16px);opacity:0;transform:translateY(10px);transition:all .7s var(--ease)}
+.story-label.vis{opacity:1;transform:translateY(0)}
+.story-h{font-size:clamp(2.2rem,6vw,5rem);font-weight:800;line-height:.9;letter-spacing:-.03em;margin-bottom:clamp(14px,1.8vh,22px);max-width:900px}
+.story-h .ln{display:block;overflow:hidden}
+.story-h .ln span{display:block;transform:translate3d(0,3.5em,0);transition:transform 1s var(--ease)}
+.story-h .ln.vis span{transform:translate3d(0,0,0)}
+.story-p{font-size:clamp(.95rem,1.3vw,1.1rem);color:var(--muted);line-height:1.6;max-width:540px;opacity:0;transform:translateY(14px);transition:all .7s var(--ease);transition-delay:.3s}
+.story-p.vis{opacity:1;transform:translateY(0)}
+
+/* ─── STORY CARDS (services, process, stats) ─── */
+.story-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,28px);margin-top:clamp(20px,3vh,40px)}
+.story-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.8vw,28px);margin-top:clamp(20px,3vh,40px)}
+.story-card{padding:clamp(20px,2.5vw,32px);border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.025);opacity:0;transform:translateY(20px);transition:all .7s var(--ease)}
+.story-card.vis{opacity:1;transform:translateY(0)}
+.story-card-icon{width:44px;height:44px;border-radius:10px;background:var(--gold-dim);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--gold)}
+.story-card h3{font-size:1.0625rem;font-weight:600;margin-bottom:6px}
+.story-card p{font-size:.8125rem;color:var(--muted);line-height:1.6}
+.story-card .tag{display:inline-block;font-size:.625rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.story-stat{text-align:center;padding:clamp(20px,2.5vw,32px);border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.025);opacity:0;transform:translateY(20px);transition:all .7s var(--ease)}
+.story-stat.vis{opacity:1;transform:translateY(0)}
+.story-stat-num{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:var(--gold);line-height:1;margin-bottom:4px}
+.story-stat-label{font-size:.75rem;color:var(--muted)}
+.story-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(16px,2vh,24px)}
+.story-tag{padding:6px 14px;border-radius:6px;font-size:.75rem;font-weight:500;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--muted);opacity:0;transform:translateY(10px);transition:all .5s var(--ease)}
+.story-tag.vis{opacity:1;transform:translateY(0)}
+@media(max-width:768px){.story-inner{padding:0 20px}.story-grid-3,.story-grid-4{grid-template-columns:1fr}}
+@media(min-width:769px)and (max-width:1024px){.story-grid-3,.story-grid-4{grid-template-columns:repeat(2,1fr)}}
+
+/* ─── FAQ ─── */
+.faq{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;background:var(--dark);padding:clamp(40px,5vw,80px) 0}
+.faq-inner{width:100%;padding:0 clamp(32px,6vw,80px)}
+.faq-list{max-width:800px;margin-top:clamp(24px,3.5vh,44px);display:flex;flex-direction:column;gap:10px}
+.faq-item{border-radius:10px;border:1px solid var(--border);overflow:hidden;transition:box-shadow .3s}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:18px 22px;background:none;border:none;cursor:pointer;font-family:var(--font);font-size:.9375rem;font-weight:500;color:var(--text);text-align:left;transition:background .2s}
+.faq-q:hover{background:rgba(255,255,255,.03)}
+.faq-q svg{width:18px;height:18px;color:var(--muted);flex-shrink:0;transition:transform .3s}
+.faq-item.open .faq-q svg{transform:rotate(180deg)}
+.faq-a{padding:0 22px 18px;font-size:.875rem;color:var(--muted);line-height:1.7;display:none}
+.faq-item.open .faq-a{display:block}
+
+/* ─── FOOTER ─── */
+.footer{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;background:var(--dark);overflow:hidden;isolation:isolate}
+.footer::before{content:'';position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at 50% 100%,rgba(242,185,71,.05),transparent 60%)}
+.footer-inner{position:relative;z-index:2;width:100%;padding:clamp(40px,6vw,80px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px)}
+.footer-left{display:flex;flex-direction:column;justify-content:center}
+.footer-left h2{font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;line-height:.92;letter-spacing:-.03em;margin-bottom:clamp(14px,2vh,22px)}
+.footer-left p{font-size:1.0625rem;color:var(--muted);max-width:400px;line-height:1.6;margin-bottom:clamp(20px,3vh,36px)}
+.footer-info{display:flex;align-items:flex-start;gap:14px;margin-bottom:clamp(16px,2vh,24px)}
+.footer-info-icon{width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,.03);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold)}
+.footer-info h4{font-size:.8125rem;font-weight:600;margin-bottom:1px;color:var(--text)}
+.footer-info p{font-size:.8125rem;color:var(--muted);line-height:1.5}
+.footer-info a{color:var(--muted)}
+.footer-info a:hover{color:var(--gold)}
+.footer-social{display:flex;gap:12px;margin-top:clamp(8px,1vh,16px)}
+.footer-social a{width:36px;height:36px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8125rem;transition:all .2s}
+.footer-social a:hover{background:var(--gold-dim);border-color:var(--gold);color:var(--gold)}
+.footer-bot{position:absolute;bottom:clamp(14px,2.5vh,24px);left:clamp(32px,6vw,80px);right:clamp(32px,6vw,80px);z-index:2;display:flex;justify-content:space-between;align-items:center;padding-top:clamp(14px,1.8vh,20px);border-top:1px solid var(--border);font-size:.6875rem;color:rgba(255,255,255,.25)}
+.footer-bot a{color:rgba(255,255,255,.25);transition:color .2s}
+.footer-bot a:hover{color:var(--gold)}
+@media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:28px;padding:40px 20px}.footer-bot{flex-direction:column;gap:6px;align-items:flex-start;left:20px;right:20px}.faq-inner{padding:0 20px}}
+
+/* ─── REDUCED MOTION ─── */
+@media(prefers-reduced-motion:reduce){
+  .loader{display:none}#heroCanvas{display:none}
+  .hero-title .ln span{animation:none;transform:none}
+  .hero-sub,.hero-actions{animation:none;opacity:1;transform:none}
+  .story-h .ln span{transform:none}
+  .hero-water::after{opacity:0!important}
+  .hero-scroll{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="loader" id="loader">
+  <div class="loader-logo">
+    <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#F2B947"/><path d="M12 28V16l8-6 8 6v12h-5v-7h-6v7H12z" fill="#0D0D0D"/></svg>
+    <span class="loader-wordmark">Attic Shield</span>
+  </div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+</div>
+
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#F2B947"/><path d="M9 23V13l7-5 7 5v10h-4v-6h-6v6H9z" fill="#0D0D0D"/></svg>
+    Attic Shield
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="tel:8584020066" class="nav-cta">(858) 402-0066</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-static">
+    <div class="hero-base"></div>
+    <div class="hero-video-layer" id="heroVid"></div>
+    <div class="hero-water" id="heroWater"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge"><dot></dot> Licensed & Insured &bull; C-2 #1127450</div>
+      <h1 class="hero-title">
+        <span class="ln"><span>Shield.</span></span>
+        <span class="ln"><span>Insulate.</span></span>
+        <span class="ln"><span>Protect.</span></span>
+      </h1>
+      <p class="hero-sub">San Diego's trusted attic insulation, rodent proofing, and duct specialists. Free estimates — backed by 20+ years of experience.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Free Inspection
+        </a>
+        <a href="#services" class="btn btn-outline">View Services</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-dot"></div>
+  </div>
+</section>
+<!-- SERVICES -->
+<section class="story" id="services">
+  <div class="story-overlay"></div>
+  <div class="story-inner">
+    <div class="story-label" data-observe>Our Services</div>
+    <h2 class="story-h">
+      <span class="ln"><span>Complete Protection</span></span>
+      <span class="ln"><span>For Your <span style="color:var(--gold)">Attic &amp; Crawl Space</span></span></span>
+    </h2>
+    <div class="story-grid-3">
+      <div class="story-card" data-observe>
+        <div class="story-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div class="tag">Most Popular</div>
+        <h3>Attic Cleaning &amp; Sanitization</h3>
+        <p>Remove old insulation, debris, and contaminants. Full sanitation and decontamination for a healthier home.</p>
+      </div>
+      <div class="story-card" data-observe>
+        <div class="story-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div class="tag">Energy Savings</div>
+        <h3>Attic Insulation Installation</h3>
+        <p>Blow-in, fiberglass batt, spray foam, and radiant barrier solutions. Cut energy bills by up to 30%.</p>
+      </div>
+      <div class="story-card" data-observe>
+        <div class="story-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="tag">Pest Exclusion</div>
+        <h3>Rodent Proofing &amp; Cleanup</h3>
+        <p>Seal entry points, remove droppings, and prevent re-entry. Complete pest exclusion and wildlife cleanup.</p>
+      </div>
+      <div class="story-card" data-observe>
+        <div class="story-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div class="tag">Moisture Control</div>
+        <h3>Crawl Space Encapsulation</h3>
+        <p>Cleaning, encapsulation, vapor barriers, and insulation for crawl spaces. Prevent mold and structural damage.</p>
+      </div>
+      <div class="story-card" data-observe>
+        <div class="story-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+        <div class="tag">Duct Work</div>
+        <h3>Air Duct Replacement</h3>
+        <p>Replace dirty, leaking ductwork for optimal HVAC efficiency. Improve airflow and indoor air quality.</p>
+      </div>
+      <div class="story-card" data-observe>
+        <div class="story-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20L12 4l10 16H2z"/><path d="M12 4v12"/></svg></div>
+        <div class="tag">Ventilation</div>
+        <h3>Attic Fans &amp; Air Sealing</h3>
+        <p>Professional air sealing and attic fan installation to improve ventilation and reduce energy costs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="story" id="testimonials">
+  <div class="story-overlay"></div>
+  <div class="story-inner">
+    <div class="story-label" data-observe>Testimonials</div>
+    <h2 class="story-h">
+      <span class="ln"><span>Why Families Choose</span></span>
+      <span class="ln"><span><span style="color:var(--gold)">Attic Shield</span></span></span>
+    </h2>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:clamp(20px,2.5vh,32px);opacity:0" data-observe>
+      <span style="color:#F59E0B;font-size:1rem">?????</span>
+      <span style="font-size:.875rem;font-weight:600;color:var(--text)">4.9</span>
+      <span style="font-size:.8125rem;color:var(--muted)">/ 5.0 � From 500+ reviews</span>
+    </div>
+    <div class="story-grid-3">
+      <div class="story-card" data-observe style="display:flex;flex-direction:column;justify-content:space-between">
+        <div><span style="font-size:2.5rem;line-height:1;color:var(--gold);opacity:.3">"</span><p style="font-size:.875rem;color:var(--muted);line-height:1.7;margin-bottom:16px">Attic Shield did an incredible job insulating our attic. The team was professional, on time, and left everything spotless. Our energy bill dropped noticeably the first month.</p></div>
+        <div style="display:flex;align-items:center;gap:12px"><div style="width:40px;height:40px;border-radius:50%;background:var(--gold-dim);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8125rem;color:var(--gold)">MT</div><div><div style="font-size:.8125rem;font-weight:600">Michael T.</div><div style="font-size:.6875rem;color:var(--muted)">San Diego, CA � Insulation</div></div></div>
+      </div>
+      <div class="story-card" data-observe style="display:flex;flex-direction:column;justify-content:space-between">
+        <div><span style="font-size:2.5rem;line-height:1;color:var(--gold);opacity:.3">"</span><p style="font-size:.875rem;color:var(--muted);line-height:1.7;margin-bottom:16px">We had a serious rodent issue in our crawl space. Attic Shield sealed every entry point and cleaned everything thoroughly. Haven't seen a single sign of pests since.</p></div>
+        <div style="display:flex;align-items:center;gap:12px"><div style="width:40px;height:40px;border-radius:50%;background:rgba(242,185,71,.12);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8125rem;color:var(--gold)">SK</div><div><div style="font-size:.8125rem;font-weight:600">Sarah K.</div><div style="font-size:.6875rem;color:var(--muted)">Escondido, CA � Rodent Proofing</div></div></div>
+      </div>
+      <div class="story-card" data-observe style="display:flex;flex-direction:column;justify-content:space-between">
+        <div><span style="font-size:2.5rem;line-height:1;color:var(--gold);opacity:.3">"</span><p style="font-size:.875rem;color:var(--muted);line-height:1.7;margin-bottom:16px">From the free estimate to the final walkthrough, everything was smooth. They explained every step and the pricing was transparent. Rare to find that level of honesty.</p></div>
+        <div style="display:flex;align-items:center;gap:12px"><div style="width:40px;height:40px;border-radius:50%;background:rgba(242,185,71,.12);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8125rem;color:var(--gold)">DR</div><div><div style="font-size:.8125rem;font-weight:600">David R.</div><div style="font-size:.6875rem;color:var(--muted)">Carlsbad, CA � Attic Cleaning</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="story" id="about">
+  <div class="story-overlay"></div>
+  <div class="story-inner" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:center">
+    <div>
+      <div class="story-label" data-observe>About</div>
+      <h2 class="story-h">
+        <span class="ln"><span>Your Home's</span></span>
+        <span class="ln"><span><span style="color:var(--gold)">First Line of Defense</span></span></span>
+        <span class="ln"><span>� 20+ Years of Trust</span></span>
+      </h2>
+      <p class="story-p" data-observe>Attic Shield is a family-operated company specializing in attic insulation, rodent proofing, crawl space services, and duct work. We follow a proven sequence: remove, seal, sanitize, restore � with photo documentation at every step.</p>
+      <div class="story-tags">
+        <span class="story-tag" data-observe>Insulation</span>
+        <span class="story-tag" data-observe>Rodent Proofing</span>
+        <span class="story-tag" data-observe>Air Sealing</span>
+        <span class="story-tag" data-observe>Sanitization</span>
+        <span class="story-tag" data-observe>Duct Work</span>
+        <span class="story-tag" data-observe>Crawl Spaces</span>
+        <span class="story-tag" data-observe>Free Estimates</span>
+        <span class="story-tag" data-observe data-delay=".1s">Licensed C-2</span>
+      </div>
+    </div>
+    <div class="story-grid-4" style="margin-top:0">
+      <div class="story-stat" data-observe><div class="story-stat-num" data-count="2500">0</div><div class="story-stat-label">Homes Protected</div></div>
+      <div class="story-stat" data-observe><div class="story-stat-num" data-count="20">0</div><div class="story-stat-label">Years Experience</div></div>
+      <div class="story-stat" data-observe><div class="story-stat-num">4.9?</div><div class="story-stat-label">Average Rating</div></div>
+      <div class="story-stat" data-observe><a href="#contact" class="btn btn-primary" style="font-size:.8125rem;padding:12px 20px;display:inline-flex">Let's Talk</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section class="story" id="areas">
+  <div class="story-overlay"></div>
+  <div class="story-inner">
+    <div class="story-label" data-observe>Service Areas</div>
+    <h2 class="story-h">
+      <span class="ln"><span>Protecting Homes Across</span></span>
+      <span class="ln"><span><span style="color:var(--gold)">Southern California</span></span></span>
+    </h2>
+    <p class="story-p" data-observe>From San Diego to Orange County, we bring licensed attic and crawl space expertise to your neighborhood.</p>
+    <div class="story-grid-4" style="margin-top:clamp(16px,2vh,28px)">
+      <div class="story-stat" data-observe><div class="story-stat-num" data-count="79">0+</div><div class="story-stat-label">Cities Served</div></div>
+      <div class="story-stat" data-observe><div class="story-stat-num">3</div><div class="story-stat-label">Counties</div></div>
+      <div class="story-stat" data-observe><div class="story-stat-num" data-count="2500">0</div><div class="story-stat-label">Homes Protected</div></div>
+      <div class="story-stat" data-observe><div class="story-stat-num" data-count="20">0+</div><div class="story-stat-label">Years Experience</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="story-label" data-observe>FAQs</div>
+    <h2 class="story-h" style="font-size:clamp(2rem,5vw,3.5rem)">
+      <span class="ln"><span>Have Questions?</span></span>
+      <span class="ln"><span><span style="color:var(--gold)">Get Answers.</span></span></span>
+    </h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q">What services does Attic Shield provide?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">Attic Shield specializes in attic insulation installation and removal, full rodent proofing with sanitation, air duct replacement, crawl space cleanup &amp; encapsulation, attic fans, and air sealing for energy efficiency.</div></div>
+      <div class="faq-item"><button class="faq-q">Why should I replace my attic insulation?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">Old, damaged insulation leads to high energy bills, uncomfortable temperatures, and poor air quality. Upgrading improves efficiency, comfort, and may qualify for federal tax credits like the 25C credit.</div></div>
+      <div class="faq-item"><button class="faq-q">How does your rodent proofing work?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">Full inspection, sealing with galvanized steel mesh and permanent materials (no foam), with an optional 1-year warranty. Our goal is to stop rodents from entering � permanently.</div></div>
+      <div class="faq-item"><button class="faq-q">Are you licensed and insured?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">Yes. C-2 Insulation Contractor License #1127450 � the only CSLB classification legally allowed to perform insulation work. We are also bonded and insured for your protection.</div></div>
+      <div class="faq-item"><button class="faq-q">What areas do you serve?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">All of San Diego County, Southwest Riverside County (Temecula, Murrieta, etc.), and South Orange County (San Clemente, Mission Viejo, etc.). 79+ cities across 3 counties.</div></div>
+      <div class="faq-item"><button class="faq-q">How much does attic insulation cost?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">Prices vary based on square footage, access, and condition. We offer free in-home inspections and quotes � no surprises. Bundled service discounts and seasonal promotions available.</div></div>
+      <div class="faq-item"><button class="faq-q">Do you provide photo documentation?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">Yes. We document each major step so you can see what we found and corrected. This transparency is valuable for homeowners and essential during real estate transactions.</div></div>
+      <div class="faq-item"><button class="faq-q">How long does a typical job take?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">Most jobs are completed in one full day (6-10 hours). Rodent proofing with sanitation may take longer. We'll give you a detailed time estimate at inspection.</div></div>
+      <div class="faq-item"><button class="faq-q">How do I schedule a free estimate?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">Call (858) 402-0066, email Info@AtticShield.com, or fill out the contact form. Same-week scheduling available.</div></div>
+      <div class="faq-item"><button class="faq-q">What makes Attic Shield different?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a">We're specialized � attics, crawl spaces, and ducts only. We follow the correct sequence (remove ? seal ? sanitize ? restore), use permanent materials, and provide photo documentation. Family-operated, not a franchise.</div></div>
+    </div>
+  </div>
+</section><!-- CONTACT / FOOTER -->
+<section class="footer" id="contact">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <h2>Ready to Protect<br>Your Attic?</h2>
+      <p>Free inspections. Same-week scheduling. Family-operated since 2002.</p>
+      <a href="tel:8584020066" class="btn btn-primary" style="display:inline-flex;width:fit-content">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (858) 402-0066
+      </a>
+      <div class="footer-social">
+        <a href="#" aria-label="Yelp">Y</a>
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Google">G</a>
+        <a href="#" aria-label="Instagram">Ig</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-info"><div class="footer-info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><h4>Location</h4><p>632 Rock Springs Rd, Escondido, CA 92025</p></div></div>
+      <div class="footer-info"><div class="footer-info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><h4>Email</h4><p><a href="mailto:Info@AtticShield.com">Info@AtticShield.com</a></p></div></div>
+      <div class="footer-info"><div class="footer-info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><h4>Hours</h4><p>Mon�Fri 7�5 &bull; Sat Closed &bull; Sun 9�2</p></div></div>
+      <div class="footer-info"><div class="footer-info-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/></svg></div><div><h4>License</h4><p>C-2 #1127450 &bull; Bonded &amp; Insured</p></div></div>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <span>&copy; 2026 Attic Shield. All rights reserved.</span>
+    <div><a href="#">Privacy Policy</a> &nbsp;&bull;&nbsp; <a href="#">Terms &amp; Conditions</a></div>
+  </div>
+</section>
+
+<script>
+// --- LOADER ---
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    document.getElementById('loader').classList.add('hidden');
+    initCanvas();
+    initWater();
+    initStory();
+    initCounters();
+    initFAQ();
+  },1800)
+})
+
+// --- CANVAS ---
+function initCanvas(){
+  const c=document.getElementById('heroCanvas');
+  const ctx=c.getContext('2d');
+  let W,H;
+  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight}
+  resize(); window.addEventListener('resize',resize);
+
+  const pts=[];
+  for(let i=0;i<50;i++){
+    pts.push({
+      x:Math.random()*W,y:Math.random()*H,
+      vx:(Math.random()-0.5)*0.25,vy:(Math.random()-0.5)*0.25,
+      r:Math.random()*160+50,a:Math.random()*0.05+0.015
+    });
+  }
+  let t=0;
+  function draw(){
+    ctx.clearRect(0,0,W,H); t+=0.003;
+    const g=ctx.createRadialGradient(W*.5,H*.4,0,W*.5,H*.4,W*.6);
+    g.addColorStop(0,'rgba(242,185,71,0.03)');
+    g.addColorStop(0.5,'rgba(242,185,71,0.015)');
+    g.addColorStop(1,'rgba(13,13,13,0)');
+    ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+    ctx.strokeStyle='rgba(242,185,71,0.035)'; ctx.lineWidth=1;
+    for(let i=0;i<6;i++){
+      ctx.beginPath();
+      const by=H*(0.2+i*0.09)+Math.sin(t+i*1.5)*H*0.035;
+      for(let x=0;x<W;x+=4){
+        const y=by+Math.sin(x*0.007+t*2+i)*H*0.02;
+        x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+      }
+      ctx.stroke();
+    }
+    for(const p of pts){
+      p.x+=p.vx; p.y+=p.vy;
+      p.vx+=Math.sin(t+p.r)*0.001; p.vy+=Math.cos(t+p.r*0.7)*0.001;
+      if(p.x<-100)p.x=W+100;if(p.x>W+100)p.x=-100;
+      if(p.y<-100)p.y=H+100;if(p.y>H+100)p.y=-100;
+      ctx.beginPath(); ctx.arc(p.x,p.y,1.5,0,Math.PI*2);
+      ctx.fillStyle=`rgba(242,185,71,${p.a})`; ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+// --- WATER REVEAL ---
+function initWater(){
+  const w=document.getElementById('heroWater');
+  let tx=.5,ty=.5,cx=.5,cy=.5;
+  document.getElementById('hero').addEventListener('mousemove',e=>{
+    const r=e.currentTarget.getBoundingClientRect();
+    tx=(e.clientX-r.left)/r.width; ty=(e.clientY-r.top)/r.height;
+  });
+  function anim(){
+    cx+=(tx-cx)*0.08; cy+=(ty-cy)*0.08;
+    w.style.setProperty('--wx',(cx*100)+'%');
+    w.style.setProperty('--wy',(cy*100)+'%');
+    if(!w.classList.contains('active'))w.classList.add('active');
+    requestAnimationFrame(anim);
+  }
+  anim();
+}
+
+// --- SCROLL STORY ---
+function initStory(){
+  const obs=new IntersectionObserver((entries)=>{
+    for(const e of entries){
+      if(e.isIntersecting){
+        e.target.classList.add('vis');
+        e.target.querySelectorAll('.ln').forEach((l,i)=>{
+          setTimeout(()=>l.classList.add('vis'),i*120);
+        });
+        obs.unobserve(e.target);
+      }
+    }
+  },{threshold:.12});
+  document.querySelectorAll('[data-observe]').forEach(el=>obs.observe(el));
+  document.querySelectorAll('.story-h').forEach(el=>obs.observe(el));
+
+  // Tags staggered
+  const tagObs=new IntersectionObserver((entries)=>{
+    for(const e of entries){
+      if(e.isIntersecting){
+        e.target.classList.add('vis');
+        tagObs.unobserve(e.target);
+      }
+    }
+  },{threshold:.1});
+  document.querySelectorAll('.story-tag').forEach((el,i)=>{
+    el.style.transitionDelay=(i*0.06)+'s';
+    tagObs.observe(el);
+  });
+
+  // Nav scroll effect
+  const nav=document.getElementById('nav');
+  const secObs=new IntersectionObserver((entries)=>{
+    for(const e of entries){
+      if(e.isIntersecting){
+        nav.classList.toggle('scrolled',e.target.id!=='hero');
+      }
+    }
+  },{threshold:0});
+  document.querySelectorAll('section').forEach(s=>secObs.observe(s));
+}
+
+// --- COUNTERS ---
+function initCounters(){
+  const obs=new IntersectionObserver((entries)=>{
+    for(const e of entries){
+      if(e.isIntersecting){
+        const el=e.target;
+        const t=parseInt(el.dataset.count);
+        if(!t)continue;
+const sfx=el.dataset.countSuffix?el.dataset.countSuffix:(el.dataset.count&&el.textContent.includes('+')?'+':'');
+let c=0; const s=Math.ceil(t/50);
+const iv=setInterval(()=>{
+  c+=s; if(c>=t){c=t;clearInterval(iv)}
+  el.textContent=c.toLocaleString()+sfx;
+},25);
+        obs.unobserve(el);
+      }
+    }
+  },{threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(el=>obs.observe(el));
+}
+
+// --- FAQ ---
+function initFAQ(){
+  document.querySelectorAll('.faq-q').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const item=btn.parentElement;
+      const isOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+      if(!isOpen)item.classList.add('open');
+    });
+  });
+}
+</script>
+</body>
+</html>

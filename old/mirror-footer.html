@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attic Shield — Footer Mirror</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&family=Roboto+Slab:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --as-accent: #F2B947;
+      --as-dark: #1A1A1A;
+      --bg-footer: #1A1A1A;
+      --text-primary: #EDEBE4;
+      --text-muted: rgba(237,235,228,0.45);
+      --text-dim: rgba(237,235,228,0.25);
+      --rule: rgba(237,235,228,0.08);
+    }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Roboto', sans-serif; background: #F7F5F0; }
+
+    /* ─── WAVY DIVIDER ─── */
+    .as-footer-wave {
+      display: block; width: 100%; line-height: 0; overflow: visible;
+      position: relative; z-index: 1; margin-top: -2px;
+    }
+    @keyframes asWaveFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .as-wave-group { animation: asWaveFloat 0.8s ease-in-out infinite; }
+    .as-footer-wave svg { display: block; width: 100%; height: auto; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--bg-footer); color: var(--text-primary);
+      padding: 72px 56px 44px; position: relative; overflow: hidden;
+    }
+    footer::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      background-size: 220px 220px; opacity: 0.025; pointer-events: none; z-index: 0;
+    }
+    .as-footer-inner { max-width: 1360px; margin: 0 auto; position: relative; z-index: 1; }
+
+    /* ─── STICKER LETTERS (mirrors Debbie) ─── */
+    .as-footer-name-wrap { margin-bottom: 48px; display: flex; justify-content: center; }
+    @keyframes asStickerPop {
+      0% { opacity: 0; transform: rotate(var(--rot,0deg)) translateY(30px) scale(0.6); }
+      100% { opacity: 1; transform: rotate(var(--rot,0deg)) translateY(0) scale(1); }
+    }
+    .as-footer-stickers {
+      display: flex; align-items: flex-end; gap: 6px; flex-wrap: wrap; justify-content: center;
+    }
+    .as-sticker-letter {
+      height: clamp(44px, 7.5vw, 96px); width: auto;
+      transform: rotate(var(--rot, 0deg));
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      cursor: default;
+      animation: asStickerPop 0.5s cubic-bezier(0.34,1.56,0.64,1) calc(var(--i,0)*0.08s + 0.3s) both;
+    }
+    .as-sticker-letter:hover { transform: rotate(var(--rot, 0deg)) translateY(-10px) scale(1.1); }
+    .as-sticker-dot { height: clamp(20px, 3.5vw, 44px); margin-bottom: clamp(4px, 1vw, 12px); }
+    @media (max-width: 600px) {
+      .as-footer-stickers { gap: 4px; }
+      .as-sticker-letter { height: clamp(34px, 10vw, 54px); }
+      .as-sticker-dot { height: clamp(14px, 4vw, 24px); }
+    }
+
+    /* ─── GRID ─── */
+    .as-footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 64px;
+    }
+    .as-footer-col-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.13em;
+      text-transform: uppercase; color: var(--text-dim); margin-bottom: 14px;
+    }
+    .as-footer-brand p {
+      font-size: 14px; font-weight: 400; color: var(--text-muted);
+      line-height: 1.7; margin-bottom: 16px;
+    }
+    .as-footer-badges {
+      display: flex; gap: 10px; flex-wrap: wrap;
+    }
+    .as-footer-badge {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+      padding: 6px 12px; border-radius: 6px;
+      background: rgba(255,255,255,0.06); color: var(--text-muted);
+      border: 1px solid var(--rule);
+    }
+    .as-footer-links { display: flex; flex-direction: column; gap: 4px; }
+    .as-footer-link {
+      font-size: 14px; font-weight: 500; color: var(--text-muted);
+      text-decoration: none; line-height: 1.6;
+      transition: color 0.2s; width: fit-content;
+    }
+    .as-footer-link:hover { color: var(--as-accent); }
+    .as-footer-social {
+      display: flex; gap: 10px; margin-top: 12px;
+    }
+    .as-footer-social a {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,0.06); border: 1px solid var(--rule);
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .as-footer-social a:hover { background: var(--as-accent); border-color: var(--as-accent); }
+    .as-footer-social a:hover svg { color: var(--as-dark); }
+    .as-footer-social svg { width: 16px; height: 16px; color: var(--text-muted); transition: color 0.2s; }
+
+    /* ─── BOTTOM ─── */
+    .as-footer-bottom {
+      border-top: 1px solid var(--rule); padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .as-footer-copy { font-size: 12px; font-weight: 400; color: var(--text-dim); }
+    .as-footer-bottom-links { display: flex; gap: 20px; }
+    .as-footer-bottom-links a {
+      font-size: 12px; font-weight: 400; color: var(--text-dim);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .as-footer-bottom-links a:hover { color: var(--text-primary); }
+
+    @media (max-width: 900px) {
+      .as-footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .as-footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 768px) {
+      footer { padding: 56px 28px 36px; }
+    }
+    @media (max-width: 480px) {
+      footer { padding: 48px 20px 32px; }
+      .as-footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .as-footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Wavy divider -->
+  <div class="as-footer-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <defs>
+        <filter id="as-shadow"><feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="rgba(0,0,0,0.3)"/></filter>
+      </defs>
+      <rect width="1440" height="100" fill="#1A1A1A"/>
+      <g class="as-wave-group">
+        <path fill="#F7F5F0" filter="url(#as-shadow)" d="M0,0 L1440,0 L1440,60 L1416,56 L1392,62 L1368,70 L1344,82 L1318,90 L1294,86 L1270,74 L1250,64 L1231,58 L1208,56 L1185,60 L1162,52 L1140,40 L1120,42 L1100,54 L1080,66 L1056,70 L1032,66 L1010,76 L986,90 L962,100 L938,94 L914,78 L892,60 L868,64 L844,68 L820,62 L796,68 L773,78 L749,92 L725,84 L702,68 L679,52 L655,44 L632,52 L610,66 L586,72 L562,82 L536,96 L508,100 L482,92 L456,76 L433,64 L410,62 L385,64 L357,66 L329,64 L301,68 L274,56 L250,44 L226,48 L202,60 L180,72 L157,78 L134,88 L110,94 L86,80 L62,68 L38,62 L14,66 L0,64 Z"/>
+      </g>
+    </svg>
+  </div>
+
+  <footer>
+    <div class="as-footer-inner">
+      <!-- Sticker letters -->
+      <div class="as-footer-name-wrap" role="img" aria-label="Attic Shield">
+        <div class="as-footer-stickers">
+          <svg class="as-sticker-letter" style="--rot:-2deg;--i:0" viewBox="0 0 142 156" fill="none">
+            <rect x="6" y="6" width="130" height="144" rx="22" fill="#F2B947" stroke="#1A1A1A" stroke-width="6"/>
+            <text x="71" y="78" text-anchor="middle" dominant-baseline="central" font-family="'Roboto Slab',serif" font-weight="800" font-size="116" fill="#1A1A1A">A</text>
+          </svg>
+          <svg class="as-sticker-letter" style="--rot:1.5deg;--i:1" viewBox="0 0 132 156" fill="none">
+            <rect x="6" y="6" width="120" height="144" rx="18" fill="#555555" stroke="#1A1A1A" stroke-width="6"/>
+            <text x="66" y="78" text-anchor="middle" dominant-baseline="central" font-family="'Roboto Slab',serif" font-weight="800" font-size="105" fill="white">S</text>
+          </svg>
+          <svg class="as-sticker-letter as-sticker-dot" style="--rot:-3deg;--i:2" viewBox="0 0 82 82" fill="none">
+            <polygon points="41,5 49,23 66,16 59,33 77,41 59,49 66,66 49,59 41,77 33,59 16,66 23,49 5,41 23,33 16,16 33,23" fill="#F2B947" stroke="#1A1A1A" stroke-width="4"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Grid -->
+      <div class="as-footer-grid">
+        <div class="as-footer-brand">
+          <p class="as-footer-col-label">Attic Shield</p>
+          <p>Protect your attic and crawl space with expert insulation, rodent proofing, and air sealing done right the first time.</p>
+          <div class="as-footer-badges">
+            <span class="as-footer-badge">C-2 #1127450</span>
+            <span class="as-footer-badge">Bonded &amp; Insured</span>
+            <span class="as-footer-badge">20+ Years</span>
+          </div>
+        </div>
+
+        <div class="as-footer-links">
+          <p class="as-footer-col-label">Quick Links</p>
+          <a href="/about-us/" class="as-footer-link">About Us</a>
+          <a href="/blogs/" class="as-footer-link">Blogs</a>
+          <a href="/faqs/" class="as-footer-link">FAQs</a>
+          <a href="#" class="as-footer-link">Join Our Team</a>
+          <a href="#" class="as-footer-link">Testimonials</a>
+        </div>
+
+        <div class="as-footer-links">
+          <p class="as-footer-col-label">Services</p>
+          <a href="/services/" class="as-footer-link">Homeowners</a>
+          <a href="/services/" class="as-footer-link">Home Sellers</a>
+          <a href="/services/" class="as-footer-link">Home Buyers</a>
+          <a href="/services/" class="as-footer-link">Real Estate Agents</a>
+          <a href="/services/" class="as-footer-link">HOA &amp; Property Mgmt</a>
+        </div>
+
+        <div class="as-footer-links">
+          <p class="as-footer-col-label">Contact</p>
+          <a href="tel:+18584020066" class="as-footer-link">(858) 402-0066</a>
+          <a href="mailto:info@atticshield.com" class="as-footer-link">info@atticshield.com</a>
+          <span class="as-footer-link" style="cursor:default;color:var(--text-dim)">632 Rock Springs Rd<br/>Escondido, CA 92025</span>
+          <div class="as-footer-social">
+            <a href="#" aria-label="Yelp"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="Google"><svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="currentColor"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="currentColor"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="as-footer-bottom">
+        <p class="as-footer-copy">&copy; 2026 Attic Shield. All rights reserved.</p>
+        <div class="as-footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

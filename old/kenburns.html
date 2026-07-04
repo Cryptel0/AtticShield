@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attic Shield — Motion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;font-family:'Inter',system-ui,sans-serif;overflow:hidden;height:100vh}
+
+.ken-frame{position:fixed;inset:0;overflow:hidden;perspective:1200px;background:#000;display:flex;align-items:center;justify-content:center}
+.ken-frame img{width:100%;height:100%;object-fit:cover;
+  filter:brightness(1.35) contrast(1.3);
+  animation:panRound 20s ease-in-out infinite alternate;
+  transition:transform .08s ease-out;
+  will-change:transform,object-position}
+
+@keyframes panRound{
+  0%{object-position:40% 50%}
+  25%{object-position:55% 45%}
+  50%{object-position:50% 55%}
+  75%{object-position:45% 42%}
+  100%{object-position:40% 50%}
+}
+
+.overlay{position:fixed;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.3) 0%,rgba(0,0,0,.05) 50%,rgba(0,0,0,.25) 100%);z-index:2;pointer-events:none}
+
+.gold-sheen{position:fixed;inset:0;z-index:3;pointer-events:none;
+  background:radial-gradient(ellipse at 48% 42%,rgba(242,185,71,.12) 0%,transparent 50%)}
+
+.letterbox{position:fixed;left:0;right:0;z-index:10;background:#000}
+.letterbox-top{top:0;height:clamp(32px,5vh,60px)}
+.letterbox-bot{bottom:0;height:clamp(32px,5vh,60px)}
+
+.content{position:fixed;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(32px,8vw,80px);text-align:center;pointer-events:none}
+.content > *{opacity:0;transform:translateY(20px);animation:fadeUp .8s cubic-bezier(.22,.7,.16,1) forwards}
+
+.tagline{font-size:clamp(.7rem,1.2vw,.9rem);font-weight:600;letter-spacing:.35em;text-transform:uppercase;color:rgba(255,255,255,.5);animation-delay:.8s;margin-bottom:16px}
+.title{font-size:clamp(2rem,6vw,5rem);font-weight:900;line-height:1.05;letter-spacing:-.03em;color:#fff;animation-delay:1.1s;max-width:800px}
+.title span{color:#F2B947}
+.sub{font-size:clamp(.9rem,1.5vw,1.2rem);font-weight:400;color:rgba(255,255,255,.55);animation-delay:1.4s;margin-top:20px;max-width:520px;line-height:1.5}
+
+.btn{display:inline-flex;align-items:center;gap:10px;margin-top:36px;padding:14px 36px;border:1px solid rgba(242,185,71,.4);background:rgba(242,185,71,.08);color:#F2B947;font-size:clamp(.85rem,1vw,1rem);font-weight:600;border-radius:50px;cursor:pointer;pointer-events:auto;transition:all .4s;animation-delay:1.7s}
+.btn:hover{background:rgba(242,185,71,.18);border-color:#F2B947;transform:translateY(-2px)}
+.btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+.replay-btn{position:fixed;bottom:clamp(48px,8vh,80px);right:clamp(24px,4vw,48px);z-index:20;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.4);padding:10px 18px;border-radius:30px;font-size:12px;font-family:inherit;cursor:pointer;backdrop-filter:blur(8px);transition:all .3s;letter-spacing:.05em}
+.replay-btn:hover{background:rgba(255,255,255,.12);color:#fff}
+
+@media(prefers-reduced-motion:reduce){
+  .content > *{opacity:1;transform:none;animation:none}
+}
+</style>
+</head>
+<body>
+
+<div class="ken-frame" id="kenFrame">
+  <img src="AtticShield-Insulation-1-1.jpeg" alt="Insulation" id="kenImg">
+</div>
+<div class="overlay"></div>
+<div class="gold-sheen"></div>
+
+<div class="letterbox letterbox-top"></div>
+<div class="letterbox letterbox-bot"></div>
+
+<div class="content">
+  <div class="tagline">San Diego's Trusted Attic Experts</div>
+  <div class="title">Shielding Your Home<br><span>from the Inside Out</span></div>
+  <div class="sub">Licensed &bull; Insured &bull; C-2 #1127450</div>
+  <div class="btn" onclick="location.href='https://atticshield.com/about-us/'">
+    Explore More
+    <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </div>
+</div>
+
+<button class="replay-btn" onclick="location.reload()">&#x21bb; Replay</button>
+
+<script>
+const frame=document.getElementById('kenFrame');
+const img=document.getElementById('kenImg');
+frame.addEventListener('mousemove',e=>{
+  const r=frame.getBoundingClientRect();
+  const x=(e.clientX-r.left)/r.width;
+  const y=(e.clientY-r.top)/r.height;
+  img.style.transform=`rotateY(${(x-.5)*5}deg) rotateX(${(y-.5)*-3}deg) scale3d(1.02,1.02,1.02)`
+});
+frame.addEventListener('mouseleave',()=>{
+  img.style.transform='rotateY(0deg) rotateX(0deg) scale3d(1,1,1)'
+});
+</script>
+
+</body>
+</html>

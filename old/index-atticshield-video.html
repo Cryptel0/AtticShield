@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attic Shield — San Diego's Attic Experts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',system-ui,sans-serif;background:#030303;color:#fff;overflow-x:hidden}
+    ::-webkit-scrollbar{width:6px}
+    ::-webkit-scrollbar-track{background:#030303}
+    ::-webkit-scrollbar-thumb{background:rgba(242,185,71,.3);border-radius:3px}
+
+    .hero{position:relative;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
+    .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(3,3,3,.7) 0%,rgba(3,3,3,.2) 50%,rgba(3,3,3,.6) 100%);z-index:1}
+    .hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(242,185,71,.08) 0%,transparent 50%);z-index:2;pointer-events:none}
+    .hero-bars{position:absolute;left:0;right:0;z-index:3;background:#030303}
+    .hero-bars.top{top:0;height:clamp(24px,4vh,48px)}
+    .hero-bars.bottom{bottom:0;height:clamp(24px,4vh,48px)}
+    .hero-content{position:relative;z-index:4;text-align:center;padding:0 5vw;max-width:900px;animation:fadeUp 1.2s .8s both ease}
+    .hero-badge{font-size:clamp(.65rem,1vw,.85rem);font-weight:600;letter-spacing:.35em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:16px}
+    .hero h1{font-size:clamp(2rem,6vw,4.5rem);font-weight:900;line-height:1.05;letter-spacing:-.03em;color:#fff}
+    .hero h1 span{color:#F2B947}
+    .hero p{font-size:clamp(.85rem,1.4vw,1.1rem);color:rgba(255,255,255,.5);margin-top:16px;max-width:500px;margin-left:auto;margin-right:auto}
+    .hero-actions{margin-top:32px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 36px;font-size:clamp(.85rem,1vw,1rem);font-weight:600;border-radius:50px;cursor:pointer;text-decoration:none;transition:all .3s ease}
+    .btn-primary{background:#F2B947;color:#030303;border:none}
+    .btn-primary:hover{background:#e0a832;transform:scale(1.03)}
+    .btn-outline{border:1px solid rgba(242,185,71,.35);background:rgba(242,185,71,.06);color:#F2B947}
+    .btn-outline:hover{background:rgba(242,185,71,.15);transform:scale(1.03)}
+    .scroll-hint{position:absolute;bottom:clamp(64px,10vh,100px);left:50%;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.25);font-size:11px;letter-spacing:.2em;text-transform:uppercase;animation:fadeIn 1s 2s both}
+    .scroll-line{width:1px;height:24px;background:rgba(255,255,255,.2)}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+    section{padding:clamp(60px,10vh,120px) 5vw}
+    .section-label{font-size:clamp(.6rem,.9vw,.75rem);font-weight:600;letter-spacing:.35em;text-transform:uppercase;color:#F2B947;margin-bottom:12px}
+    h2{font-size:clamp(1.8rem,3.5vw,3rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:12px}
+    h2 span{color:#F2B947}
+    .section-desc{font-size:clamp(.9rem,1.2vw,1.05rem);color:rgba(255,255,255,.45);max-width:600px;line-height:1.6}
+
+    .services{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:40px}
+    .service-card{padding:24px;border-radius:12px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02);transition:all .3s ease}
+    .service-card:hover{border-color:rgba(242,185,71,.25);transform:translateY(-3px)}
+    .service-card .icon{font-size:1.6rem;margin-bottom:12px}
+    .service-card h3{font-size:1.05rem;font-weight:600;margin-bottom:6px}
+    .service-card p{font-size:.85rem;color:rgba(255,255,255,.4);line-height:1.5}
+
+    .stats{display:flex;gap:40px;flex-wrap:wrap;justify-content:center;margin:40px 0 48px}
+    .stat{text-align:center}
+    .stat-num{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:#F2B947;line-height:1}
+    .stat-label{font-size:.8rem;color:rgba(255,255,255,.35);margin-top:4px;font-weight:500;letter-spacing:.02em}
+
+    .contact-info{margin-top:16px;display:flex;gap:32px;flex-wrap:wrap;justify-content:center;color:rgba(255,255,255,.35);font-size:.85rem}
+
+    footer{text-align:center;padding:clamp(40px,6vh,60px) 5vw;border-top:1px solid rgba(255,255,255,.04)}
+    footer p{color:rgba(255,255,255,.2);font-size:.8rem;line-height:1.8}
+
+    @media(max-width:600px){
+      .hero h1{font-size:clamp(1.6rem,10vw,2.8rem)}
+      .hero-actions{flex-direction:column;align-items:center}
+      .services{grid-template-columns:1fr}
+      .stats{gap:24px}
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline poster="AtticShield-Hero.webp">
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-bars top"></div>
+    <div class="hero-bars bottom"></div>
+    <div class="hero-content">
+      <div class="hero-badge">San Diego's Trusted Attic Experts</div>
+      <h1>Shielding Your Home<br><span>from the Inside Out</span></h1>
+      <p>Licensed &bull; Insured &bull; C-2 #1127450</p>
+      <div class="hero-actions">
+        <a href="tel:+18584020066" class="btn btn-primary">
+          (858) 402-0066
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </a>
+        <a href="https://atticshield.com/about-us/" class="btn btn-outline">
+          Explore More
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      Scroll
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <section style="background:linear-gradient(180deg,#030303 0%,#080808 100%)">
+    <div style="max-width:1100px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:16px">
+        <div class="section-label">What We Do</div>
+        <h2>Premium <span>Attic Services</span></h2>
+        <p class="section-desc" style="margin:12px auto 0">Over 20 years serving San Diego with expert attic solutions</p>
+      </div>
+      <div class="services">
+        <div class="service-card"><div class="icon">🏠</div><h3>Attic Insulation</h3><p>Keep your home comfortable year-round with premium blown-in insulation.</p></div>
+        <div class="service-card"><div class="icon">🛡️</div><h3>Rodent Proofing</h3><p>Seal every entry point and protect your attic from pests permanently.</p></div>
+        <div class="service-card"><div class="icon">🔧</div><h3>Crawl Space</h3><p>Encapsulation and moisture control for a healthier, drier home.</p></div>
+        <div class="service-card"><div class="icon">💨</div><h3>Air Sealing</h3><p>Stop drafts and improve energy efficiency throughout your home.</p></div>
+        <div class="service-card"><div class="icon">🧹</div><h3>Attic Cleanup</h3><p>Remove old insulation, debris, and restore your attic space.</p></div>
+        <div class="service-card"><div class="icon">🔍</div><h3>Free Inspections</h3><p>We assess your attic and provide an honest, no-obligation quote.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#080808;text-align:center">
+    <div style="max-width:800px;margin:0 auto">
+      <div class="stats">
+        <div class="stat"><div class="stat-num">2500+</div><div class="stat-label">Homes Served</div></div>
+        <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Years Experience</div></div>
+        <div class="stat"><div class="stat-num">4.9</div><div class="stat-label">Customer Rating</div></div>
+        <div class="stat"><div class="stat-num">C-2</div><div class="stat-label">License #1127450</div></div>
+      </div>
+      <h2 style="font-size:clamp(1.4rem,2.5vw,2rem)">Ready to Protect Your Home?</h2>
+      <p class="section-desc" style="margin:12px auto 24px">Call us for a free attic inspection and honest quote</p>
+      <a href="tel:+18584020066" class="btn btn-primary" style="font-size:1.1rem;padding:16px 44px">
+        (858) 402-0066
+      </a>
+      <div class="contact-info" style="margin-top:24px">
+        <span>632 Rock Springs Rd, Escondido, CA 92025</span>
+        <span>Mon–Fri 7–5</span>
+        <span>Sat Closed</span>
+        <span>Sun 9–2</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Attic Shield &bull; C-2 License #1127450 &bull; <a href="mailto:Info@AtticShield.com" style="color:rgba(242,185,71,.5);text-decoration:none">Info@AtticShield.com</a></p>
+  </footer>
+</body>
+</html>

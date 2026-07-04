@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Debbie — UX Designer & AI Design Engineer</title>
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,500,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <section class="hero" id="home">
+    <video class="hero-video" id="hero-vid" autoplay muted loop playsinline poster="">
+      <source src="./images/hero-video.mp4" type="video/mp4" />
+    </video>
+    <script>
+      (function(){var v=document.getElementById('hero-vid');if(!v)return;v.addEventListener('ended',function(){v.currentTime=0;v.play()});})();
+    </script>
+    <nav class="hero-nav">
+      <a href="#home" class="hero-nav-logo">Deborah A.</a>
+      <div class="hero-nav-links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#tools">Stack</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#booking">Book</a>
+      </div>
+      <a href="#booking" class="hero-nav-cta">Let's Talk ?</a>
+    </nav>
+    <div class="hero-body">
+      <div class="hero-content">
+        <div class="hero-avail">
+          <span class="hero-avail-dot"></span>
+          Available for work
+        </div>
+        <h1 class="hero-headline">
+          <span class="hero-word-wrap"><span class="hero-word">Design.</span></span>
+          <span class="hero-word-wrap"><span class="hero-word">Build.</span></span>
+          <span class="hero-word-wrap"><span class="hero-word">Create.</span></span>
+        </h1>
+        <div class="hero-tagline-box">
+          <p>UX designer, AI design engineer &amp; content creator.<br>I build experiences that feel as good as they look.</p>
+        </div>
+        <div class="hero-ctas">
+          <a href="#work" class="hero-btn-primary">View My Work ?</a>
+          <a href="#booking" class="hero-btn-secondary">Book a Session</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="hero-scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <section class="work" id="work">
+    <div class="work-inner">
+      <div class="work-header">
+        <div class="work-eyebrow">
+          <span class="work-eyebrow-num">01</span>
+          <span class="work-eyebrow-lbl">Selected Work</span>
+        </div>
+        <div class="work-tabs">
+          <button class="work-tab active" data-tab="all">All</button>
+          <button class="work-tab" data-tab="brand">Brand</button>
+          <button class="work-tab" data-tab="content">Content</button>
+          <button class="work-tab" data-tab="product">Product</button>
+        </div>
+      </div>
+      <div class="work-split">
+        <div class="dash-card card-hidden">
+          <div class="dash-label-row">
+            <span class="dash-title">Side Projects</span>
+            <span class="dash-count">4 books</span>
+          </div>
+          <div class="shelf-books">
+            <a href="#" class="book-card pat-pink-gingham" style="--book-i:0">
+              <div class="book-tape"></div>
+              <span class="book-cat">Design System</span>
+              <span class="book-name">Component Library</span>
+              <span class="book-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </a>
+            <a href="#" class="book-card pat-lavender-gingham book-dark" style="--book-i:1">
+              <div class="book-tape"></div>
+              <span class="book-cat">AI</span>
+              <span class="book-name">Prompt Library</span>
+              <span class="book-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </a>
+            <a href="#" class="book-card pat-tan-plaid" style="--book-i:2">
+              <div class="book-tape"></div>
+              <span class="book-cat">Content</span>
+              <span class="book-name">Social Templates</span>
+              <span class="book-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </a>
+            <a href="#" class="book-card pat-blue-plaid book-dark" style="--book-i:3">
+              <div class="book-tape"></div>
+              <span class="book-cat">Research</span>
+              <span class="book-name">UX Case Studies</span>
+              <span class="book-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </a>
+          </div>
+          <div class="shelf-plank"></div>
+        </div>
+
+        <div class="dash-card card-hidden">
+          <div class="dash-label-row">
+            <span class="dash-title">Brand Work</span>
+            <span class="dash-count">6 clients</span>
+          </div>
+          <div class="brands-grid">
+            <a href="#" class="brand-chip" style="--chip-bg:#FFE8D0"><span class="brand-chip-text">Bloom</span></a>
+            <a href="#" class="brand-chip" style="--chip-bg:#D4EDBC"><span class="brand-chip-text">Verdant</span></a>
+            <a href="#" class="brand-chip" style="--chip-bg:#C8E0F8"><span class="brand-chip-text">Aether</span></a>
+            <a href="#" class="brand-chip" style="--chip-bg:#FFD8E0"><span class="brand-chip-text">Muse</span></a>
+            <a href="#" class="brand-chip" style="--chip-bg:#EBD8FF"><span class="brand-chip-text">Luma</span></a>
+            <a href="#" class="brand-chip" style="--chip-bg:#FFE2D4"><span class="brand-chip-text">Ember</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-grid">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <a href="#" class="content-card cc-tiktok">
+            <span class="content-platform">TikTok</span>
+            <span class="content-name">AI Design Workflow</span>
+            <span class="content-sub">2.4M views</span>
+            <span class="content-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </a>
+          <a href="#" class="content-card cc-twitter">
+            <span class="content-platform">Twitter / X</span>
+            <span class="content-name">UX Thread Series</span>
+            <span class="content-sub">12K likes</span>
+            <span class="content-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </a>
+          <a href="#" class="content-card cc-instagram">
+            <span class="content-platform">Instagram</span>
+            <span class="content-name">Design Reels</span>
+            <span class="content-sub">45K followers</span>
+            <span class="content-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </a>
+          <a href="#" class="content-card cc-tiktok">
+            <span class="content-platform">TikTok</span>
+            <span class="content-name">Figma Tips</span>
+            <span class="content-sub">890K views</span>
+            <span class="content-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-eyebrow">
+        <span class="about-eyebrow-num">02</span>
+        <span class="about-eyebrow-lbl">About</span>
+      </div>
+      <h2 class="about-headline">I help brands and creators <em>design, build, and grow</em> with intention.</h2>
+      <div class="about-grid">
+        <div class="about-photo-wrap">
+          <div class="about-photo-card">
+            <div class="about-photo-fallback">DA</div>
+            <svg class="about-sticker about-sticker-1" viewBox="0 0 60 60" width="56" height="56">
+              <polygon points="30,3 33.1,18.4 43.5,6.6 38.5,21.5 53.4,16.5 41.6,26.9 57,30 41.6,33.1 53.4,43.5 38.5,38.5 43.5,53.4 33.1,41.6 30,57 26.9,41.6 16.5,53.4 21.5,38.5 6.6,43.5 18.4,33.1 3,30 18.4,26.9 6.6,16.5 21.5,21.5 16.5,6.6 26.9,18.4" fill="#E0450A" stroke="#1A1A1A" stroke-width="2.5" stroke-linejoin="round"/>
+            </svg>
+            <svg class="about-sticker about-sticker-2" viewBox="0 0 60 60" width="46" height="46">
+              <path d="M30,2 C34,16 44,26 58,30 C44,34 34,44 30,58 C26,44 16,34 2,30 C16,26 26,16 30,2 Z" fill="#4ADE80" stroke="#1A1A1A" stroke-width="2.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="about-right">
+          <div class="about-stats">
+            <div class="about-stat">
+              <span class="about-stat-num" data-count="50" data-suffix="+">0+</span>
+              <span class="about-stat-lbl">Projects</span>
+            </div>
+            <div class="about-stat-divider"></div>
+            <div class="about-stat">
+              <span class="about-stat-num" data-count="8" data-suffix="+">0+</span>
+              <span class="about-stat-lbl">Years Exp</span>
+            </div>
+            <div class="about-stat-divider"></div>
+            <div class="about-stat">
+              <span class="about-stat-num" data-count="2" data-suffix="M+">0+</span>
+              <span class="about-stat-lbl">Views</span>
+            </div>
+            <a href="#booking" class="about-cta">
+              Work With Me
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+          <div class="about-features">
+            <span class="about-features-lbl">Expertise</span>
+            <div class="tags-scatter">
+              <div class="tags-row r1">
+                <span class="ab-tag pink" style="--i:0">UI/UX Design</span>
+                <span class="ab-tag orange" style="--i:1">Brand Identity</span>
+                <span class="ab-tag yellow" style="--i:2">Design Systems</span>
+              </div>
+              <div class="tags-row r2">
+                <span class="ab-tag green" style="--i:3">AI Workflows</span>
+                <span class="ab-tag lavender" style="--i:4">Content Strategy</span>
+              </div>
+              <div class="tags-row r3">
+                <span class="ab-tag peach" style="--i:5">Prototyping</span>
+                <span class="ab-tag pink" style="--i:6">Motion Design</span>
+                <span class="ab-tag orange" style="--i:7">Product Strategy</span>
+              </div>
+              <div class="tags-row r4">
+                <span class="ab-tag yellow" style="--i:8">Web Development</span>
+                <span class="ab-tag green" style="--i:9">Social Media</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tools-section" id="tools">
+    <div class="tools-inner">
+      <div class="tools-header">
+        <div class="tools-eyebrow">
+          <span class="tools-eyebrow-num">03</span>
+          <span class="tools-eyebrow-lbl">My Stack</span>
+        </div>
+        <span class="tools-count">9 tools</span>
+      </div>
+      <p style="font-size:14px;font-weight:500;color:rgba(255,255,255,0.35);margin-bottom:24px;letter-spacing:0.02em">The tools I use daily to design, build, and create.</p>
+      <div class="tools-stage" id="toolsStage">
+        <div class="tools-center">
+          <h3 class="tools-headline">My Stack</h3>
+          <div class="tools-pills">
+            <span class="tools-pill">Design</span>
+            <span class="tools-pill">AI</span>
+            <span class="tools-pill">Content</span>
+          </div>
+        </div>
+        <div class="tool-item tool-dropping tool-floating" style="top:12%;left:8%;--rot:-6deg;--tool-delay:0.2s;--float-delay:0.5s">
+          <div class="tool-icon-wrap">
+            <div class="tool-icon ti-figma"><svg viewBox="0 0 24 24"><path d="M8 2a4 4 0 0 0 0 8h8a4 4 0 0 0 0-8H8zM4 12a4 4 0 0 1 4-4h8a4 4 0 0 1 0 8H8a4 4 0 0 1-4-4zM8 14a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" fill="#1E1E1E"/></svg></div>
+          </div>
+          <span class="tool-label">Figma</span>
+        </div>
+        <div class="tool-item tool-dropping" style="top:6%;right:18%;--rot:4deg;--tool-delay:0.5s">
+          <div class="tool-icon-wrap">
+            <div class="tool-icon ti-capcut"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg></div>
+          </div>
+          <span class="tool-label">CapCut</span>
+        </div>
+        <div class="tool-item tool-dropping tool-floating" style="bottom:22%;left:5%;--rot:-8deg;--tool-delay:0.8s;--float-delay:1.2s">
+          <div class="tool-icon-wrap">
+            <div class="tool-icon ti-miro"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" fill="#FFD02F"/><text x="12" y="16" text-anchor="middle" font-size="12" font-weight="800" fill="#1A1A1A">M</text></svg></div>
+          </div>
+          <span class="tool-label">Miro</span>
+        </div>
+        <div class="tool-item tool-dropping" style="bottom:30%;right:12%;--rot:7deg;--tool-delay:1.1s">
+          <div class="tool-icon-wrap">
+            <div class="tool-icon ti-higgsfield"><svg viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="10" fill="#4A4A4A"/><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="800" fill="white">AI</text></svg></div>
+          </div>
+          <span class="tool-label">Higgsfield</span>
+        </div>
+        <div class="tool-item tool-dropping" style="top:40%;right:4%;--rot:-4deg;--tool-delay:1.4s">
+          <div class="tool-icon-wrap">
+            <div class="tool-icon ti-instagram"><svg viewBox="0 0 24 24" fill="white"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></div>
+          </div>
+          <span class="tool-label">Instagram</span>
+        </div>
+        <div class="tool-item tool-dropping tool-floating" style="top:55%;left:3%;--rot:5deg;--tool-delay:1.7s;--float-delay:2s">
+          <div class="tool-icon-wrap">
+            <div class="tool-icon ti-tiktok"><svg viewBox="0 0 24 24" fill="white"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></div>
+          </div>
+          <span class="tool-label">TikTok</span>
+        </div>
+        <div class="tool-item tool-dropping" style="bottom:10%;left:30%;--rot:-3deg;--tool-delay:2s">
+          <div class="tool-icon-wrap">
+            <div class="tool-icon ti-linkedin"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="#0A66C2"/></svg></div>
+          </div>
+          <span class="tool-label">LinkedIn</span>
+        </div>
+        <div class="tool-item tool-dropping tool-floating" style="top:18%;left:40%;--rot:2deg;--tool-delay:0.35s;--float-delay:0.8s">
+          <div class="tool-icon-wrap">
+            <div class="tool-icon ti-figma" style="background:#FFF"><svg viewBox="0 0 24 24" fill="none" stroke="#1E1E1E" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="12" cy="12" r="4"/><path d="M8 12v4a4 4 0 0 0 8 0"/></svg></div>
+          </div>
+          <span class="tool-label">Figma</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testi-section" id="testimonials">
+    <div class="testi-inner">
+      <div class="testi-header">
+        <div class="testi-eyebrow">
+          <span class="testi-eyebrow-num">04</span>
+          <span class="testi-eyebrow-lbl">Kind Words</span>
+        </div>
+        <span class="testi-tagline">What people say about working together</span>
+      </div>
+    </div>
+    <div class="testi-marquee">
+      <div class="testi-track">
+        <div class="testi-card" style="--testi-i:0">
+          <div class="testi-blob"></div>
+          <span class="testi-quote-mark">"</span>
+          <p class="testi-text">Debbie brought a level of intention and craft to our brand that completely transformed how we show up online.</p>
+          <div class="testi-person">
+            <div class="testi-avatar" style="background:#FFE8D0;color:#7A3800;">M</div>
+            <div>
+              <div class="testi-name">Maya Liu</div>
+              <div class="testi-role">Founder, Bloom Beauty</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card" style="--testi-i:1">
+          <div class="testi-blob"></div>
+          <span class="testi-quote-mark">"</span>
+          <p class="testi-text">Working with Debbie was seamless. She understood our vision immediately and delivered beyond expectations.</p>
+          <div class="testi-person">
+            <div class="testi-avatar" style="background:#D4EDBC;color:#2D4800;">J</div>
+            <div>
+              <div class="testi-name">James Park</div>
+              <div class="testi-role">CEO, Verdant Health</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card" style="--testi-i:2">
+          <div class="testi-blob"></div>
+          <span class="testi-quote-mark">"</span>
+          <p class="testi-text">Debbie's design system work saved us months of development time. Every edge case was thought through.</p>
+          <div class="testi-person">
+            <div class="testi-avatar" style="background:#C8E0F8;color:#1A3A6B;">S</div>
+            <div>
+              <div class="testi-name">Sarah Chen</div>
+              <div class="testi-role">CTO, Aether Labs</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card" style="--testi-i:3">
+          <div class="testi-blob"></div>
+          <span class="testi-quote-mark">"</span>
+          <p class="testi-text">She has a rare ability to balance creative vision with practical execution. A true professional.</p>
+          <div class="testi-person">
+            <div class="testi-avatar" style="background:#FFD4E4;color:#5C1A35;">R</div>
+            <div>
+              <div class="testi-name">Rita N.</div>
+              <div class="testi-role">Creative Director</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card" style="--testi-i:4">
+          <div class="testi-blob"></div>
+          <span class="testi-quote-mark">"</span>
+          <p class="testi-text">Our social content has never performed better. Debbie knows exactly how to connect with an audience.</p>
+          <div class="testi-person">
+            <div class="testi-avatar" style="background:#E5D4FF;color:#3A0066;">T</div>
+            <div>
+              <div class="testi-name">Tom K.</div>
+              <div class="testi-role">Marketing Lead</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card" style="--testi-i:5">
+          <div class="testi-blob"></div>
+          <span class="testi-quote-mark">"</span>
+          <p class="testi-text">From branding to web design, Debbie handled everything with care and precision. Highly recommend.</p>
+          <div class="testi-person">
+            <div class="testi-avatar" style="background:#FFDDD4;color:#5C1A00;">L</div>
+            <div>
+              <div class="testi-name">Lisa M.</div>
+              <div class="testi-role">Founder, Muse Studio</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="book-section" id="booking" style="padding:0 56px 120px">
+    <div class="book-inner">
+      <div class="book-header">
+        <div class="book-eyebrow">
+          <span class="book-eyebrow-num">05</span>
+          <span class="book-eyebrow-lbl">Book a Session</span>
+        </div>
+        <div class="book-toggle">
+          <button class="book-toggle-btn active" data-type="design">Design</button>
+          <button class="book-toggle-btn" data-type="consult">Consulting</button>
+          <button class="book-toggle-btn" data-type="content">Content</button>
+        </div>
+      </div>
+      <p class="book-subtitle">Select a date and time that works for you. <strong>Free 30-min intro</strong> available.</p>
+
+      <div class="book-grid">
+        <div class="book-cal-card">
+          <div class="book-cal-nav">
+            <button class="book-cal-arrow" id="calPrev">&larr;</button>
+            <span class="book-cal-month" id="calMonth">June 2026</span>
+            <button class="book-cal-arrow" id="calNext">&rarr;</button>
+          </div>
+          <div class="book-cal-days-header">
+            <span class="book-cal-day-lbl">Sun</span>
+            <span class="book-cal-day-lbl">Mon</span>
+            <span class="book-cal-day-lbl">Tue</span>
+            <span class="book-cal-day-lbl">Wed</span>
+            <span class="book-cal-day-lbl">Thu</span>
+            <span class="book-cal-day-lbl">Fri</span>
+            <span class="book-cal-day-lbl">Sat</span>
+          </div>
+          <div class="book-cal-grid" id="calGrid"></div>
+        </div>
+
+        <div class="book-right">
+          <div class="bk-panel" id="timePanel">
+            <div class="bk-panel-title">
+              <span class="bk-panel-dot"></span>
+              Available Times
+              <span class="bk-panel-meta">PST</span>
+            </div>
+            <div id="timesContainer">
+              <p class="book-times-empty">Select a date to see available times</p>
+            </div>
+          </div>
+
+          <div class="bk-panel">
+            <div class="bk-panel-title">
+              <span class="bk-panel-dot"></span>
+              Your Info
+            </div>
+            <form id="bookForm" onsubmit="event.preventDefault();alert('Booking submitted!');">
+              <div class="book-name-email-grid">
+                <div class="book-field">
+                  <label for="bookName">Name</label>
+                  <input type="text" id="bookName" placeholder="Your name" required />
+                </div>
+                <div class="book-field">
+                  <label for="bookEmail">Email</label>
+                  <input type="email" id="bookEmail" placeholder="your@email.com" required />
+                </div>
+              </div>
+              <div class="book-field">
+                <label for="bookNote">Project brief (optional)</label>
+                <input type="text" id="bookNote" placeholder="Tell me about your project..." />
+              </div>
+              <button type="submit" class="book-submit" id="bookSubmitBtn">Confirm Booking</button>
+            </form>
+            <div class="book-success" id="bookSuccess">
+              <div class="book-success-icon">&#10003;</div>
+              <div class="book-success-title">You're booked!</div>
+              <div class="book-success-sub">I'll send a confirmation email shortly with the call link.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVY FOOTER DIVIDER -->
+  <div class="footer-scene" aria-hidden="true">
+    <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <defs>
+        <filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="rgba(0,0,0,0.3)"/></filter>
+      </defs>
+      <rect width="1440" height="100" fill="#2C2926"/>
+      <g class="paper-group">
+        <path fill="#F8F6F2" filter="url(#shadow)" d="M0,0 L1440,0 L1440,60 L1416,56 L1392,62 L1368,70 L1344,82 L1318,90 L1294,86 L1270,74 L1250,64 L1231,58 L1208,56 L1185,60 L1162,52 L1140,40 L1120,42 L1100,54 L1080,66 L1056,70 L1032,66 L1010,76 L986,90 L962,100 L938,94 L914,78 L892,60 L868,64 L844,68 L820,62 L796,68 L773,78 L749,92 L725,84 L702,68 L679,52 L655,44 L632,52 L610,66 L586,72 L562,82 L536,96 L508,100 L482,92 L456,76 L433,64 L410,62 L385,64 L357,66 L329,64 L301,68 L274,56 L250,44 L226,48 L202,60 L180,72 L157,78 L134,88 L110,94 L86,80 L62,68 L38,62 L14,66 L0,64 Z"/>
+      </g>
+    </svg>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-name-wrap" role="img" aria-label="Deborah A.">
+        <div class="footer-sticker-name">
+          <svg class="sticker-letter" style="--rot:-2deg;--i:0" viewBox="0 0 142 156" fill="none">
+            <rect x="6" y="6" width="130" height="144" rx="22" fill="#F5F0E8" stroke="#2C2926" stroke-width="6"/>
+            <text x="71" y="78" text-anchor="middle" dominant-baseline="central" font-family="'Cabinet Grotesk',sans-serif" font-weight="800" font-size="116" fill="#2C2926">D</text>
+          </svg>
+          <svg class="sticker-letter" style="--rot:1.5deg;--i:1" viewBox="0 0 132 156" fill="none">
+            <rect x="6" y="6" width="120" height="144" rx="18" fill="#E8E4DC" stroke="#2C2926" stroke-width="6"/>
+            <text x="66" y="78" text-anchor="middle" dominant-baseline="central" font-family="'Cabinet Grotesk',sans-serif" font-weight="800" font-size="105" fill="#2C2926">A</text>
+          </svg>
+          <svg class="sticker-letter" style="--rot:-3deg;--i:2" viewBox="0 0 82 82" fill="none">
+            <polygon points="41,5 49,23 66,16 59,33 77,41 59,49 66,66 49,59 41,77 33,59 16,66 23,49 5,41 23,33 16,16 33,23" fill="#E0450A" stroke="#2C2926" stroke-width="4"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-roles">
+          <p class="footer-col-label">Roles</p>
+          <span class="footer-role">UX Designer</span>
+          <span class="footer-role">AI Design Engineer</span>
+          <span class="footer-role">Content Creator</span>
+          <div class="footer-status">
+            <span class="footer-status-dot"></span>
+            <span class="footer-status-text">Available for work</span>
+          </div>
+        </div>
+        <div class="footer-links">
+          <p class="footer-col-label">Navigate</p>
+          <a href="#work" class="footer-link"><span>Work</span><span class="footer-link-arrow">&#8594;</span></a>
+          <a href="#about" class="footer-link"><span>About</span><span class="footer-link-arrow">&#8594;</span></a>
+          <a href="#tools" class="footer-link"><span>Stack</span><span class="footer-link-arrow">&#8594;</span></a>
+          <a href="#testimonials" class="footer-link"><span>Testimonials</span><span class="footer-link-arrow">&#8594;</span></a>
+          <a href="#booking" class="footer-link"><span>Book</span><span class="footer-link-arrow">&#8594;</span></a>
+        </div>
+        <div class="footer-links">
+          <p class="footer-col-label">Connect</p>
+          <a href="#" class="footer-link"><span>TikTok</span><span class="footer-link-arrow">&#8599;</span></a>
+          <a href="#" class="footer-link"><span>Twitter / X</span><span class="footer-link-arrow">&#8599;</span></a>
+          <a href="#" class="footer-link"><span>Instagram</span><span class="footer-link-arrow">&#8599;</span></a>
+          <a href="#" class="footer-link"><span>LinkedIn</span><span class="footer-link-arrow">&#8599;</span></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Deborah A. All rights reserved.</p>
+        <span class="footer-tag">Design. Build. Create.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      // ─── WORK SECTION ───
+      var wSection = document.getElementById('work');
+      if (wSection) {
+        var wCards = wSection.querySelectorAll('.dash-card');
+        var wObs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              wCards.forEach(function(c, i) {
+                setTimeout(function() {
+                  c.classList.remove('card-hidden');
+                  c.classList.add('card-revealed');
+                }, i * 150 + 50);
+              });
+            } else {
+              wCards.forEach(function(c) {
+                c.classList.remove('card-revealed');
+                c.classList.add('card-hidden');
+              });
+            }
+          });
+        }, { threshold: 0.12 });
+        wObs.observe(wSection);
+      }
+
+      // ─── ABOUT SECTION ───
+      var aSection = document.getElementById('about');
+      if (aSection) {
+        var aObs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              aSection.classList.add('about-visible');
+              aSection.querySelectorAll('.tags-scatter').forEach(function(t) { t.classList.add('tags-visible'); });
+              aSection.querySelectorAll('.about-stat-num[data-count]').forEach(function(el, i) {
+                setTimeout(function() {
+                  var target = parseInt(el.getAttribute('data-count'), 10);
+                  var suffix = el.getAttribute('data-suffix') || '';
+                  var dur = 1600;
+                  var start = null;
+                  function step(ts) {
+                    if (!start) start = ts;
+                    var p = Math.min((ts - start) / dur, 1);
+                    var eased = 1 - Math.pow(1 - p, 3);
+                    el.textContent = Math.round(eased * target) + suffix;
+                    if (p < 1) requestAnimationFrame(step);
+                  }
+                  requestAnimationFrame(step);
+                }, i * 200);
+              });
+            } else {
+              aSection.classList.remove('about-visible');
+              aSection.querySelectorAll('.tags-scatter').forEach(function(t) { t.classList.remove('tags-visible'); });
+              aSection.querySelectorAll('.about-stat-num[data-count]').forEach(function(el) {
+                el.textContent = '0' + (el.getAttribute('data-suffix') || '');
+              });
+            }
+          });
+        }, { threshold: 0.13 });
+        aObs.observe(aSection);
+      }
+
+      // ─── TOOLS SECTION ───
+      var tStage = document.getElementById('toolsStage');
+      if (tStage) {
+        var tItems = tStage.querySelectorAll('.tool-item');
+        var tObs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              tItems.forEach(function(item) {
+                item.classList.add('tool-dropping');
+              });
+            }
+          });
+        }, { threshold: 0.1 });
+        tObs.observe(tStage);
+      }
+
+      // ─── TESTIMONIALS ───
+      var tTrack = document.querySelector('.testi-track');
+      if (tTrack) {
+        Array.from(tTrack.children).forEach(function(c) {
+          tTrack.appendChild(c.cloneNode(true));
+        });
+      }
+
+      // ─── WORK TABS ───
+      document.querySelectorAll('.work-tab').forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          document.querySelectorAll('.work-tab').forEach(function(t) { t.classList.remove('active'); });
+          this.classList.add('active');
+        });
+      });
+
+      // ─── BOOKING TOGGLE ───
+      document.querySelectorAll('.book-toggle-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.book-toggle-btn').forEach(function(b) { b.classList.remove('active'); });
+          this.classList.add('active');
+        });
+      });
+
+      // ─── SIMPLE CALENDAR ───
+      var calGrid = document.getElementById('calGrid');
+      var calMonth = document.getElementById('calMonth');
+      var calPrev = document.getElementById('calPrev');
+      var calNext = document.getElementById('calNext');
+      var now = new Date();
+      var curMonth = now.getMonth();
+      var curYear = now.getFullYear();
+
+      function renderCalendar(m, y) {
+        if (!calGrid) return;
+        var d = new Date(y, m, 1);
+        var monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        calMonth.textContent = monthNames[m] + ' ' + y;
+        calGrid.innerHTML = '';
+        var firstDay = d.getDay();
+        var daysInMonth = new Date(y, m + 1, 0).getDate();
+        var today = new Date();
+        for (var i = 0; i < firstDay; i++) {
+          var empty = document.createElement('div');
+          empty.className = 'book-cal-cell bcc-empty';
+          calGrid.appendChild(empty);
+        }
+        for (var day = 1; day <= daysInMonth; day++) {
+          var cell = document.createElement('div');
+          cell.className = 'book-cal-cell';
+          cell.textContent = day;
+          var cd = new Date(y, m, day);
+          if (cd < new Date(today.getFullYear(), today.getMonth(), today.getDate())) {
+            cell.classList.add('bcc-past');
+          } else {
+            var dow = cd.getDay();
+            if (dow === 0 || dow === 6) cell.classList.add('bcc-weekend');
+          }
+          if (day === today.getDate() && m === today.getMonth() && y === today.getFullYear()) {
+            cell.classList.add('bcc-today');
+          }
+          cell.addEventListener('click', function() {
+            document.querySelectorAll('.bcc-selected').forEach(function(c) { c.classList.remove('bcc-selected'); });
+            if (!this.classList.contains('bcc-past') && !this.classList.contains('bcc-weekend')) {
+              this.classList.add('bcc-selected');
+              var tc = document.getElementById('timesContainer');
+              if (tc) {
+                tc.innerHTML = '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">' +
+                  '<button class="book-time-btn">9:00 AM</button>' +
+                  '<button class="book-time-btn">10:00 AM</button>' +
+                  '<button class="book-time-btn">11:00 AM</button>' +
+                  '<button class="book-time-btn">12:00 PM</button>' +
+                  '<button class="book-time-btn">1:00 PM</button>' +
+                  '<button class="book-time-btn">2:00 PM</button>' +
+                  '<button class="book-time-btn">3:00 PM</button>' +
+                  '<button class="book-time-btn">4:00 PM</button>' +
+                  '</div>';
+                tc.querySelectorAll('.book-time-btn').forEach(function(b) {
+                  b.addEventListener('click', function() {
+                    document.querySelectorAll('.book-time-btn').forEach(function(x) { x.classList.remove('active'); });
+                    this.classList.add('active');
+                  });
+                });
+              }
+            }
+          });
+          calGrid.appendChild(cell);
+        }
+      }
+      renderCalendar(curMonth, curYear);
+      if (calPrev) calPrev.addEventListener('click', function() { curMonth--; if (curMonth < 0) { curMonth = 11; curYear--; } renderCalendar(curMonth, curYear); });
+      if (calNext) calNext.addEventListener('click', function() { curMonth++; if (curMonth > 11) { curMonth = 0; curYear++; } renderCalendar(curMonth, curYear); });
+    })();
+  </script>
+</body>
+</html>

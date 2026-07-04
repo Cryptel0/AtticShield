@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attic Shield — Testimonials Mirror</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&family=Roboto+Slab:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --as-accent: #F2B947;
+      --as-dark: #1A1A1A;
+      --as-bg: #F7F5F0;
+      --as-text: #0F0E0C;
+    }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Roboto', sans-serif; background: var(--as-bg); }
+
+    .as-testi {
+      padding: 100px 0 120px;
+      overflow: hidden;
+      background: var(--as-bg);
+    }
+    .as-testi-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 56px;
+    }
+
+    /* Header */
+    .as-testi-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 52px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .as-testi-left { display: flex; flex-direction: column; gap: 12px; }
+    .as-testi-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(15,14,12,0.3);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .as-testi-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--as-accent);
+      border-radius: 2px;
+    }
+    .as-testi-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(28px, 3.6vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--as-text);
+      letter-spacing: -0.02em;
+      max-width: 500px;
+    }
+    .as-testi-rating {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .as-testi-stars {
+      display: flex;
+      gap: 3px;
+    }
+    .as-testi-stars svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--as-accent);
+    }
+    .as-testi-score {
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(15,14,12,0.5);
+      letter-spacing: 0.02em;
+    }
+    .as-testi-score strong { color: var(--as-text); }
+
+    /* ─── MARQUEE ─── */
+    .as-testi-marquee {
+      width: 100%;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+    }
+    .as-testi-track {
+      display: flex;
+      gap: 24px;
+      width: max-content;
+      animation: asTestiScroll 42s linear infinite;
+      padding: 8px 0 24px;
+    }
+    .as-testi-marquee:hover .as-testi-track {
+      animation-play-state: paused;
+    }
+    @keyframes asTestiScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ─── CARD ─── */
+    @keyframes asTestiFloat {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .as-testi-card {
+      background: #FFFFFF;
+      border-radius: 28px;
+      border: 1.5px solid rgba(15,14,12,0.07);
+      padding: 36px 36px 32px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(15,14,12,0.06), 0 1px 4px rgba(15,14,12,0.04);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+      width: 420px;
+      flex-shrink: 0;
+      animation: asTestiFloat 4.5s ease-in-out calc(var(--ti,0) * -0.4s) infinite;
+    }
+    .as-testi-card:hover {
+      animation: none;
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(15,14,12,0.12);
+    }
+
+    /* Blob */
+    .as-testi-blob {
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 340px;
+      height: 220px;
+      border-radius: 50%;
+      filter: blur(42px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .as-testi-card:nth-child(8n+1) .as-testi-blob { background: radial-gradient(ellipse at center, rgba(242,185,71,0.5) 0%, rgba(240,170,50,0.15) 55%, transparent 80%); bottom: -50px; left: 30%; }
+    .as-testi-card:nth-child(8n+2) .as-testi-blob { background: radial-gradient(ellipse at center, rgba(14,195,128,0.4) 0%, rgba(10,160,110,0.15) 55%, transparent 80%); bottom: -45px; }
+    .as-testi-card:nth-child(8n+3) .as-testi-blob { background: radial-gradient(ellipse at center, rgba(100,160,240,0.4) 0%, rgba(70,130,220,0.15) 55%, transparent 80%); bottom: -50px; left: 65%; }
+    .as-testi-card:nth-child(8n+4) .as-testi-blob { background: radial-gradient(ellipse at center, rgba(200,120,240,0.4) 0%, rgba(170,90,220,0.15) 55%, transparent 80%); bottom: -45px; left: 40%; }
+    .as-testi-card:nth-child(8n+5) .as-testi-blob { background: radial-gradient(ellipse at center, rgba(255,130,100,0.38) 0%, rgba(240,100,70,0.12) 55%, transparent 80%); bottom: -50px; left: 50%; }
+    .as-testi-card:nth-child(8n+6) .as-testi-blob { background: radial-gradient(ellipse at center, rgba(80,210,180,0.38) 0%, rgba(50,180,150,0.12) 55%, transparent 80%); bottom: -45px; left: 35%; }
+
+    /* Quote */
+    .as-testi-quote {
+      font-size: 84px;
+      line-height: 0.6;
+      font-weight: 900;
+      font-family: Georgia, 'Times New Roman', serif;
+      color: rgba(242,185,71,0.25);
+      margin-bottom: 12px;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+    .as-testi-text {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.7;
+      color: rgba(15,14,12,0.78);
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+    .as-testi-person {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+      padding-top: 18px;
+      border-top: 1.5px solid rgba(15,14,12,0.07);
+    }
+    .as-testi-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 2.5px solid rgba(15,14,12,0.07);
+      font-size: 20px;
+      font-weight: 800;
+      font-family: 'Roboto', sans-serif;
+    }
+    .as-testi-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--as-text);
+    }
+    .as-testi-role {
+      font-size: 12.5px;
+      font-weight: 400;
+      color: rgba(15,14,12,0.4);
+      margin-top: 2px;
+    }
+    .as-testi-service {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--as-accent);
+      margin-left: auto;
+      align-self: flex-start;
+      padding: 4px 10px;
+      background: rgba(242,185,71,0.1);
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .as-testi-inner { padding: 0 28px; }
+      .as-testi-header { flex-direction: column; align-items: flex-start; }
+      .as-testi { padding: 72px 0 88px; }
+    }
+    @media (max-width: 600px) {
+      .as-testi-card { width: 320px; padding: 28px 24px 24px; }
+      .as-testi-text { font-size: 14px; }
+    }
+    @media (max-width: 480px) {
+      .as-testi-inner { padding: 0 20px; }
+      .as-testi { padding: 56px 0 72px; }
+      .as-testi-card { width: 280px; padding: 24px 20px 20px; }
+      .as-testi-quote { font-size: 60px; }
+      .as-testi-text { font-size: 13px; margin-bottom: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <section class="as-testi">
+    <div class="as-testi-inner">
+      <div class="as-testi-header">
+        <div class="as-testi-left">
+          <span class="as-testi-eyebrow">Testimonials</span>
+          <h2 class="as-testi-title">Why Families Choose <em style="font-style:normal;color:var(--as-accent)">Attic Shield</em></h2>
+        </div>
+        <div class="as-testi-rating">
+          <div class="as-testi-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span class="as-testi-score"><strong>4.9</strong> / 5.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="as-testi-marquee">
+      <div class="as-testi-track">
+        <!-- 1 -->
+        <div class="as-testi-card" style="--ti:0">
+          <div class="as-testi-blob"></div>
+          <span class="as-testi-quote">"</span>
+          <p class="as-testi-text">Attic Shield did an incredible job insulating our attic. The team was professional, on time, and left everything spotless. Our energy bill dropped noticeably the first month.</p>
+          <div class="as-testi-person">
+            <div class="as-testi-avatar" style="background:#FFE8D0;color:#7A3800;">M</div>
+            <div>
+              <div class="as-testi-name">Michael T.</div>
+              <div class="as-testi-role">San Diego, CA</div>
+            </div>
+            <span class="as-testi-service">Insulation</span>
+          </div>
+        </div>
+        <!-- 2 -->
+        <div class="as-testi-card" style="--ti:1">
+          <div class="as-testi-blob"></div>
+          <span class="as-testi-quote">"</span>
+          <p class="as-testi-text">We had a serious rodent issue in our crawl space. Attic Shield sealed every entry point and cleaned everything thoroughly. Haven't seen a single sign of pests since.</p>
+          <div class="as-testi-person">
+            <div class="as-testi-avatar" style="background:#D4EDBC;color:#2D4800;">S</div>
+            <div>
+              <div class="as-testi-name">Sarah K.</div>
+              <div class="as-testi-role">Escondido, CA</div>
+            </div>
+            <span class="as-testi-service">Rodent Proofing</span>
+          </div>
+        </div>
+        <!-- 3 -->
+        <div class="as-testi-card" style="--ti:2">
+          <div class="as-testi-blob"></div>
+          <span class="as-testi-quote">"</span>
+          <p class="as-testi-text">From the free estimate to the final walkthrough, everything was smooth. They explained every step and the pricing was transparent. Rare to find that level of honesty.</p>
+          <div class="as-testi-person">
+            <div class="as-testi-avatar" style="background:#C8E0F8;color:#1A3A6B;">D</div>
+            <div>
+              <div class="as-testi-name">David R.</div>
+              <div class="as-testi-role">Carlsbad, CA</div>
+            </div>
+            <span class="as-testi-service">Attic Cleaning</span>
+          </div>
+        </div>
+        <!-- 4 -->
+        <div class="as-testi-card" style="--ti:3">
+          <div class="as-testi-blob"></div>
+          <span class="as-testi-quote">"</span>
+          <p class="as-testi-text">We had our crawl space encapsulated and it made a huge difference. No more musty smell, and the vapor barrier looks great. Highly recommend this team.</p>
+          <div class="as-testi-person">
+            <div class="as-testi-avatar" style="background:#FFD4E4;color:#5C1A35;">L</div>
+            <div>
+              <div class="as-testi-name">Lisa M.</div>
+              <div class="as-testi-role">Poway, CA</div>
+            </div>
+            <span class="as-testi-service">Crawl Space</span>
+          </div>
+        </div>
+        <!-- 5 -->
+        <div class="as-testi-card" style="--ti:4">
+          <div class="as-testi-blob"></div>
+          <span class="as-testi-quote">"</span>
+          <p class="as-testi-text">The team removed all the old blown-in insulation from our attic and replaced it with new. Night and day difference in how our home holds temperature. Worth every penny.</p>
+          <div class="as-testi-person">
+            <div class="as-testi-avatar" style="background:#E5D4FF;color:#3A0066;">J</div>
+            <div>
+              <div class="as-testi-name">James P.</div>
+              <div class="as-testi-role">Oceanside, CA</div>
+            </div>
+            <span class="as-testi-service">Insulation</span>
+          </div>
+        </div>
+        <!-- 6 -->
+        <div class="as-testi-card" style="--ti:5">
+          <div class="as-testi-blob"></div>
+          <span class="as-testi-quote">"</span>
+          <p class="as-testi-text">Very thorough rodent proofing job. They found gaps I never would have noticed and sealed them all. The follow-up inspection gave me total peace of mind.</p>
+          <div class="as-testi-person">
+            <div class="as-testi-avatar" style="background:#FFDDD4;color:#5C1A00;">A</div>
+            <div>
+              <div class="as-testi-name">Alex W.</div>
+              <div class="as-testi-role">Encinitas, CA</div>
+            </div>
+            <span class="as-testi-service">Rodent Proofing</span>
+          </div>
+        </div>
+        <!-- 7 -->
+        <div class="as-testi-card" style="--ti:6">
+          <div class="as-testi-blob"></div>
+          <span class="as-testi-quote">"</span>
+          <p class="as-testi-text">I run a small business out of my home and the attic insulation was outdated. Attic Shield made the whole process easy, clean, and fast. My workspace is so much more comfortable now.</p>
+          <div class="as-testi-person">
+            <div class="as-testi-avatar" style="background:#C8F4E8;color:#0A4A30;">R</div>
+            <div>
+              <div class="as-testi-name">Rita N.</div>
+              <div class="as-testi-role">Vista, CA</div>
+            </div>
+            <span class="as-testi-service">Attic Cleaning</span>
+          </div>
+        </div>
+        <!-- 8 -->
+        <div class="as-testi-card" style="--ti:7">
+          <div class="as-testi-blob"></div>
+          <span class="as-testi-quote">"</span>
+          <p class="as-testi-text">Had Attic Shield install a radiant barrier and new ventilation. The attic used to be unbearable in summer &mdash; now it's actually usable storage space. Great work.</p>
+          <div class="as-testi-person">
+            <div class="as-testi-avatar" style="background:#FFF4C0;color:#4A3000;">T</div>
+            <div>
+              <div class="as-testi-name">Tom B.</div>
+              <div class="as-testi-role">San Marcos, CA</div>
+            </div>
+            <span class="as-testi-service">Insulation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    (function() {
+      var track = document.querySelector('.as-testi-track');
+      if (!track) return;
+      Array.from(track.children).forEach(function(c) {
+        track.appendChild(c.cloneNode(true));
+      });
+    })();
+  </script>
+</body>
+</html>

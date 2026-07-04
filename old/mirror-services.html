@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attic Shield — Services Mirror</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&family=Roboto+Slab:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --as-accent: #F2B947;
+      --as-accent-light: rgba(242,185,71,0.10);
+      --as-dark: #1A1A1A;
+      --as-bg: #F7F5F0;
+      --as-text: #0F0E0C;
+    }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Roboto', sans-serif; background: var(--as-bg); }
+
+    .as-svcs {
+      padding: 100px 56px 120px;
+      overflow-x: hidden;
+      background: var(--as-bg);
+    }
+    .as-svcs-inner { max-width: 1360px; margin: 0 auto; }
+
+    /* Header */
+    .as-svcs-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 64px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .as-svcs-left { display: flex; flex-direction: column; gap: 12px; }
+    .as-svcs-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(15,14,12,0.3);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .as-svcs-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--as-accent);
+      border-radius: 2px;
+    }
+    .as-svcs-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(32px, 4vw, 56px);
+      font-weight: 800;
+      line-height: 1.08;
+      color: var(--as-text);
+      letter-spacing: -0.02em;
+      max-width: 560px;
+    }
+    .as-svcs-title em {
+      font-style: normal;
+      color: var(--as-accent);
+    }
+    .as-svcs-right {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .as-svcs-link {
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(15,14,12,0.45);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .as-svcs-link:hover { color: var(--as-text); }
+    .as-svcs-link svg { transition: transform 0.2s; }
+    .as-svcs-link:hover svg { transform: translateX(3px); }
+
+    /* Grid */
+    .as-svcs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    /* ─── SERVICE CARD ─── */
+    .as-card {
+      background: #FFFFFF;
+      border: 1.5px solid rgba(15,14,12,0.07);
+      border-radius: 22px;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      transition: opacity 0.72s cubic-bezier(0.16,1,0.3,1), transform 0.72s cubic-bezier(0.16,1,0.3,1);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+    .as-card.card-hidden { opacity: 0; transform: translateY(36px); }
+    .as-card.card-revealed { opacity: 1; transform: translateY(0); }
+
+    /* Tape */
+    .as-card-tape {
+      position: absolute;
+      top: -3px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-1.2deg);
+      width: 52px;
+      height: 18px;
+      border-radius: 2px;
+      z-index: 5;
+      pointer-events: none;
+      background: rgba(242,185,71,0.6);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .as-card-tape::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, transparent 60%);
+      border-radius: inherit;
+    }
+
+    /* Ribbon */
+    .as-card-ribbon {
+      position: absolute;
+      top: 16px;
+      left: -28px;
+      background: var(--as-accent);
+      color: var(--as-dark);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 32px;
+      transform: rotate(-45deg);
+      z-index: 3;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    /* Top visual area */
+    .as-card-visual {
+      height: 180px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 22px 22px 0 0;
+    }
+    .as-card-visual-bg {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .as-card:hover .as-card-visual-bg {
+      transform: scale(1.06);
+    }
+    .as-card-icon {
+      position: relative;
+      z-index: 2;
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .as-card:hover .as-card-icon {
+      transform: rotate(-6deg) scale(1.08);
+    }
+    .as-card-icon svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    /* Content */
+    .as-card-body {
+      padding: 24px 24px 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .as-card-cat {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(15,14,12,0.25);
+      margin-bottom: 6px;
+    }
+    .as-card-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--as-text);
+      line-height: 1.22;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .as-card-desc {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(15,14,12,0.55);
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 18px;
+    }
+    .as-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1.5px solid rgba(15,14,12,0.06);
+      padding-top: 16px;
+    }
+    .as-card-cta {
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(15,14,12,0.4);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .as-card:hover .as-card-cta { color: var(--as-accent); }
+    .as-card-cta svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s;
+    }
+    .as-card:hover .as-card-cta svg { transform: translateX(4px); }
+
+    .as-card-price {
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(15,14,12,0.3);
+    }
+
+    /* Shelf plank */
+    .as-shelf {
+      grid-column: 1 / -1;
+      height: 16px;
+      margin-top: -8px;
+      background: linear-gradient(180deg, #D4C8B0 0%, #B8A88C 45%, #9A8868 100%);
+      border-radius: 4px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+
+    /* ─── CARD THEMES ─── */
+    .theme-cleaning .as-card-visual { background: linear-gradient(135deg, #D4EDBC 0%, #A8D080 100%); }
+    .theme-cleaning .as-card-visual-bg { background: linear-gradient(135deg, #D4EDBC 0%, #A8D080 100%); }
+    .theme-cleaning .as-card-icon svg { fill: #3D6B1A; }
+
+    .theme-insulation .as-card-visual { background: linear-gradient(135deg, #FFE8B5 0%, #F5C842 100%); }
+    .theme-insulation .as-card-visual-bg { background: linear-gradient(135deg, #FFE8B5 0%, #F5C842 100%); }
+    .theme-insulation .as-card-icon svg { fill: #8A6A00; }
+
+    .theme-rodent .as-card-visual { background: linear-gradient(135deg, #C8E0F8 0%, #6AA8E0 100%); }
+    .theme-rodent .as-card-visual-bg { background: linear-gradient(135deg, #C8E0F8 0%, #6AA8E0 100%); }
+    .theme-rodent .as-card-icon svg { fill: #1A4A7A; }
+
+    .theme-crawl .as-card-visual { background: linear-gradient(135deg, #EBD8FF 0%, #C090E8 100%); }
+    .theme-crawl .as-card-visual-bg { background: linear-gradient(135deg, #EBD8FF 0%, #C090E8 100%); }
+    .theme-crawl .as-card-icon svg { fill: #4A1A7A; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1100px) {
+      .as-svcs-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .as-svcs { padding: 72px 28px 80px; }
+      .as-svcs-header { flex-direction: column; align-items: flex-start; }
+      .as-svcs-right { text-align: left; }
+      .as-card-visual { height: 150px; }
+    }
+    @media (max-width: 560px) {
+      .as-svcs-grid { grid-template-columns: 1fr; }
+      .as-svcs { padding: 56px 20px 64px; }
+    }
+
+    /* ─── SCROLL TRIGGERED ANIMATION ─── */
+    .as-card:nth-child(1) { transition-delay: 0s; }
+    .as-card:nth-child(2) { transition-delay: 0.08s; }
+    .as-card:nth-child(3) { transition-delay: 0.16s; }
+    .as-card:nth-child(4) { transition-delay: 0.24s; }
+  </style>
+</head>
+<body>
+  <section class="as-svcs" id="as-services">
+    <div class="as-svcs-inner">
+      <div class="as-svcs-header">
+        <div class="as-svcs-left">
+          <span class="as-svcs-eyebrow">Our Services</span>
+          <h2 class="as-svcs-title">Complete Protection for Your <em>Attic &amp; Crawl Space</em></h2>
+        </div>
+        <div class="as-svcs-right">
+          <a href="/services/" class="as-svcs-link">
+            View All Services
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="as-svcs-grid">
+        <!-- 1. Attic Cleaning -->
+        <div class="as-card card-hidden theme-cleaning">
+          <div class="as-card-tape"></div>
+          <div class="as-card-ribbon">Most Popular</div>
+          <div class="as-card-visual">
+            <div class="as-card-visual-bg"></div>
+            <div class="as-card-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="as-card-body">
+            <span class="as-card-cat">San Diego</span>
+            <h3 class="as-card-title">Attic Cleaning &amp; Sanitization</h3>
+            <p class="as-card-desc">Remove old insulation, debris, and contaminants. Full sanitation and decontamination for a healthier home.</p>
+            <div class="as-card-footer">
+              <a href="/services/attic-cleaning/" class="as-card-cta">
+                Explore More
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <span class="as-card-price">Free Estimate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Insulation -->
+        <div class="as-card card-hidden theme-insulation">
+          <div class="as-card-tape"></div>
+          <div class="as-card-visual">
+            <div class="as-card-visual-bg"></div>
+            <div class="as-card-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="2" y="3" width="20" height="18" rx="2" ry="2"/>
+                <line x1="12" y1="8" x2="12" y2="16"/>
+                <line x1="8" y1="12" x2="16" y2="12"/>
+              </svg>
+            </div>
+          </div>
+          <div class="as-card-body">
+            <span class="as-card-cat">Energy Savings</span>
+            <h3 class="as-card-title">Attic Insulation Installation</h3>
+            <p class="as-card-desc">Blow-in, fiberglass batt, spray foam, and radiant barrier solutions. Cut energy bills by up to 30%.</p>
+            <div class="as-card-footer">
+              <a href="/services/insulation/" class="as-card-cta">
+                Explore More
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <span class="as-card-price">Free Estimate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Rodent Proofing -->
+        <div class="as-card card-hidden theme-rodent">
+          <div class="as-card-tape"></div>
+          <div class="as-card-visual">
+            <div class="as-card-visual-bg"></div>
+            <div class="as-card-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                <path d="M8 12h8M12 8v8"/>
+              </svg>
+            </div>
+          </div>
+          <div class="as-card-body">
+            <span class="as-card-cat">Pest Exclusion</span>
+            <h3 class="as-card-title">Rodent Proofing &amp; Cleanup</h3>
+            <p class="as-card-desc">Seal entry points, remove droppings, and prevent re-entry. Complete pest exclusion and wildlife cleanup.</p>
+            <div class="as-card-footer">
+              <a href="/services/rodent-proofing/" class="as-card-cta">
+                Explore More
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <span class="as-card-price">Free Estimate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Crawl Space -->
+        <div class="as-card card-hidden theme-crawl">
+          <div class="as-card-tape"></div>
+          <div class="as-card-visual">
+            <div class="as-card-visual-bg"></div>
+            <div class="as-card-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+          </div>
+          <div class="as-card-body">
+            <span class="as-card-cat">Moisture Control</span>
+            <h3 class="as-card-title">Crawl Space Encapsulation</h3>
+            <p class="as-card-desc">Cleaning, encapsulation, vapor barriers, and insulation for crawl spaces. Prevent mold and structural damage.</p>
+            <div class="as-card-footer">
+              <a href="/services/crawl-space/" class="as-card-cta">
+                Explore More
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <span class="as-card-price">Free Estimate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shelf plank -->
+        <div class="as-shelf"></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function() {
+      var section = document.getElementById('as-services');
+      if (!section) return;
+      var cards = section.querySelectorAll('.as-card');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            cards.forEach(function(c, i) {
+              setTimeout(function() {
+                c.classList.remove('card-hidden');
+                c.classList.add('card-revealed');
+              }, i * 130 + 60);
+            });
+          } else {
+            cards.forEach(function(c) {
+              c.classList.remove('card-revealed');
+              c.classList.add('card-hidden');
+            });
+          }
+        });
+      }, { threshold: 0.1 });
+      observer.observe(section);
+    })();
+  </script>
+</body>
+</html>

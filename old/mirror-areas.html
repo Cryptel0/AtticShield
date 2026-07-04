@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attic Shield — Service Areas Mirror</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&family=Roboto+Slab:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --as-accent: #F2B947;
+      --as-accent-light: rgba(242,185,71,0.10);
+      --as-dark: #1A1A1A;
+      --as-bg: #F7F5F0;
+      --as-text: #0F0E0C;
+    }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Roboto', sans-serif; background: var(--as-bg); }
+
+    .as-areas {
+      padding: 100px 56px 120px;
+      overflow: hidden;
+      background: var(--as-bg);
+    }
+    .as-areas-inner { max-width: 1360px; margin: 0 auto; }
+
+    /* ─── HEADER ─── */
+    .as-areas-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .as-areas-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(15,14,12,0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .as-areas-eyebrow::before,
+    .as-areas-eyebrow::after {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--as-accent);
+      border-radius: 2px;
+    }
+    .as-areas-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--as-text);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    .as-areas-title em { font-style: normal; color: var(--as-accent); }
+    .as-areas-sub {
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(15,14,12,0.5);
+      line-height: 1.6;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ─── MAP VISUAL ─── */
+    .as-areas-map {
+      position: relative;
+      background: #FFFFFF;
+      border: 1.5px solid rgba(15,14,12,0.07);
+      border-radius: 28px;
+      padding: 40px 44px;
+      margin-bottom: 48px;
+      overflow: hidden;
+    }
+    .as-areas-map::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image: 
+        repeating-linear-gradient(90deg, var(--as-accent) 0px, var(--as-accent) 2px, transparent 2px, transparent 20px),
+        repeating-linear-gradient(0deg, var(--as-accent) 0px, var(--as-accent) 2px, transparent 2px, transparent 20px);
+      pointer-events: none;
+    }
+
+    /* Decorative dots/grid like Debbie's about background */
+    .as-areas-map-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image: 
+        radial-gradient(circle, rgba(242,185,71,0.08) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+    }
+
+    .as-areas-map-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .as-areas-map-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* County bars */
+    .as-areas-county-bar {
+      background: var(--as-bg);
+      border: 1.5px solid rgba(15,14,12,0.06);
+      border-radius: 16px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .as-areas-county-bar:hover {
+      transform: translateX(6px);
+      box-shadow: 0 4px 16px rgba(15,14,12,0.06);
+    }
+    .as-areas-county-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 18px;
+      font-weight: 900;
+      color: #fff;
+    }
+    .as-areas-county-icon.sd { background: linear-gradient(135deg, #F2B947, #D49A20); }
+    .as-areas-county-icon.rv { background: linear-gradient(135deg, #6AA8E0, #3A7AB8); }
+    .as-areas-county-icon.oc { background: linear-gradient(135deg, #8AB870, #5A9040); }
+
+    .as-areas-county-info { flex: 1; }
+    .as-areas-county-name {
+      font-family: 'Roboto Slab', serif;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--as-text);
+      letter-spacing: -0.01em;
+    }
+    .as-areas-county-cities {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(15,14,12,0.4);
+      margin-top: 3px;
+    }
+    .as-areas-county-arrow {
+      color: rgba(15,14,12,0.15);
+      flex-shrink: 0;
+      transition: transform 0.2s, color 0.2s;
+    }
+    .as-areas-county-bar:hover .as-areas-county-arrow {
+      transform: translateX(4px);
+      color: var(--as-accent);
+    }
+
+    /* Stats side */
+    .as-areas-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .as-areas-stat {
+      background: var(--as-bg);
+      border: 1.5px solid rgba(15,14,12,0.06);
+      border-radius: 16px;
+      padding: 18px 20px;
+      text-align: center;
+    }
+    .as-areas-stat-num {
+      font-family: 'Roboto Slab', serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--as-accent);
+      letter-spacing: -0.02em;
+    }
+    .as-areas-stat-lbl {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(15,14,12,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 4px;
+    }
+
+    /* ─── COUNTIES GRID ─── */
+    .as-areas-counties {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .as-areas-county-col {
+      background: #FFFFFF;
+      border: 1.5px solid rgba(15,14,12,0.07);
+      border-radius: 22px;
+      padding: 32px 28px 36px;
+      transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .as-areas-county-col.card-hidden { opacity: 0; transform: translateY(32px); }
+    .as-areas-county-col.card-revealed { opacity: 1; transform: translateY(0); }
+
+    .as-areas-col-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1.5px solid rgba(15,14,12,0.06);
+    }
+    .as-areas-col-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .as-areas-col-dot.sd { background: var(--as-accent); }
+    .as-areas-col-dot.rv { background: #6AA8E0; }
+    .as-areas-col-dot.oc { background: #8AB870; }
+
+    .as-areas-col-name {
+      font-family: 'Roboto Slab', serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--as-text);
+    }
+    .as-areas-col-count {
+      margin-left: auto;
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(15,14,12,0.3);
+      letter-spacing: 0.04em;
+      background: var(--as-bg);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* City pills */
+    .as-areas-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .as-areas-pill {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 8px;
+      background: var(--as-bg);
+      color: rgba(15,14,12,0.6);
+      letter-spacing: -0.01em;
+      transition: all 0.2s ease;
+      cursor: default;
+      opacity: 0;
+      transform: translateY(-40px) rotate(var(--rot, 0deg));
+      transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.22, 1.4, 0.36, 1);
+      transition-delay: calc(var(--ai, 0) * 30ms + 100ms);
+    }
+    .as-areas-pill:hover {
+      background: var(--as-accent-light);
+      color: var(--as-accent);
+      transform: translateY(0) rotate(0deg) scale(1.05) !important;
+    }
+    .as-areas-pills-visible .as-areas-pill {
+      opacity: 1;
+      transform: translateY(0) rotate(var(--rot, 0deg));
+    }
+
+    /* ─── CTA ─── */
+    .as-areas-cta {
+      text-align: center;
+      margin-top: 48px;
+    }
+    .as-areas-cta p {
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(15,14,12,0.5);
+      margin-bottom: 16px;
+    }
+    .as-areas-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--as-dark);
+      background: var(--as-accent);
+      text-decoration: none;
+      padding: 15px 32px;
+      border-radius: 100px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 16px rgba(242,185,71,0.3);
+    }
+    .as-areas-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(242,185,71,0.4);
+    }
+    .as-areas-cta-btn svg { transition: transform 0.2s; }
+    .as-areas-cta-btn:hover svg { transform: translateX(4px); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1100px) {
+      .as-areas-map-content {
+        grid-template-columns: 1fr;
+      }
+      .as-areas-counties { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .as-areas { padding: 72px 28px 80px; }
+      .as-areas-map { padding: 28px 24px; }
+      .as-areas-counties { grid-template-columns: 1fr; }
+      .as-areas-county-col { padding: 24px 22px 28px; }
+    }
+    @media (max-width: 480px) {
+      .as-areas { padding: 56px 20px 64px; }
+      .as-areas-map { padding: 20px 16px; border-radius: 20px; }
+      .as-areas-stats { grid-template-columns: 1fr 1fr; }
+      .as-areas-county-bar { padding: 16px 18px; flex-wrap: wrap; }
+    }
+
+    /* Staggered delays for columns */
+    .as-areas-county-col:nth-child(1) { transition-delay: 0s; }
+    .as-areas-county-col:nth-child(2) { transition-delay: 0.1s; }
+    .as-areas-county-col:nth-child(3) { transition-delay: 0.2s; }
+  </style>
+</head>
+<body>
+  <section class="as-areas" id="as-areas">
+    <div class="as-areas-inner">
+      <div class="as-areas-header">
+        <span class="as-areas-eyebrow">Service Areas</span>
+        <h2 class="as-areas-title">Protecting Homes Across <em>Southern California</em></h2>
+        <p class="as-areas-sub">
+          From San Diego to Orange County, we bring licensed attic and crawl space expertise to your neighborhood.
+        </p>
+      </div>
+
+      <!-- Map overview bar -->
+      <div class="as-areas-map">
+        <div class="as-areas-map-bg"></div>
+        <div class="as-areas-map-content">
+          <div class="as-areas-map-visual">
+            <div class="as-areas-county-bar">
+              <div class="as-areas-county-icon sd">SD</div>
+              <div class="as-areas-county-info">
+                <div class="as-areas-county-name">San Diego County</div>
+                <div class="as-areas-county-cities">Escondido, San Diego, Carlsbad, Oceanside, Vista &amp; 55+ more</div>
+              </div>
+              <svg class="as-areas-county-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+            <div class="as-areas-county-bar">
+              <div class="as-areas-county-icon rv">RV</div>
+              <div class="as-areas-county-info">
+                <div class="as-areas-county-name">Southwest Riverside County</div>
+                <div class="as-areas-county-cities">Temecula, Murrieta, Lake Elsinore, Menifee &amp; 5 more</div>
+              </div>
+              <svg class="as-areas-county-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+            <div class="as-areas-county-bar">
+              <div class="as-areas-county-icon oc">OC</div>
+              <div class="as-areas-county-info">
+                <div class="as-areas-county-name">South Orange County</div>
+                <div class="as-areas-county-cities">San Clemente, Mission Viejo, Laguna Niguel &amp; 7 more</div>
+              </div>
+              <svg class="as-areas-county-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </div>
+
+          <div class="as-areas-stats">
+            <div class="as-areas-stat">
+              <div class="as-areas-stat-num">79+</div>
+              <div class="as-areas-stat-lbl">Cities Served</div>
+            </div>
+            <div class="as-areas-stat">
+              <div class="as-areas-stat-num">3</div>
+              <div class="as-areas-stat-lbl">Counties</div>
+            </div>
+            <div class="as-areas-stat">
+              <div class="as-areas-stat-num">2,500+</div>
+              <div class="as-areas-stat-lbl">Homes Protected</div>
+            </div>
+            <div class="as-areas-stat">
+              <div class="as-areas-stat-num">20+</div>
+              <div class="as-areas-stat-lbl">Years Experience</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- County columns -->
+      <div class="as-areas-counties">
+        <!-- San Diego -->
+        <div class="as-areas-county-col card-hidden">
+          <div class="as-areas-col-header">
+            <span class="as-areas-col-dot sd"></span>
+            <span class="as-areas-col-name">San Diego County</span>
+            <span class="as-areas-col-count">60+ cities</span>
+          </div>
+          <div class="as-areas-pills">
+            <span class="as-areas-pill" style="--ai:0;--rot:-1.5deg">San Diego</span>
+            <span class="as-areas-pill" style="--ai:1;--rot:2deg">Escondido</span>
+            <span class="as-areas-pill" style="--ai:2;--rot:-1deg">Carlsbad</span>
+            <span class="as-areas-pill" style="--ai:3;--rot:1.5deg">Oceanside</span>
+            <span class="as-areas-pill" style="--ai:4;--rot:-2deg">Vista</span>
+            <span class="as-areas-pill" style="--ai:5;--rot:1deg">San Marcos</span>
+            <span class="as-areas-pill" style="--ai:6;--rot:-1deg">Encinitas</span>
+            <span class="as-areas-pill" style="--ai:7;--rot:2.5deg">Poway</span>
+            <span class="as-areas-pill" style="--ai:8;--rot:-1.5deg">Chula Vista</span>
+            <span class="as-areas-pill" style="--ai:9;--rot:1deg">El Cajon</span>
+            <span class="as-areas-pill" style="--ai:10;--rot:-2deg">La Mesa</span>
+            <span class="as-areas-pill" style="--ai:11;--rot:2deg">Santee</span>
+            <span class="as-areas-pill" style="--ai:12;--rot:-1deg">Del Mar</span>
+            <span class="as-areas-pill" style="--ai:13;--rot:1.5deg">Solana Beach</span>
+            <span class="as-areas-pill" style="--ai:14;--rot:-1.5deg">Rancho Santa Fe</span>
+            <span class="as-areas-pill" style="--ai:15;--rot:2deg">Valley Center</span>
+            <span class="as-areas-pill" style="--ai:16;--rot:-1deg">Fallbrook</span>
+            <span class="as-areas-pill" style="--ai:17;--rot:1deg">Ramona</span>
+            <span class="as-areas-pill" style="--ai:18;--rot:-2.5deg">La Jolla</span>
+            <span class="as-areas-pill" style="--ai:19;--rot:1.5deg">Pacific Beach</span>
+            <span class="as-areas-pill" style="--ai:20;--rot:-1deg">Point Loma</span>
+            <span class="as-areas-pill" style="--ai:21;--rot:2deg">Hillcrest</span>
+            <span class="as-areas-pill" style="--ai:22;--rot:-1.5deg">Mira Mesa</span>
+            <span class="as-areas-pill" style="--ai:23;--rot:1deg">Rancho Bernardo</span>
+            <span class="as-areas-pill" style="--ai:24;--rot:-2deg">University City</span>
+            <span class="as-areas-pill" style="--ai:25;--rot:1.5deg">Imperial Beach</span>
+            <span class="as-areas-pill" style="--ai:26;--rot:-1deg">National City</span>
+            <span class="as-areas-pill" style="--ai:27;--rot:2.5deg">Lemon Grove</span>
+            <span class="as-areas-pill" style="--ai:28;--rot:-1.5deg">Bonsall</span>
+            <span class="as-areas-pill" style="--ai:29;--rot:1deg">Lakeside</span>
+            <span class="as-areas-pill" style="--ai:30;--rot:-2deg">Alpine</span>
+            <span class="as-areas-pill" style="--ai:31;--rot:1.5deg">Jamul</span>
+            <span class="as-areas-pill" style="--ai:32;--rot:-1deg">San Ysidro</span>
+            <span class="as-areas-pill" style="--ai:33;--rot:2deg">Otay Mesa</span>
+            <span class="as-areas-pill" style="--ai:34;--rot:-1.5deg">Rainbow</span>
+            <span class="as-areas-pill" style="--ai:35;--rot:1deg">Pala Mesa</span>
+          </div>
+        </div>
+
+        <!-- Riverside -->
+        <div class="as-areas-county-col card-hidden">
+          <div class="as-areas-col-header">
+            <span class="as-areas-col-dot rv"></span>
+            <span class="as-areas-col-name">Riverside County</span>
+            <span class="as-areas-col-count">9 cities</span>
+          </div>
+          <div class="as-areas-pills">
+            <span class="as-areas-pill" style="--ai:0;--rot:2deg">Temecula</span>
+            <span class="as-areas-pill" style="--ai:1;--rot:-1.5deg">Murrieta</span>
+            <span class="as-areas-pill" style="--ai:2;--rot:1deg">Lake Elsinore</span>
+            <span class="as-areas-pill" style="--ai:3;--rot:-2deg">Menifee</span>
+            <span class="as-areas-pill" style="--ai:4;--rot:1.5deg">Hemet</span>
+            <span class="as-areas-pill" style="--ai:5;--rot:-1deg">Wildomar</span>
+            <span class="as-areas-pill" style="--ai:6;--rot:2.5deg">Canyon Lake</span>
+            <span class="as-areas-pill" style="--ai:7;--rot:-1.5deg">Sun City</span>
+            <span class="as-areas-pill" style="--ai:8;--rot:1deg">Perris</span>
+          </div>
+        </div>
+
+        <!-- Orange County -->
+        <div class="as-areas-county-col card-hidden">
+          <div class="as-areas-col-header">
+            <span class="as-areas-col-dot oc"></span>
+            <span class="as-areas-col-name">Orange County</span>
+            <span class="as-areas-col-count">10 cities</span>
+          </div>
+          <div class="as-areas-pills">
+            <span class="as-areas-pill" style="--ai:0;--rot:-1deg">San Clemente</span>
+            <span class="as-areas-pill" style="--ai:1;--rot:2deg">Mission Viejo</span>
+            <span class="as-areas-pill" style="--ai:2;--rot:-1.5deg">Aliso Viejo</span>
+            <span class="as-areas-pill" style="--ai:3;--rot:1deg">Laguna Niguel</span>
+            <span class="as-areas-pill" style="--ai:4;--rot:-2deg">Lake Forest</span>
+            <span class="as-areas-pill" style="--ai:5;--rot:1.5deg">Ladera Ranch</span>
+            <span class="as-areas-pill" style="--ai:6;--rot:-1deg">Coto De Caza</span>
+            <span class="as-areas-pill" style="--ai:7;--rot:2.5deg">Rancho Santa Margarita</span>
+            <span class="as-areas-pill" style="--ai:8;--rot:-1.5deg">Trabuco Canyon</span>
+            <span class="as-areas-pill" style="--ai:9;--rot:1deg">Dana Point</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="as-areas-cta">
+        <p>Don't see your city? Give us a call — we may still cover your area.</p>
+        <a href="/contact-us/" class="as-areas-cta-btn">
+          Request an Inspection
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function() {
+      var section = document.getElementById('as-areas');
+      if (!section) return;
+
+      // Columns staggered reveal
+      var cols = section.querySelectorAll('.as-areas-county-col');
+      var colObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            cols.forEach(function(c, i) {
+              setTimeout(function() {
+                c.classList.remove('card-hidden');
+                c.classList.add('card-revealed');
+              }, i * 120 + 50);
+            });
+            // Trigger pills inside each column after column reveals
+            setTimeout(function() {
+              cols.forEach(function(col) {
+                var pills = col.querySelector('.as-areas-pills');
+                if (pills) pills.classList.add('as-areas-pills-visible');
+              });
+            }, 400);
+          } else {
+            cols.forEach(function(c) {
+              c.classList.remove('card-revealed');
+              c.classList.add('card-hidden');
+              var pills = c.querySelector('.as-areas-pills');
+              if (pills) pills.classList.remove('as-areas-pills-visible');
+            });
+          }
+        });
+      }, { threshold: 0.08 });
+      colObserver.observe(section);
+    })();
+  </script>
+</body>
+</html>

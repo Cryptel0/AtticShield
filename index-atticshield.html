@@ -1,0 +1,4065 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attic Shield — Attic Insulation, Rodent Proofing &amp; Crawl Space Experts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&family=Roboto+Slab:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --as-accent: #F2B947;
+      --as-accent-dim: rgba(242,185,71,0.15);
+      --as-accent-light: rgba(242,185,71,0.10);
+      --as-dark: #0D0D0D;
+      --as-dark2: #1A1A1A;
+      --as-text: #F5F3EF;
+      --as-muted: rgba(245,243,239,0.5);
+      --as-bg: #F7F5F0;
+      --as-text-dark: #0F0E0C;
+      --as-font: 'Roboto', sans-serif;
+      --as-font-heading: 'Roboto Slab', serif;
+      --bg-footer: #1A1A1A;
+      --text-primary: #EDEBE4;
+      --text-muted: rgba(237,235,228,0.45);
+      --text-dim: rgba(237,235,228,0.25);
+      --rule: rgba(237,235,228,0.08);
+    }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    body { font-family: var(--as-font); background: var(--as-bg); }
+
+    /* ══════════ HERO ══════════ */
+    .as-hero {
+      min-height: 100vh;
+      background: var(--as-dark);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .as-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(2px 2px at 15% 25%, rgba(242,185,71,0.35), transparent),
+        radial-gradient(2px 2px at 35% 65%, rgba(242,185,71,0.2), transparent),
+        radial-gradient(2px 2px at 55% 20%, rgba(242,185,71,0.25), transparent),
+        radial-gradient(2px 2px at 75% 55%, rgba(242,185,71,0.15), transparent),
+        radial-gradient(3px 3px at 5% 85%, rgba(242,185,71,0.2), transparent),
+        radial-gradient(3px 3px at 95% 8%, rgba(242,185,71,0.15), transparent),
+        radial-gradient(2px 2px at 45% 45%, rgba(242,185,71,0.08), transparent),
+        radial-gradient(2px 2px at 65% 35%, rgba(242,185,71,0.2), transparent);
+      background-size: 200px 200px;
+      animation: asParticles 10s ease-in-out infinite alternate;
+    }
+    @keyframes asParticles {
+      0% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0; }
+      100% { background-position: 40px 50px, -30px -40px, 50px -30px, -40px 30px, 30px 40px, -50px -20px, 20px -50px, -30px 60px; }
+    }
+    .as-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: linear-gradient(to top, rgba(242,185,71,0.06) 0%, transparent 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .as-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .as-hero-bg::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 70vmax;
+      height: 70vmax;
+      background: radial-gradient(circle, rgba(242,185,71,0.06) 0%, transparent 65%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .as-hero-bg::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -10%;
+      width: 60vmax;
+      height: 60vmax;
+      background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 60%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .as-hero-slash {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 38%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(135deg, transparent 45%, rgba(242,185,71,0.02) 45%, rgba(242,185,71,0.04) 55%, transparent 55%);
+    }
+    .as-nav {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 48px;
+      background: transparent;
+    }
+    .as-nav-logo {
+      font-family: var(--as-font-heading);
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      padding: 10px 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(242,185,71,0.10);
+      backdrop-filter: blur(24px) saturate(1.5);
+      -webkit-backdrop-filter: blur(24px) saturate(1.5);
+      border: 1px solid rgba(242,185,71,0.2);
+      border-radius: 100px;
+      box-shadow: inset 0 0 22px rgba(242,185,71,0.08), inset 0 1px 0 rgba(255,255,255,0.08), 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .as-nav-logo-mark {
+      width: 28px;
+      height: 28px;
+      background: var(--as-accent);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 900;
+      color: var(--as-dark);
+    }
+    .as-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 10px 24px;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(24px) saturate(1.5);
+      -webkit-backdrop-filter: blur(24px) saturate(1.5);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 100px;
+    }
+    .as-nav-links a {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.18s;
+      white-space: nowrap;
+    }
+    .as-nav-links a:hover { color: var(--as-accent); }
+    .as-nav-phone {
+      font-family: var(--as-font);
+      font-size: 13px;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      background: var(--as-accent);
+      border-radius: 100px;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .as-nav-phone:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+    .as-hero-body {
+      position: relative;
+      z-index: 6;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 0 48px 100px;
+      max-width: 1360px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .as-hero-content { max-width: 720px; }
+    .as-trust {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--as-accent);
+      background: rgba(0,0,0,0.4);
+      border: 1.5px solid rgba(242,185,71,0.4);
+      border-radius: 100px;
+      padding: 6px 14px;
+      margin-bottom: 20px;
+      letter-spacing: 0.06em;
+      backdrop-filter: blur(8px);
+      animation: asFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+    }
+    .as-trust-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #4ADE80;
+      flex-shrink: 0;
+      animation: asPulse 2s ease-in-out infinite;
+    }
+    @keyframes asPulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.7); }
+    }
+    .as-word-wrap { display: block; overflow: hidden; padding-bottom: 0.06em; margin-bottom: -0.06em; }
+    .as-word { display: block; transform: translateY(108%); animation: asWordRise 0.82s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .as-word-wrap:nth-child(1) .as-word { animation-delay: 0.12s; }
+    .as-word-wrap:nth-child(2) .as-word { animation-delay: 0.30s; }
+    .as-word-wrap:nth-child(3) .as-word { animation-delay: 0.48s; }
+    @keyframes asWordRise { from { transform: translateY(108%); } to { transform: translateY(0); } }
+    .as-headline {
+      font-family: var(--as-font-heading);
+      font-size: clamp(48px, 7vw, 96px);
+      font-weight: 800;
+      line-height: 0.92;
+      color: #fff;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      text-shadow: 0 2px 30px rgba(0,0,0,0.35);
+    }
+    .as-headline .as-accent { color: var(--as-accent); }
+    .as-tagline {
+      max-width: 600px;
+      margin-bottom: 32px;
+      animation: asFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.68s both;
+    }
+    .as-tagline p {
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+      text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+    }
+    .as-tagline strong { color: var(--as-accent); font-weight: 600; }
+    .as-ctas {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      animation: asFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.86s both;
+      flex-wrap: wrap;
+    }
+    .as-btn-primary {
+      font-family: var(--as-font);
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--as-dark);
+      background: var(--as-accent);
+      text-decoration: none;
+      padding: 17px 34px;
+      border-radius: 100px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 24px rgba(242,185,71,0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .as-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 36px rgba(242,185,71,0.45);
+    }
+    .as-btn-secondary {
+      font-family: var(--as-font);
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      padding: 16px 28px;
+      border-radius: 100px;
+      border: 2px solid rgba(255,255,255,0.35);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,0.06);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .as-btn-secondary:hover {
+      border-color: var(--as-accent);
+      color: var(--as-accent);
+      background: rgba(242,185,71,0.08);
+    }
+    .as-btn-arrow {
+      display: inline-flex;
+      transition: transform 0.2s ease;
+    }
+    .as-btn-primary:hover .as-btn-arrow,
+    .as-btn-secondary:hover .as-btn-arrow {
+      transform: translateX(4px);
+    }
+    .as-trust-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-top: 48px;
+      animation: asFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.05s both;
+    }
+    .as-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.02em;
+    }
+    .as-trust-item svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    .as-trust-item .as-check { fill: var(--as-accent); }
+    .as-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 48px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      z-index: 3;
+      animation: asFadeUp 0.6s ease 1.3s both;
+    }
+    .as-scroll-line {
+      width: 36px;
+      height: 1.5px;
+      background: rgba(255,255,255,0.25);
+    }
+    @keyframes asFadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 1024px) {
+      .as-nav { padding: 20px 28px; }
+      .as-hero-body { padding: 0 28px 80px; }
+      .as-scroll { left: 28px; }
+    }
+    @media (max-width: 768px) {
+      .as-nav-links { display: none; }
+      .as-nav { padding: 16px 20px; }
+      .as-hero-body { padding: 0 20px 70px; }
+      .as-headline { font-size: clamp(40px, 10vw, 56px); }
+      .as-scroll { left: 20px; bottom: 20px; }
+      .as-trust-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+    @media (max-width: 480px) {
+      .as-hero-body { padding: 0 20px 60px; }
+      .as-headline { font-size: clamp(32px, 12vw, 48px); }
+      .as-tagline p { font-size: 14px; }
+      .as-ctas { flex-direction: column; width: 100%; }
+      .as-btn-primary, .as-btn-secondary { width: 100%; justify-content: center; }
+      .as-nav { padding: 14px 16px; }
+      .as-nav-logo { font-size: 15px; padding: 8px 14px; }
+      .as-nav-phone { font-size: 12px; padding: 8px 14px; }
+    }
+
+    /* ══════════ CHATBOT ══════════ */
+    .as-chat-toggle {
+      position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--as-accent); border: none;
+      box-shadow: 0 4px 24px rgba(242,185,71,.35);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .as-chat-toggle:hover { transform: scale(1.08); box-shadow: 0 8px 32px rgba(242,185,71,.45); }
+    .as-chat-toggle svg { width: 24px; height: 24px; color: var(--as-dark); }
+    .as-chat-toggle .close-icon { display: none; }
+    .as-chat-toggle.open .chat-icon { display: none; }
+    .as-chat-toggle.open .close-icon { display: block; }
+
+    .as-chat-panel {
+      position: fixed; bottom: 92px; right: 24px; z-index: 9998;
+      width: 380px; max-height: 560px;
+      background: #0D0D0D; border: 1px solid rgba(242,185,71,.15);
+      border-radius: 24px; box-shadow: 0 16px 64px rgba(0,0,0,.6);
+      display: none; flex-direction: column; overflow: hidden;
+    }
+    .as-chat-panel.open { display: flex; }
+    .as-chat-head {
+      padding: 16px 20px;
+      background: linear-gradient(135deg, #0D0D0D, #1A1A1A);
+      border-bottom: 1px solid rgba(242,185,71,.1);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .as-chat-head-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--as-accent); color: var(--as-dark);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 14px; flex-shrink: 0;
+    }
+    .as-chat-head-info { display: flex; flex-direction: column; }
+    .as-chat-head-name { font-size: 14px; font-weight: 700; color: #fff; }
+    .as-chat-head-status {
+      font-size: 11px; font-weight: 500; color: rgba(255,255,255,.35);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .as-chat-head-status::before {
+      content: ''; width: 7px; height: 7px; border-radius: 50%;
+      background: #4CAF50; display: inline-block;
+    }
+    .as-chat-msgs {
+      flex: 1; overflow-y: auto; padding: 16px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .as-chat-msgs::-webkit-scrollbar { width: 4px; }
+    .as-chat-msgs::-webkit-scrollbar-thumb { background: rgba(242,185,71,.2); border-radius: 4px; }
+    .as-chat-msg {
+      max-width: 85%; padding: 10px 16px; border-radius: 16px;
+      font-size: 13px; line-height: 1.5; word-wrap: break-word;
+    }
+    .as-chat-msg.user {
+      align-self: flex-end;
+      background: var(--as-accent); color: var(--as-dark);
+      border-bottom-right-radius: 4px;
+    }
+    .as-chat-msg.bot {
+      align-self: flex-start;
+      background: rgba(255,255,255,.06); color: rgba(255,255,255,.85);
+      border-bottom-left-radius: 4px;
+    }
+    .as-chat-msg.bot.typing {
+      background: transparent; padding: 6px 6px 6px 10px;
+    }
+    .as-chat-msg.bot.typing .dot {
+      display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+      background: rgba(255,255,255,.3); margin-right: 4px;
+      animation: asChatDot 1.4s infinite;
+    }
+    .as-chat-msg.bot.typing .dot:nth-child(2) { animation-delay: .2s; }
+    .as-chat-msg.bot.typing .dot:nth-child(3) { animation-delay: .4s; }
+    @keyframes asChatDot { 0%,80%,100% { opacity: .3; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-4px); } }
+    .as-chat-foot {
+      padding: 12px 16px 16px;
+      border-top: 1px solid rgba(255,255,255,.06);
+      display: flex; gap: 8px;
+    }
+    .as-chat-input {
+      flex: 1; font-size: 13px; font-weight: 500; color: #fff;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px; padding: 10px 14px; outline: none;
+      transition: border-color .2s;
+    }
+    .as-chat-input::placeholder { color: rgba(255,255,255,.25); }
+    .as-chat-input:focus { border-color: var(--as-accent); }
+    .as-chat-send {
+      width: 40px; height: 40px; border-radius: 12px; flex-shrink: 0;
+      background: var(--as-accent); border: none;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: transform .2s;
+    }
+    .as-chat-send:hover { transform: scale(1.06); }
+    .as-chat-send svg { width: 18px; height: 18px; color: var(--as-dark); }
+    @media (max-width: 480px) {
+      .as-chat-panel { width: calc(100vw - 24px); right: 12px; bottom: 80px; max-height: 70vh; }
+      .as-chat-toggle { bottom: 16px; right: 16px; width: 50px; height: 50px; }
+    }
+
+    /* ══════════ TRUST BADGES ══════════ */
+    .as-trust-badges {
+      padding: 76px 56px 88px;
+      background: var(--as-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .as-trust-badges::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 20% 30%, rgba(242,185,71,.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(242,185,71,.04) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.015) 0%, transparent 50%);
+    }
+    .as-trust-badges-inner {
+      position: relative; z-index: 1;
+      max-width: 1360px; margin: 0 auto;
+    }
+    .as-trust-badges-title {
+      text-align: center;
+      font-size: 13px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: rgba(255,255,255,.2);
+      margin-bottom: 40px;
+    }
+    .as-trust-badges-marquee {
+      width: 100%;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    }
+    .as-trust-badges-track {
+      display: flex;
+      gap: 14px;
+      width: max-content;
+      animation: asTrustScroll 56s linear infinite;
+      padding: 4px 0;
+    }
+    .as-trust-badges-marquee:hover .as-trust-badges-track { animation-play-state: paused; }
+    @keyframes asTrustScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .as-trust-badge {
+      display: inline-flex; align-items: center; gap: 14px;
+      padding: 20px 32px 20px 24px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.04);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(255,255,255,.08);
+      box-shadow: 0 4px 20px rgba(0,0,0,.2);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      cursor: default;
+      flex-shrink: 0;
+    }
+    .as-trust-badge:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(242,185,71,.12); border-color: rgba(242,185,71,.2); }
+    .as-trust-badge-icon {
+      width: 48px; height: 48px; border-radius: 14px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 18px;
+      overflow: hidden;
+    }
+    .as-trust-badge-icon img {
+      width: 100%; height: 100%; display: block;
+      object-fit: contain; object-position: center;
+    }
+    .as-trust-badge-icon.gold { background: var(--as-accent); color: var(--as-dark); }
+    .as-trust-badge-icon.blue { background: #1A5CB5; color: #fff; }
+    .as-trust-badge-icon.green { background: #1A7A3A; color: #fff; }
+    .as-trust-badge-icon.white { background: rgba(255,255,255,.1); color: rgba(255,255,255,.6); }
+    .as-trust-badge-icon.dark { background: var(--as-dark); color: var(--as-accent); border: 1px solid rgba(242,185,71,.2); }
+    .as-trust-badge-info { display: flex; flex-direction: column; }
+    .as-trust-badge-name {
+      font-size: 16px; font-weight: 700; color: #fff;
+      line-height: 1.2; letter-spacing: -.01em;
+    }
+    .as-trust-badge-sub {
+      font-size: 12px; font-weight: 500; color: rgba(255,255,255,.3);
+      letter-spacing: .04em;
+    }
+    @media (max-width: 768px) {
+      .as-trust-badges { padding: 56px 28px 64px; }
+      .as-trust-badges-title { margin-bottom: 32px; }
+      .as-trust-badge { padding: 16px 24px 16px 18px; gap: 10px; border-radius: 14px; }
+      .as-trust-badge-icon { width: 40px; height: 40px; font-size: 15px; }
+      .as-trust-badge-name { font-size: 14px; }
+      .as-trust-badge-sub { font-size: 11px; }
+      .as-trust-badges-track { gap: 12px; }
+    }
+    @media (max-width: 480px) {
+      .as-trust-badges { padding: 48px 20px 56px; }
+      .as-trust-badges-title { font-size: 11px; margin-bottom: 28px; }
+      .as-trust-badge { padding: 12px 18px 12px 14px; gap: 8px; border-radius: 12px; }
+      .as-trust-badge-icon { width: 34px; height: 34px; font-size: 12px; border-radius: 9px; }
+      .as-trust-badge-name { font-size: 12px; }
+      .as-trust-badge-sub { font-size: 10px; }
+    }
+
+    /* ══════════ SERVICES ══════════ */
+    .as-svcs {
+      padding: 100px 56px 120px;
+      overflow: hidden;
+      background: var(--as-dark);
+      position: relative;
+    }
+    .as-svcs::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 20% 30%, rgba(242,185,71,.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(242,185,71,.04) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.015) 0%, transparent 50%);
+    }
+    .as-svcs-inner { position: relative; z-index: 2; max-width: 1360px; margin: 0 auto; }
+    .as-svcs-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 64px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .as-svcs-left { display: flex; flex-direction: column; gap: 12px; }
+    .as-svcs-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--as-accent);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .as-svcs-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--as-accent);
+      border-radius: 2px;
+    }
+    .as-svcs-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(32px, 4vw, 56px);
+      font-weight: 800;
+      line-height: 1.08;
+      color: #fff;
+      letter-spacing: -0.02em;
+      max-width: 560px;
+      margin-bottom: 0;
+    }
+    .as-svcs-title em {
+      font-style: normal;
+      color: var(--as-accent);
+    }
+    .as-svcs-right {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .as-svcs-link {
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .as-svcs-link:hover { color: var(--as-accent); }
+    .as-svcs-link svg { transition: transform 0.2s; }
+    .as-svcs-link:hover svg { transform: translateX(3px); }
+    .as-svcs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .as-card {
+      background: #FFFFFF;
+      border: 1.5px solid rgba(15,14,12,0.07);
+      border-radius: 22px;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      transition: opacity 0.72s cubic-bezier(0.16,1,0.3,1), transform 0.72s cubic-bezier(0.16,1,0.3,1);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+    .as-card.card-hidden { opacity: 0; transform: translateY(36px); }
+    .as-card.card-revealed { opacity: 1; transform: translateY(0); }
+    .as-card-tape {
+      position: absolute;
+      top: -3px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-1.2deg);
+      width: 52px;
+      height: 18px;
+      border-radius: 2px;
+      z-index: 5;
+      pointer-events: none;
+      background: rgba(242,185,71,0.6);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .as-card-tape::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, transparent 60%);
+      border-radius: inherit;
+    }
+    .as-card-ribbon {
+      position: absolute;
+      top: 16px;
+      left: -28px;
+      background: var(--as-accent);
+      color: var(--as-dark);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 32px;
+      transform: rotate(-45deg);
+      z-index: 3;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .as-card-visual {
+      height: 180px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 22px 22px 0 0;
+    }
+    .as-card-visual-bg {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .as-card:hover .as-card-visual-bg { transform: scale(1.06); }
+    .as-card-icon {
+      position: relative;
+      z-index: 2;
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .as-card:hover .as-card-icon { transform: rotate(-6deg) scale(1.08); }
+    .as-card-icon svg { width: 32px; height: 32px; }
+    .as-card-body {
+      padding: 24px 24px 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .as-card-cat {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(15,14,12,0.25);
+      margin-bottom: 6px;
+    }
+    .as-card-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--as-text-dark);
+      line-height: 1.22;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .as-card-desc {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(15,14,12,0.55);
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 18px;
+    }
+    .as-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1.5px solid rgba(15,14,12,0.06);
+      padding-top: 16px;
+    }
+    .as-card-cta {
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(15,14,12,0.4);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .as-card:hover .as-card-cta { color: var(--as-accent); }
+    .as-card-cta svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s;
+    }
+    .as-card:hover .as-card-cta svg { transform: translateX(4px); }
+    .as-card-price {
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(15,14,12,0.3);
+    }
+    .as-shelf {
+      grid-column: 1 / -1;
+      height: 16px;
+      margin-top: -8px;
+      background: linear-gradient(180deg, #D4C8B0 0%, #B8A88C 45%, #9A8868 100%);
+      border-radius: 4px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+    .as-card:nth-child(1) { transition-delay: 0s; }
+    .as-card:nth-child(2) { transition-delay: 0.08s; }
+    .as-card:nth-child(3) { transition-delay: 0.16s; }
+    .as-card:nth-child(4) { transition-delay: 0.24s; }
+    .theme-cleaning .as-card-visual { background: linear-gradient(135deg, #D4EDBC 0%, #A8D080 100%); }
+    .theme-cleaning .as-card-visual-bg { background: linear-gradient(135deg, #D4EDBC 0%, #A8D080 100%); }
+    .theme-cleaning .as-card-icon svg { fill: #3D6B1A; }
+    .theme-insulation .as-card-visual { background: linear-gradient(135deg, #FFE8B5 0%, #F5C842 100%); }
+    .theme-insulation .as-card-visual-bg { background: linear-gradient(135deg, #FFE8B5 0%, #F5C842 100%); }
+    .theme-insulation .as-card-icon svg { fill: #8A6A00; }
+    .theme-rodent .as-card-visual { background: linear-gradient(135deg, #C8E0F8 0%, #6AA8E0 100%); }
+    .theme-rodent .as-card-visual-bg { background: linear-gradient(135deg, #C8E0F8 0%, #6AA8E0 100%); }
+    .theme-rodent .as-card-icon svg { fill: #1A4A7A; }
+    .theme-crawl .as-card-visual { background: linear-gradient(135deg, #EBD8FF 0%, #C090E8 100%); }
+    .theme-crawl .as-card-visual-bg { background: linear-gradient(135deg, #EBD8FF 0%, #C090E8 100%); }
+    .theme-crawl .as-card-icon svg { fill: #4A1A7A; }
+    @media (max-width: 1100px) {
+      .as-svcs-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .as-svcs { padding: 72px 28px 80px; }
+      .as-svcs-header { flex-direction: column; align-items: flex-start; }
+      .as-svcs-right { text-align: left; }
+      .as-card-visual { height: 150px; }
+    }
+    @media (max-width: 560px) {
+      .as-svcs-grid { grid-template-columns: 1fr; }
+      .as-svcs { padding: 56px 20px 64px; }
+    }
+
+    /* ══════════ TESTIMONIALS ══════════ */
+    .as-testi {
+      padding: 100px 0 120px;
+      overflow: hidden;
+      background: var(--as-bg);
+    }
+    .as-testi-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 56px;
+    }
+    .as-testi-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 52px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .as-testi-left { display: flex; flex-direction: column; gap: 12px; }
+    .as-testi-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(15,14,12,0.3);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .as-testi-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--as-accent);
+      border-radius: 2px;
+    }
+    .as-testi-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(28px, 3.6vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--as-text-dark);
+      letter-spacing: -0.02em;
+      max-width: 500px;
+    }
+    .as-testi-rating {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .as-testi-stars { display: flex; gap: 3px; }
+    .as-testi-stars svg { width: 18px; height: 18px; fill: var(--as-accent); }
+    .as-testi-score {
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(15,14,12,0.5);
+      letter-spacing: 0.02em;
+    }
+    .as-testi-score strong { color: var(--as-text-dark); }
+    .as-testi-marquee {
+      width: 100%;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+    }
+    .as-testi-track {
+      display: flex;
+      gap: 24px;
+      width: max-content;
+      animation: asTestiScroll 42s linear infinite;
+      padding: 8px 0 24px;
+    }
+    .as-testi-marquee:hover .as-testi-track { animation-play-state: paused; }
+    @keyframes asTestiScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    @keyframes asTestiFloat {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .as-testi-card {
+      background: #FFFFFF;
+      border-radius: 28px;
+      border: 1.5px solid rgba(15,14,12,0.07);
+      padding: 36px 36px 32px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(15,14,12,0.06), 0 1px 4px rgba(15,14,12,0.04);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+      width: 420px;
+      flex-shrink: 0;
+      animation: asTestiFloat 4.5s ease-in-out calc(var(--ti,0) * -0.4s) infinite;
+    }
+    .as-testi-card:hover {
+      animation: none;
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(15,14,12,0.12);
+    }
+    .as-testi-blob {
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 340px;
+      height: 220px;
+      border-radius: 50%;
+      filter: blur(42px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .as-testi-card:nth-child(8n+1) .as-testi-blob { background: radial-gradient(ellipse at center, rgba(242,185,71,0.5) 0%, rgba(240,170,50,0.15) 55%, transparent 80%); bottom: -50px; left: 30%; }
+    .as-testi-card:nth-child(8n+2) .as-testi-blob { background: radial-gradient(ellipse at center, rgba(14,195,128,0.4) 0%, rgba(10,160,110,0.15) 55%, transparent 80%); bottom: -45px; }
+    .as-testi-card:nth-child(8n+3) .as-testi-blob { background: radial-gradient(ellipse at center, rgba(100,160,240,0.4) 0%, rgba(70,130,220,0.15) 55%, transparent 80%); bottom: -50px; left: 65%; }
+    .as-testi-card:nth-child(8n+4) .as-testi-blob { background: radial-gradient(ellipse at center, rgba(200,120,240,0.4) 0%, rgba(170,90,220,0.15) 55%, transparent 80%); bottom: -45px; left: 40%; }
+    .as-testi-card:nth-child(8n+5) .as-testi-blob { background: radial-gradient(ellipse at center, rgba(255,130,100,0.38) 0%, rgba(240,100,70,0.12) 55%, transparent 80%); bottom: -50px; left: 50%; }
+    .as-testi-card:nth-child(8n+6) .as-testi-blob { background: radial-gradient(ellipse at center, rgba(80,210,180,0.38) 0%, rgba(50,180,150,0.12) 55%, transparent 80%); bottom: -45px; left: 35%; }
+    .as-testi-quote {
+      font-size: 84px;
+      line-height: 0.6;
+      font-weight: 900;
+      font-family: Georgia, 'Times New Roman', serif;
+      color: rgba(242,185,71,0.25);
+      margin-bottom: 12px;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+    .as-testi-text {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.7;
+      color: rgba(15,14,12,0.78);
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+    .as-testi-person {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+      padding-top: 18px;
+      border-top: 1.5px solid rgba(15,14,12,0.07);
+    }
+    .as-testi-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 2.5px solid rgba(15,14,12,0.07);
+      font-size: 20px;
+      font-weight: 800;
+    }
+    .as-testi-name { font-size: 15px; font-weight: 800; color: var(--as-text-dark); }
+    .as-testi-role { font-size: 12.5px; font-weight: 400; color: rgba(15,14,12,0.4); margin-top: 2px; }
+    .as-testi-service {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--as-accent);
+      margin-left: auto;
+      align-self: flex-start;
+      padding: 4px 10px;
+      background: rgba(242,185,71,0.1);
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    @media (max-width: 900px) {
+      .as-testi-inner { padding: 0 28px; }
+      .as-testi-header { flex-direction: column; align-items: flex-start; }
+      .as-testi { padding: 72px 0 88px; }
+    }
+    @media (max-width: 600px) {
+      .as-testi-card { width: 320px; padding: 28px 24px 24px; }
+      .as-testi-text { font-size: 14px; }
+    }
+    @media (max-width: 480px) {
+      .as-testi-inner { padding: 0 20px; }
+      .as-testi { padding: 56px 0 72px; }
+      .as-testi-card { width: 280px; padding: 24px 20px 20px; }
+      .as-testi-quote { font-size: 60px; }
+      .as-testi-text { font-size: 13px; margin-bottom: 20px; }
+    }
+
+    /* ══════════ BLOG ══════════ */
+    .as-blog {
+      padding: 100px 56px 120px;
+      overflow: hidden;
+      background: #FFFFFF;
+    }
+    .as-blog-inner { max-width: 1360px; margin: 0 auto; }
+    .as-blog-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 56px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .as-blog-left { display: flex; flex-direction: column; gap: 12px; }
+    .as-blog-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(15,14,12,0.3);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .as-blog-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--as-accent);
+      border-radius: 2px;
+    }
+    .as-blog-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(28px, 3.6vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--as-text-dark);
+      letter-spacing: -0.02em;
+      max-width: 480px;
+    }
+    .as-blog-title em { font-style: normal; color: var(--as-accent); }
+    .as-blog-link {
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(15,14,12,0.4);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+      flex-shrink: 0;
+    }
+    .as-blog-link:hover { color: var(--as-text-dark); }
+    .as-blog-link svg { transition: transform 0.2s; }
+    .as-blog-link:hover svg { transform: translateX(4px); }
+    .as-blog-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .as-blog-card {
+      background: var(--as-bg);
+      border: 1.5px solid rgba(15,14,12,0.07);
+      border-radius: 22px;
+      overflow: hidden;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+      cursor: pointer;
+      position: relative;
+    }
+    .as-blog-card.card-hidden { opacity: 0; transform: translateY(32px); }
+    .as-blog-card.card-revealed { opacity: 1; transform: translateY(0); }
+    .as-blog-tape {
+      position: absolute;
+      top: -3px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-1.2deg);
+      width: 44px;
+      height: 16px;
+      border-radius: 2px;
+      z-index: 5;
+      pointer-events: none;
+      background: rgba(242,185,71,0.5);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .as-blog-tape::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, transparent 60%);
+      border-radius: inherit;
+    }
+    .as-blog-img {
+      height: 180px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px 22px 0 0;
+      flex-shrink: 0;
+    }
+    .as-blog-img-bg {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .as-blog-card:hover .as-blog-img-bg { transform: scale(1.08); }
+    .as-blog-cat {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.92);
+      color: var(--as-dark);
+      z-index: 2;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .as-blog-body {
+      padding: 22px 22px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .as-blog-card-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--as-text-dark);
+      line-height: 1.28;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+    .as-blog-card:hover .as-blog-card-title { color: var(--as-accent); }
+    .as-blog-excerpt {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: rgba(15,14,12,0.55);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 16px;
+    }
+    .as-blog-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1.5px solid rgba(15,14,12,0.06);
+      padding-top: 14px;
+    }
+    .as-blog-date { font-size: 11.5px; font-weight: 500; color: rgba(15,14,12,0.3); }
+    .as-blog-arrow {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(15,14,12,0.05);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+      flex-shrink: 0;
+    }
+    .as-blog-arrow svg { width: 13px; height: 13px; color: rgba(15,14,12,0.3); transition: color 0.2s, transform 0.2s; }
+    .as-blog-card:hover .as-blog-arrow { background: var(--as-accent); }
+    .as-blog-card:hover .as-blog-arrow svg { color: var(--as-dark); transform: translateX(2px); }
+    .as-blog-card:nth-child(1) { transition-delay: 0s; }
+    .as-blog-card:nth-child(2) { transition-delay: 0.08s; }
+    .as-blog-card:nth-child(3) { transition-delay: 0.16s; }
+    .as-blog-card:nth-child(4) { transition-delay: 0.24s; }
+    .theme-warm .as-blog-img-bg { background: linear-gradient(135deg, #FFE8B5 0%, #F5C842 100%); }
+    .theme-warm .as-blog-cat { background: rgba(245,200,66,0.9); color: #4A3000; }
+    .theme-cool .as-blog-img-bg { background: linear-gradient(135deg, #C8E0F8 0%, #6AA8E0 100%); }
+    .theme-cool .as-blog-cat { background: rgba(106,168,224,0.9); color: #fff; }
+    .theme-green .as-blog-img-bg { background: linear-gradient(135deg, #D4EDBC 0%, #8AB870 100%); }
+    .theme-green .as-blog-cat { background: rgba(138,184,112,0.9); color: #1A3D00; }
+    .theme-rose .as-blog-img-bg { background: linear-gradient(135deg, #FFD8E0 0%, #E898B0 100%); }
+    .theme-rose .as-blog-cat { background: rgba(232,152,176,0.9); color: #5C1A35; }
+    .as-blog-img-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 2px, transparent 2px, transparent 8px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 2px, transparent 2px, transparent 8px);
+      background-size: 14px 14px;
+    }
+    @media (max-width: 1100px) {
+      .as-blog-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .as-blog { padding: 72px 28px 80px; }
+      .as-blog-header { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 560px) {
+      .as-blog-grid { grid-template-columns: 1fr; }
+      .as-blog { padding: 56px 20px 64px; }
+      .as-blog-img { height: 160px; }
+    }
+
+    /* ══════════ ABOUT ══════════ */
+    .as-about {
+      padding: 100px 56px 80px;
+      overflow-x: hidden;
+      background: var(--as-dark);
+      position: relative;
+    }
+    .as-about-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .as-about-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .as-about-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(13,13,13,.88) 0%, rgba(13,13,13,.65) 50%, rgba(13,13,13,.45) 100%);
+      z-index: 1;
+    }
+    .as-about-inner { position: relative; z-index: 1; max-width: 1360px; margin: 0 auto; }
+    .as-about-eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      margin-bottom: 16px;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .as-about-eyebrow::before {
+      content: ''; width: 24px; height: 2px;
+      background: var(--as-accent); border-radius: 2px;
+    }
+    .as-about-eyebrow-lbl {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.13em;
+      text-transform: uppercase; color: var(--as-accent);
+    }
+    .as-about-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(32px, 4.4vw, 60px); font-weight: 800;
+      line-height: 1.08; color: #fff; letter-spacing: -0.02em;
+      max-width: 720px; margin-bottom: 56px;
+    }
+    .as-about-title em { font-style: normal; color: var(--as-accent); }
+    .as-about-grid {
+      display: grid; grid-template-columns: 1fr 0.95fr;
+      gap: 18px; align-items: stretch;
+    }
+    .as-about-photo-wrap {
+      opacity: 0; transform: translateX(-52px);
+      transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1) 0.08s, transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.08s;
+    }
+    .as-about-photo-card {
+      border-radius: 22px; overflow: hidden;
+      aspect-ratio: 4 / 5; background: #E8E4DC;
+      position: relative; transition: transform 0.5s cubic-bezier(0.34,1.3,0.64,1);
+    }
+    .as-about-photo-card:hover { transform: rotate(-4deg) scale(1.02); }
+    .as-about-photo-bg {
+      width: 100%; height: 100%;
+      background: linear-gradient(148deg, #E8E4DC 0%, #D4CFC5 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .as-about-photo-mono {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(80px, 14vw, 160px); font-weight: 800;
+      color: rgba(15,14,12,0.06); letter-spacing: -0.04em;
+      user-select: none;
+    }
+    .as-about-sticker {
+      position: absolute; z-index: 4; pointer-events: none;
+      opacity: 0; transition: opacity 0.35s cubic-bezier(0.34,1.56,0.64,1), transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .as-about-sticker-1 {
+      top: 18px; right: 18px; width: 56px; height: 56px;
+      transform: scale(0.45) rotate(28deg);
+    }
+    .as-about-sticker-2 {
+      top: 80px; right: 21px; width: 46px; height: 46px;
+      transform: scale(0.45) rotate(-22deg); transition-delay: 0.07s;
+    }
+    .as-about-photo-card:hover .as-about-sticker-1 { opacity: 1; transform: scale(1) rotate(10deg); }
+    .as-about-photo-card:hover .as-about-sticker-2 { opacity: 1; transform: scale(1) rotate(-6deg); }
+    .as-about-right {
+      opacity: 0; transform: translateX(44px);
+      transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1) 0.22s, transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.22s;
+    }
+    .as-about-visible .as-about-eyebrow { opacity: 1; transform: translateY(0); }
+    .as-about-visible .as-about-photo-wrap { opacity: 1; transform: translateX(0); }
+    .as-about-visible .as-about-right { opacity: 1; transform: translateX(0); }
+    .as-about-stats {
+      background: rgba(255,255,255,0.05); border-radius: 20px; padding: 28px 24px;
+      display: flex; align-items: center; gap: 0; flex-wrap: wrap; row-gap: 20px;
+      margin-bottom: 14px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .as-about-stat { flex: 1; min-width: 100px; display: flex; flex-direction: column; gap: 4px; }
+    .as-about-stat-num {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(36px, 4.5vw, 52px); font-weight: 800;
+      letter-spacing: -0.04em; line-height: 1; color: var(--as-accent);
+    }
+    .as-about-stat-lbl { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+    .as-about-stat-divider { width: 1px; height: 48px; background: rgba(255,255,255,0.1); flex-shrink: 0; margin: 0 20px; }
+    .as-about-cta {
+      margin-left: auto; flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--as-accent); color: var(--as-dark);
+      padding: 12px 20px; border-radius: 100px;
+      font-size: 13px; font-weight: 800;
+      text-decoration: none; border: none; cursor: pointer;
+      text-transform: uppercase; letter-spacing: 0.04em;
+      transition: all 0.2s ease;
+    }
+    .as-about-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(242,185,71,0.3); }
+    .as-about-tags-box {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px; padding: 28px 28px 32px; margin-bottom: 14px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .as-about-tags-lbl {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 18px;
+    }
+    .as-about-tags {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .as-ab-tag {
+      display: inline-flex; align-items: center;
+      padding: 8px 16px; border-radius: 8px;
+      font-size: 13px; font-weight: 700; letter-spacing: -0.01em;
+      opacity: 0; transform: translateY(-60px);
+      transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.22,1.4,0.36,1);
+      transition-delay: calc(var(--ai,0) * 70ms + 80ms);
+      cursor: default;
+    }
+    .as-ab-tag.gold { background: #FFF5CC; color: #6B5000; }
+    .as-ab-tag.green { background: #D4EDBC; color: #2D4800; }
+    .as-ab-tag.blue { background: #C8E0F8; color: #1A3A6B; }
+    .as-ab-tag.pink { background: #FFD8E0; color: #7B1A30; }
+    .as-ab-tag.lavender { background: #EBD8FF; color: #3A0066; }
+    .as-ab-tag.peach { background: #FFE2D4; color: #7A2800; }
+    .as-about-tags-visible .as-ab-tag { opacity: 1; transform: translateY(0); }
+    .as-ab-tag:hover { transform: translateY(0) scale(1.08) !important; transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1) 0ms; }
+    .as-about-why {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px; padding: 20px 24px;
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .as-about-why-lbl {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.3);
+    }
+    .as-about-why-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.6);
+      padding: 6px 14px; border-radius: 100px;
+      background: rgba(255,255,255,0.08);
+    }
+    .as-about-why-pill svg { width: 14px; height: 14px; fill: var(--as-accent); }
+    @media (max-width: 960px) {
+      .as-about-grid { grid-template-columns: 1fr; }
+      .as-about-photo-card { aspect-ratio: 4 / 3; max-height: 400px; }
+      .as-about-right { transform: none !important; }
+    }
+    @media (max-width: 768px) {
+      .as-about { padding: 72px 28px 64px; }
+      .as-about-stat-divider { display: none; }
+      .as-about-stats { gap: 20px; }
+      .as-about-cta { margin-left: 0; width: 100%; justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .as-about { padding: 56px 20px 48px; }
+      .as-about-tags-box { padding: 22px 20px 26px; }
+      .as-about-stats { padding: 22px 18px; }
+    }
+
+    /* ══════════ WHY MATTERS ══════════ */
+    .as-why {
+      padding: 100px 56px;
+      background: var(--as-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .as-why::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 30% 50%, rgba(242,185,71,.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 20%, rgba(242,185,71,.03) 0%, transparent 40%);
+    }
+    .as-why-inner {
+      position: relative; z-index: 1;
+      max-width: 1360px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .as-why-left { display: flex; flex-direction: column; gap: 20px; }
+    .as-why-eyebrow {
+      font-size: 12px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--as-accent);
+    }
+    .as-why-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: 36px; font-weight: 600; color: #fff;
+      line-height: 1.2; letter-spacing: -.02em;
+      margin: 0;
+    }
+    .as-why-title em { font-style: normal; color: var(--as-accent); }
+    .as-why-desc {
+      font-size: 15px; font-weight: 400; color: rgba(255,255,255,.5);
+      line-height: 1.65; margin: 0;
+    }
+    .as-why-list { display: flex; flex-direction: column; gap: 14px; margin-top: 6px; }
+    .as-why-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px 20px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+      transition: background .25s ease, border-color .25s ease;
+    }
+    .as-why-item:hover { background: rgba(242,185,71,.05); border-color: rgba(242,185,71,.12); }
+    .as-why-item-icon {
+      width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(242,185,71,.12); color: var(--as-accent);
+    }
+    .as-why-item-icon svg { width: 18px; height: 18px; }
+    .as-why-item-info { display: flex; flex-direction: column; gap: 2px; }
+    .as-why-item-name {
+      font-size: 14px; font-weight: 700; color: #fff; line-height: 1.2;
+    }
+    .as-why-item-desc {
+      font-size: 13px; font-weight: 400; color: rgba(255,255,255,.4); line-height: 1.4;
+    }
+    .as-why-right {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .as-why-image {
+      width: 100%; border-radius: 24px;
+      display: block;
+      border: 1px solid rgba(255,255,255,.06);
+      box-shadow: 0 24px 64px rgba(0,0,0,.4);
+    }
+    .as-why-badge {
+      position: absolute;
+      bottom: 20px; left: 20px;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      background: rgba(13,13,13,.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(242,185,71,.15);
+      font-size: 12px; font-weight: 600; color: #fff;
+    }
+    .as-why-badge svg { width: 16px; height: 16px; color: var(--as-accent); flex-shrink: 0; }
+    @media (max-width: 1024px) {
+      .as-why-inner { grid-template-columns: 1fr; gap: 48px; }
+      .as-why { padding: 80px 32px; }
+    }
+    @media (max-width: 768px) {
+      .as-why { padding: 64px 24px; }
+      .as-why-title { font-size: 28px; }
+      .as-why-inner { gap: 36px; }
+      .as-why-item { padding: 14px 16px; }
+    }
+    @media (max-width: 480px) {
+      .as-why { padding: 48px 20px; }
+      .as-why-title { font-size: 24px; }
+      .as-why-item-icon { width: 32px; height: 32px; }
+      .as-why-item-icon svg { width: 15px; height: 15px; }
+      .as-why-item-name { font-size: 13px; }
+      .as-why-item-desc { font-size: 12px; }
+    }
+
+    /* ══════════ OUR WORK ══════════ */
+    .as-work {
+      padding: 100px 56px 120px;
+      overflow: hidden;
+      background: var(--as-dark);
+      position: relative;
+    }
+    .as-work-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 20% 30%, rgba(242,185,71,.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(242,185,71,.04) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.015) 0%, transparent 50%);
+    }
+    .as-work-inner { position: relative; z-index: 1; max-width: 1360px; margin: 0 auto; }
+    .as-work-header { text-align: center; margin-bottom: 20px; }
+    .as-work-eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 12px; font-weight: 700; letter-spacing: .13em;
+      text-transform: uppercase; color: var(--as-accent); margin-bottom: 16px;
+    }
+    .as-work-eyebrow::before,
+    .as-work-eyebrow::after {
+      content: ''; width: 24px; height: 2px;
+      background: var(--as-accent); border-radius: 2px;
+    }
+    .as-work-title {
+      font-family: var(--as-font-heading);
+      font-size: clamp(32px, 4.4vw, 56px); font-weight: 800;
+      line-height: 1.08; color: #fff; letter-spacing: -.02em;
+      margin-bottom: 14px;
+    }
+    .as-work-title em { font-style: normal; color: var(--as-accent); }
+    .as-work-sub {
+      font-size: 15px; font-weight: 400; color: rgba(255,255,255,.5);
+      line-height: 1.6; max-width: 600px; margin: 0 auto 44px;
+    }
+    .as-work-filters {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 6px; margin-bottom: 48px;
+    }
+    .as-work-filter {
+      font-family: var(--as-font); font-size: 12px; font-weight: 700;
+      padding: 9px 20px; border-radius: 100px; border: 1.5px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.04); color: rgba(255,255,255,.5);
+      cursor: pointer; transition: all .25s ease; white-space: nowrap;
+      letter-spacing: .03em;
+    }
+    .as-work-filter:hover { border-color: var(--as-accent); color: var(--as-accent); background: rgba(242,185,71,.08); }
+    .as-work-filter.active { border-color: var(--as-accent); background: var(--as-accent); color: var(--as-dark); }
+    .as-work-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      transition: opacity .4s ease;
+    }
+    .as-work-grid.filtering { opacity: .4; }
+    .as-work-card {
+      position: relative; border-radius: 16px; overflow: hidden;
+      aspect-ratio: 3 / 4; cursor: pointer;
+      background: var(--as-dark2); border: 1px solid rgba(255,255,255,.06);
+      transition: transform .5s cubic-bezier(.22,.7,.16,1), box-shadow .5s cubic-bezier(.22,.7,.16,1);
+      opacity: 0; transform: translateY(30px) scale(.96);
+    }
+    .as-work-card.revealed { opacity: 1; transform: translateY(0) scale(1); }
+    .as-work-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 24px 56px rgba(0,0,0,.5), 0 0 0 1px rgba(242,185,71,.2); }
+    .as-work-card-img {
+      position: absolute; inset: 0; z-index: 0;
+      background-size: cover; background-position: center;
+      transition: transform .7s cubic-bezier(.22,.7,.16,1);
+    }
+    .as-work-card:hover .as-work-card-img { transform: scale(1.08); }
+    .as-work-card::after {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(180deg, transparent 30%, rgba(13,13,13,.92) 100%);
+      pointer-events: none;
+    }
+    .as-work-card-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+      padding: 24px 22px 26px;
+      transform: translateY(6px); transition: transform .4s cubic-bezier(.22,.7,.16,1);
+    }
+    .as-work-card:hover .as-work-card-overlay { transform: translateY(0); }
+    .as-work-card-tag {
+      display: inline-block;
+      font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--as-accent); background: rgba(242,185,71,.15);
+      padding: 4px 10px; border-radius: 4px; margin-bottom: 8px;
+    }
+    .as-work-card-title {
+      font-family: var(--as-font-heading);
+      font-size: 16px; font-weight: 800; color: #fff;
+      line-height: 1.2; letter-spacing: -.01em; margin-bottom: 4px;
+    }
+    .as-work-card-desc {
+      font-size: 12px; font-weight: 400; color: rgba(255,255,255,.5);
+      line-height: 1.55; margin-bottom: 12px; display: none;
+    }
+    .as-work-card:hover .as-work-card-desc { display: block; }
+    .as-work-card-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      color: var(--as-accent); opacity: 0; transform: translateX(-6px);
+      transition: opacity .3s ease, transform .3s ease;
+    }
+    .as-work-card-cta::after {
+      content: '→'; font-size: 14px; transition: transform .2s;
+    }
+    .as-work-card:hover .as-work-card-cta { opacity: 1; transform: translateX(0); }
+    .as-work-card-cta:hover::after { transform: translateX(4px); }
+    .as-work-cta {
+      text-align: center; margin-top: 52px; padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .as-work-cta p { font-size: 15px; font-weight: 400; color: rgba(255,255,255,.4); margin-bottom: 16px; }
+    .as-work-cta-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--as-font); font-size: 14px; font-weight: 800;
+      color: var(--as-dark); background: var(--as-accent);
+      text-decoration: none; padding: 15px 32px; border-radius: 100px;
+      letter-spacing: .04em; text-transform: uppercase;
+      transition: all .2s ease; box-shadow: 0 4px 20px rgba(242,185,71,.3);
+    }
+    .as-work-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(242,185,71,.4); }
+    .as-work-cta-btn svg { transition: transform .2s; }
+    .as-work-cta-btn:hover svg { transform: translateX(4px); }
+    @media (max-width: 1100px) { .as-work-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px) {
+      .as-work { padding: 72px 28px 80px; }
+      .as-work-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .as-work-filters { gap: 4px; }
+      .as-work-filter { font-size: 11px; padding: 7px 14px; }
+      .as-work-card-aspect { aspect-ratio: 4 / 5; }
+    }
+    @media (max-width: 560px) {
+      .as-work { padding: 56px 20px 64px; }
+      .as-work-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .as-work-card-title { font-size: 14px; }
+      .as-work-card-overlay { padding: 18px 16px 20px; }
+    }
+
+    /* ══════════ AREAS ══════════ */
+    .as-areas {
+      padding: 100px 56px 120px;
+      overflow: hidden;
+      background: var(--as-bg);
+    }
+    .as-areas-inner { max-width: 1360px; margin: 0 auto; }
+    .as-areas-header { text-align: center; margin-bottom: 64px; }
+    .as-areas-eyebrow {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.13em;
+      text-transform: uppercase; color: rgba(15,14,12,0.3);
+      display: inline-flex; align-items: center; gap: 12px; margin-bottom: 16px;
+    }
+    .as-areas-eyebrow::before,
+    .as-areas-eyebrow::after {
+      content: ''; width: 24px; height: 2px;
+      background: var(--as-accent); border-radius: 2px;
+    }
+    .as-areas-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(32px, 4vw, 52px); font-weight: 800;
+      line-height: 1.1; color: var(--as-text-dark);
+      letter-spacing: -0.02em; margin-bottom: 14px;
+    }
+    .as-areas-title em { font-style: normal; color: var(--as-accent); }
+    .as-areas-sub {
+      font-size: 15px; font-weight: 400; color: rgba(15,14,12,0.5);
+      line-height: 1.6; max-width: 640px; margin: 0 auto;
+    }
+    .as-areas-map {
+      position: relative;
+      background: #FFFFFF; border: 1.5px solid rgba(15,14,12,0.07);
+      border-radius: 28px; padding: 40px 44px;
+      margin-bottom: 48px; overflow: hidden;
+    }
+    .as-areas-map::before {
+      content: ''; position: absolute; inset: 0;
+      opacity: 0.03;
+      background-image: 
+        repeating-linear-gradient(90deg, var(--as-accent) 0px, var(--as-accent) 2px, transparent 2px, transparent 20px),
+        repeating-linear-gradient(0deg, var(--as-accent) 0px, var(--as-accent) 2px, transparent 2px, transparent 20px);
+      pointer-events: none;
+    }
+    .as-areas-map-bg {
+      position: absolute; inset: 0; pointer-events: none; z-index: 0;
+      background-image: radial-gradient(circle, rgba(242,185,71,0.08) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+    }
+    .as-areas-map-content {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px; align-items: start;
+    }
+    .as-areas-map-visual { display: flex; flex-direction: column; gap: 20px; }
+    .as-areas-county-bar {
+      background: var(--as-bg); border: 1.5px solid rgba(15,14,12,0.06);
+      border-radius: 16px; padding: 20px 24px;
+      display: flex; align-items: center; gap: 20px;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .as-areas-county-bar:hover { transform: translateX(6px); box-shadow: 0 4px 16px rgba(15,14,12,0.06); }
+    .as-areas-county-icon {
+      width: 44px; height: 44px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 18px; font-weight: 900; color: #fff;
+    }
+    .as-areas-county-icon.sd { background: linear-gradient(135deg, #F2B947, #D49A20); }
+    .as-areas-county-icon.rv { background: linear-gradient(135deg, #6AA8E0, #3A7AB8); }
+    .as-areas-county-icon.oc { background: linear-gradient(135deg, #8AB870, #5A9040); }
+    .as-areas-county-info { flex: 1; }
+    .as-areas-county-name {
+      font-family: 'Roboto Slab', serif;
+      font-size: 17px; font-weight: 800; color: var(--as-text-dark); letter-spacing: -0.01em;
+    }
+    .as-areas-county-cities {
+      font-size: 13px; font-weight: 500; color: rgba(15,14,12,0.4); margin-top: 3px;
+    }
+    .as-areas-county-arrow { color: rgba(15,14,12,0.15); flex-shrink: 0; transition: transform 0.2s, color 0.2s; }
+    .as-areas-county-bar:hover .as-areas-county-arrow { transform: translateX(4px); color: var(--as-accent); }
+    .as-areas-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    }
+    .as-areas-stat {
+      background: var(--as-bg); border: 1.5px solid rgba(15,14,12,0.06);
+      border-radius: 16px; padding: 18px 20px; text-align: center;
+    }
+    .as-areas-stat-num {
+      font-family: 'Roboto Slab', serif;
+      font-size: 28px; font-weight: 800; color: var(--as-accent); letter-spacing: -0.02em;
+    }
+    .as-areas-stat-lbl {
+      font-size: 11px; font-weight: 600; color: rgba(15,14,12,0.4);
+      text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px;
+    }
+    .as-areas-counties {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .as-areas-county-col {
+      background: #FFFFFF; border: 1.5px solid rgba(15,14,12,0.07);
+      border-radius: 22px; padding: 32px 28px 36px;
+      transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .as-areas-county-col.card-hidden { opacity: 0; transform: translateY(32px); }
+    .as-areas-county-col.card-revealed { opacity: 1; transform: translateY(0); }
+    .as-areas-col-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 20px; padding-bottom: 16px;
+      border-bottom: 1.5px solid rgba(15,14,12,0.06);
+    }
+    .as-areas-col-dot { width: 10px; height: 10px; border-radius: 4px; flex-shrink: 0; }
+    .as-areas-col-dot.sd { background: var(--as-accent); }
+    .as-areas-col-dot.rv { background: #6AA8E0; }
+    .as-areas-col-dot.oc { background: #8AB870; }
+    .as-areas-col-name {
+      font-family: 'Roboto Slab', serif;
+      font-size: 18px; font-weight: 800; color: var(--as-text-dark);
+    }
+    .as-areas-col-count {
+      margin-left: auto; font-size: 11px; font-weight: 700;
+      color: rgba(15,14,12,0.3); letter-spacing: 0.04em;
+      background: var(--as-bg); padding: 4px 10px; border-radius: 6px;
+    }
+    .as-areas-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .as-areas-pill {
+      font-size: 12px; font-weight: 600; padding: 7px 14px; border-radius: 8px;
+      background: var(--as-bg); color: rgba(15,14,12,0.6); letter-spacing: -0.01em;
+      transition: all 0.2s ease; cursor: default;
+      opacity: 0; transform: translateY(-40px) rotate(var(--rot, 0deg));
+      transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.22, 1.4, 0.36, 1);
+      transition-delay: calc(var(--ai, 0) * 30ms + 100ms);
+    }
+    .as-areas-pill:hover {
+      background: var(--as-accent-light); color: var(--as-accent);
+      transform: translateY(0) rotate(0deg) scale(1.05) !important;
+    }
+    .as-areas-pills-visible .as-areas-pill { opacity: 1; transform: translateY(0) rotate(var(--rot, 0deg)); }
+    .as-areas-cta { text-align: center; margin-top: 48px; }
+    .as-areas-cta p { font-size: 15px; font-weight: 400; color: rgba(15,14,12,0.5); margin-bottom: 16px; }
+    .as-areas-cta-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 14px; font-weight: 800; color: var(--as-dark);
+      background: var(--as-accent); text-decoration: none; padding: 15px 32px;
+      border-radius: 100px; letter-spacing: 0.04em; text-transform: uppercase;
+      transition: all 0.2s ease; box-shadow: 0 4px 16px rgba(242,185,71,0.3);
+    }
+    .as-areas-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(242,185,71,0.4); }
+    .as-areas-cta-btn svg { transition: transform 0.2s; }
+    .as-areas-cta-btn:hover svg { transform: translateX(4px); }
+    .as-areas-county-col:nth-child(1) { transition-delay: 0s; }
+    .as-areas-county-col:nth-child(2) { transition-delay: 0.1s; }
+    .as-areas-county-col:nth-child(3) { transition-delay: 0.2s; }
+    @media (max-width: 1100px) {
+      .as-areas-map-content { grid-template-columns: 1fr; }
+      .as-areas-counties { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .as-areas { padding: 72px 28px 80px; }
+      .as-areas-map { padding: 28px 24px; }
+      .as-areas-counties { grid-template-columns: 1fr; }
+      .as-areas-county-col { padding: 24px 22px 28px; }
+    }
+    @media (max-width: 480px) {
+      .as-areas { padding: 56px 20px 64px; }
+      .as-areas-map { padding: 20px 16px; border-radius: 20px; }
+      .as-areas-stats { grid-template-columns: 1fr 1fr; }
+      .as-areas-county-bar { padding: 16px 18px; flex-wrap: wrap; }
+    }
+
+    /* ══════════ FAQ ══════════ */
+    .as-faq {
+      padding: 100px 56px 120px;
+      overflow: hidden;
+      background: #FFFFFF;
+    }
+    .as-faq-inner { max-width: 960px; margin: 0 auto; }
+    .as-faq-header { text-align: center; margin-bottom: 56px; }
+    .as-faq-eyebrow {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.13em;
+      text-transform: uppercase; color: rgba(15,14,12,0.3);
+      display: inline-flex; align-items: center; gap: 12px; margin-bottom: 16px;
+    }
+    .as-faq-eyebrow::before,
+    .as-faq-eyebrow::after {
+      content: ''; width: 24px; height: 2px;
+      background: var(--as-accent); border-radius: 2px;
+    }
+    .as-faq-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(32px, 4vw, 52px); font-weight: 800;
+      line-height: 1.1; color: var(--as-text-dark); letter-spacing: -0.02em; margin-bottom: 12px;
+    }
+    .as-faq-title em { font-style: normal; color: var(--as-accent); }
+    .as-faq-sub {
+      font-size: 15px; font-weight: 400; color: rgba(15,14,12,0.5);
+      line-height: 1.6; max-width: 600px; margin: 0 auto;
+    }
+    .as-faq-sub strong { color: var(--as-text-dark); font-weight: 600; }
+    .as-faq-list { display: flex; flex-direction: column; gap: 8px; }
+    .as-faq-item {
+      background: var(--as-bg); border: 1.5px solid rgba(15,14,12,0.07);
+      border-radius: 18px; overflow: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+    .as-faq-item.active { border-color: var(--as-accent); box-shadow: 0 4px 20px rgba(242,185,71,0.12); }
+    .as-faq-item::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 4px; background: var(--as-accent);
+      border-radius: 0 3px 3px 0; opacity: 0; transition: opacity 0.3s ease;
+    }
+    .as-faq-item.active::before { opacity: 1; }
+    .as-faq-q {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 22px 28px; background: none; border: none; cursor: pointer;
+      font-size: 15px; font-weight: 600; color: var(--as-text-dark);
+      text-align: left; line-height: 1.5; letter-spacing: -0.01em;
+      transition: color 0.2s ease; position: relative; z-index: 1;
+    }
+    .as-faq-item.active .as-faq-q { color: var(--as-accent); }
+    .as-faq-icon {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(15,14,12,0.05);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: background 0.2s ease, transform 0.3s ease;
+    }
+    .as-faq-icon svg { width: 16px; height: 16px; color: rgba(15,14,12,0.3); transition: color 0.2s ease, transform 0.3s ease; }
+    .as-faq-item.active .as-faq-icon { background: var(--as-accent-light); transform: rotate(45deg); }
+    .as-faq-item.active .as-faq-icon svg { color: var(--as-accent); }
+    .as-faq-q:hover .as-faq-icon { background: rgba(15,14,12,0.08); }
+    .as-faq-a-wrap {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .as-faq-item.active .as-faq-a-wrap { max-height: 600px; }
+    .as-faq-a {
+      padding: 0 28px 24px; font-size: 14.5px; font-weight: 400;
+      color: rgba(15,14,12,0.62); line-height: 1.75; position: relative; z-index: 1;
+    }
+    .as-faq-a strong { color: var(--as-text-dark); font-weight: 600; }
+    .as-faq-a a { color: var(--as-accent); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+    .as-faq-a a:hover { color: #D49A20; text-decoration: underline; }
+    .as-faq-cta { text-align: center; margin-top: 40px; padding-top: 32px; border-top: 1.5px solid rgba(15,14,12,0.06); }
+    .as-faq-cta p { font-size: 15px; font-weight: 400; color: rgba(15,14,12,0.5); margin-bottom: 16px; }
+    .as-faq-cta-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 14px; font-weight: 800; color: var(--as-dark);
+      background: var(--as-accent); text-decoration: none; padding: 15px 32px;
+      border-radius: 100px; letter-spacing: 0.04em; text-transform: uppercase;
+      transition: all 0.2s ease; box-shadow: 0 4px 16px rgba(242,185,71,0.3);
+    }
+    .as-faq-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(242,185,71,0.4); }
+    .as-faq-cta-btn svg { transition: transform 0.2s; }
+    .as-faq-cta-btn:hover svg { transform: translateX(4px); }
+    @media (max-width: 768px) {
+      .as-faq { padding: 72px 28px 80px; }
+      .as-faq-q { padding: 18px 20px; font-size: 14px; }
+      .as-faq-a { padding: 0 20px 20px; font-size: 14px; }
+    }
+    @media (max-width: 480px) {
+      .as-faq { padding: 56px 20px 64px; }
+      .as-faq-q { font-size: 13px; padding: 16px 16px; }
+      .as-faq-a { padding: 0 16px 18px; font-size: 13px; }
+    }
+
+    /* ══════════ CONTACT + FOOTER ══════════ */
+    .as-contact {
+      padding: 100px 56px 100px;
+      overflow: hidden;
+      background: var(--as-dark);
+      position: relative;
+    }
+    .as-contact::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(242,185,71,.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(242,185,71,.04) 0%, transparent 40%);
+    }
+    .as-contact-inner { position: relative; z-index: 1; max-width: 1360px; margin: 0 auto; }
+    .as-contact-header { text-align: center; margin-bottom: 48px; }
+    .as-contact-eyebrow {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.13em;
+      text-transform: uppercase; color: var(--as-accent);
+      display: inline-flex; align-items: center; gap: 12px; margin-bottom: 16px;
+    }
+    .as-contact-eyebrow::before, .as-contact-eyebrow::after {
+      content: ''; width: 24px; height: 2px;
+      background: var(--as-accent); border-radius: 2px;
+    }
+    .as-contact-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(28px, 3.6vw, 48px); font-weight: 800;
+      line-height: 1.1; color: #fff; letter-spacing: -0.02em;
+    }
+    .as-contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 24px; align-items: start;
+    }
+    .as-contact-form-card {
+      background: #FFFFFF; border: 1.5px solid rgba(15,14,12,0.07);
+      border-radius: 28px; padding: 36px 36px 40px;
+    }
+    .as-contact-field { margin-bottom: 16px; }
+    .as-contact-field label {
+      display: block; font-size: 10.5px; font-weight: 700;
+      color: rgba(15,14,12,0.35); letter-spacing: 0.09em;
+      text-transform: uppercase; margin-bottom: 6px;
+    }
+    .as-contact-field input,
+    .as-contact-field textarea {
+      width: 100%; font-size: 14px; font-weight: 500; color: var(--as-text-dark);
+      background: var(--as-bg); border: 1.5px solid rgba(15,14,12,0.08);
+      border-radius: 14px; padding: 12px 16px; outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .as-contact-field textarea { resize: vertical; min-height: 110px; }
+    .as-contact-field input:focus, .as-contact-field textarea:focus {
+      border-color: var(--as-accent); background: var(--as-accent-light);
+    }
+    .as-contact-submit {
+      width: 100%; font-size: 14px; font-weight: 800; color: var(--as-dark);
+      background: var(--as-accent); border: none; border-radius: 100px;
+      padding: 16px 24px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.04em;
+      transition: all 0.2s ease; margin-top: 6px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .as-contact-submit:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(242,185,71,0.3); }
+    .as-contact-submit svg { transition: transform 0.2s; }
+    .as-contact-submit:hover svg { transform: translateX(4px); }
+    .as-contact-info-card {
+      background: #FFFFFF; border: 1.5px solid rgba(15,14,12,0.07);
+      border-radius: 28px; padding: 36px 32px;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .as-contact-info-item { display: flex; align-items: flex-start; gap: 14px; }
+    .as-contact-info-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: var(--as-accent-light); display: flex;
+      align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .as-contact-info-icon svg { width: 18px; height: 18px; stroke: var(--as-accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .as-contact-info-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(15,14,12,0.25); margin-bottom: 2px; }
+    .as-contact-info-value { font-size: 15px; font-weight: 600; color: var(--as-text-dark); }
+    .as-contact-info-value a { color: var(--as-text-dark); text-decoration: none; transition: color 0.2s; }
+    .as-contact-info-value a:hover { color: var(--as-accent); }
+    .as-contact-hours { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px; margin-top: 4px; }
+    .as-contact-hours-day { font-size: 13px; font-weight: 500; color: rgba(15,14,12,0.5); }
+    .as-contact-hours-time { font-size: 13px; font-weight: 600; color: var(--as-text-dark); text-align: right; }
+    .as-contact-hours-closed { color: #E04545; font-weight: 600; }
+    .as-contact-badges { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; padding-top: 4px; }
+    .as-contact-badge {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.04em;
+      padding: 6px 12px; border-radius: 8px;
+      background: var(--as-bg); color: rgba(15,14,12,0.4);
+      border: 1.5px solid rgba(15,14,12,0.06);
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .as-contact-badge .check { width: 12px; height: 12px; fill: var(--as-accent); }
+    .as-contact-footer-wrap {
+      margin-top: 48px;
+      background: var(--bg-footer); color: var(--text-primary);
+      border-radius: 28px; padding: 48px 44px 40px;
+      position: relative; overflow: hidden;
+    }
+    .as-contact-footer-wrap::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      background-size: 220px 220px; opacity: 0.02; pointer-events: none; z-index: 0;
+    }
+    .as-contact-footer-inner { position: relative; z-index: 1; }
+    .as-footer-desc {
+      font-size: 14px; font-weight: 400; color: var(--text-muted);
+      line-height: 1.7; max-width: 720px; margin-bottom: 32px;
+    }
+    .as-footer-grid {
+      display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      gap: 36px; margin-bottom: 36px;
+    }
+    .as-footer-col-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.13em;
+      text-transform: uppercase; color: var(--text-dim); margin-bottom: 14px;
+    }
+    .as-footer-links { display: flex; flex-direction: column; gap: 4px; }
+    .as-footer-link {
+      font-size: 14px; font-weight: 500; color: var(--text-muted);
+      text-decoration: none; line-height: 1.6;
+      transition: color 0.2s; width: fit-content;
+    }
+    .as-footer-link:hover { color: var(--as-accent); }
+    .as-footer-contact-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; font-weight: 500; color: var(--text-muted); margin-bottom: 8px;
+    }
+    .as-footer-contact-item svg { width: 16px; height: 16px; stroke: var(--as-accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+    .as-footer-contact-item a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .as-footer-contact-item a:hover { color: var(--as-accent); }
+    .as-footer-bottom { border-top: 1px solid var(--rule); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .as-footer-copy { font-size: 12px; font-weight: 400; color: var(--text-dim); }
+    @media (max-width: 860px) {
+      .as-contact-grid { grid-template-columns: 1fr; }
+      .as-contact { padding: 72px 28px 72px; }
+      .as-footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .as-contact-footer-wrap { padding: 36px 28px 32px; }
+    }
+    @media (max-width: 480px) {
+      .as-contact { padding: 56px 20px 48px; }
+      .as-contact-form-card { padding: 24px 20px 28px; }
+      .as-contact-info-card { padding: 24px 20px; }
+      .as-contact-footer-wrap { padding: 28px 20px 24px; border-radius: 20px; }
+      .as-footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .as-footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ══════════ POPUP ══════════ */
+    .as-popup-overlay {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: none;
+      align-items: center; justify-content: center;
+      padding: 24px;
+      animation: asOverlayIn 0.3s ease;
+    }
+    .as-popup-overlay.open { display: flex; }
+    @keyframes asOverlayIn { from { opacity: 0; } to { opacity: 1; } }
+    .as-popup {
+      background: #FFFFFF; border-radius: 32px;
+      max-width: 480px; width: 100%; position: relative;
+      overflow: hidden; box-shadow: 0 32px 80px rgba(0,0,0,0.25);
+      animation: asPopupIn 0.45s cubic-bezier(0.16,1,0.3,1);
+    }
+    @keyframes asPopupIn {
+      from { opacity: 0; transform: scale(0.9) translateY(20px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .as-popup-bar {
+      height: 6px;
+      background: linear-gradient(90deg, var(--as-accent), #D49A20, var(--as-accent));
+      background-size: 200% 100%;
+      animation: asBarShimmer 3s ease-in-out infinite;
+    }
+    @keyframes asBarShimmer {
+      0%,100% { background-position: 0% 0%; }
+      50% { background-position: 100% 0%; }
+    }
+    .as-popup-close {
+      position: absolute; top: 16px; right: 16px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(15,14,12,0.05); border: none;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s; z-index: 5;
+    }
+    .as-popup-close:hover { background: rgba(15,14,12,0.1); }
+    .as-popup-close svg { width: 18px; height: 18px; color: rgba(15,14,12,0.3); }
+    .as-popup-body { padding: 40px 40px 44px; text-align: center; position: relative; z-index: 1; }
+    .as-popup-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--as-accent);
+      background: var(--as-accent-light); padding: 5px 12px; border-radius: 100px; margin-bottom: 16px;
+    }
+    .as-popup-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #E04545; animation: asPulse 1.5s ease-in-out infinite; }
+    .as-popup-amount {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(44px, 8vw, 64px); font-weight: 800;
+      line-height: 1; color: var(--as-text-dark); letter-spacing: -0.03em; margin-bottom: 8px;
+    }
+    .as-popup-amount .dollar { color: var(--as-accent); }
+    .as-popup-amount .off { font-size: 0.5em; font-weight: 700; color: rgba(15,14,12,0.3); vertical-align: super; }
+    .as-popup-title { font-size: 20px; font-weight: 600; color: var(--as-text-dark); margin-bottom: 12px; line-height: 1.3; }
+    .as-popup-desc { font-size: 14px; font-weight: 400; color: rgba(15,14,12,0.5); line-height: 1.6; margin-bottom: 28px; max-width: 360px; margin-left: auto; margin-right: auto; }
+    .as-popup-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 15px; font-weight: 800; color: var(--as-dark);
+      background: var(--as-accent); text-decoration: none; padding: 16px 36px;
+      border-radius: 100px; border: none; cursor: pointer;
+      text-transform: uppercase; letter-spacing: 0.04em;
+      transition: all 0.2s ease; box-shadow: 0 6px 24px rgba(242,185,71,0.35);
+    }
+    .as-popup-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(242,185,71,0.45); }
+    .as-popup-btn svg { transition: transform 0.2s; }
+    .as-popup-btn:hover svg { transform: translateX(4px); }
+    .as-popup-footnote { font-size: 12px; font-weight: 400; color: rgba(15,14,12,0.3); margin-top: 16px; }
+    .as-popup-blob { position: absolute; pointer-events: none; z-index: 0; border-radius: 50%; filter: blur(60px); }
+    .as-popup-blob-1 { top: -80px; right: -60px; width: 240px; height: 240px; background: rgba(242,185,71,0.12); }
+    .as-popup-blob-2 { bottom: -60px; left: -40px; width: 200px; height: 200px; background: rgba(242,185,71,0.08); }
+    @media (max-width: 480px) { .as-popup-body { padding: 28px 24px 32px; } }
+
+    /* ══════════ FOOTER (mirror-footer) ══════════ */
+    .as-footer-wave {
+      display: block; width: 100%; line-height: 0; overflow: visible;
+      position: relative; z-index: 1; margin-top: -1px;
+    }
+    @keyframes asWaveFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    .as-wave-group { animation: asWaveFloat 1.2s ease-in-out infinite; }
+    .as-footer-wave svg { display: block; width: 100%; height: auto; }
+    footer {
+      background: var(--bg-footer); color: var(--text-primary);
+      padding: 72px 56px 44px; position: relative; overflow: hidden;
+    }
+    footer::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      background-size: 220px 220px; opacity: 0.025; pointer-events: none; z-index: 0;
+    }
+    .as-footer-inner { max-width: 1360px; margin: 0 auto; position: relative; z-index: 1; }
+    .as-footer-name-wrap { margin-bottom: 48px; display: flex; justify-content: space-between; align-items: center; }
+    @keyframes asStickerPop {
+      0% { opacity: 0; transform: rotate(var(--rot,0deg)) translateY(30px) scale(0.6); }
+      100% { opacity: 1; transform: rotate(var(--rot,0deg)) translateY(0) scale(1); }
+    }
+    .as-footer-stickers { display: flex; align-items: flex-end; gap: 6px; flex-wrap: wrap; justify-content: center; }
+    .as-sticker-letter {
+      height: clamp(44px, 7.5vw, 96px); width: auto;
+      transform: rotate(var(--rot, 0deg));
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      cursor: default;
+      animation: asStickerPop 0.5s cubic-bezier(0.34,1.56,0.64,1) calc(var(--i,0)*0.08s + 0.3s) both;
+    }
+    .as-sticker-letter:hover { transform: rotate(var(--rot, 0deg)) translateY(-10px) scale(1.1); }
+    .as-sticker-dot { height: clamp(20px, 3.5vw, 44px); margin-bottom: clamp(4px, 1vw, 12px); }
+    .as-footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 64px;
+    }
+    .as-footer-col-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.13em;
+      text-transform: uppercase; color: var(--text-dim); margin-bottom: 14px;
+    }
+    .as-footer-brand p {
+      font-size: 14px; font-weight: 400; color: var(--text-muted);
+      line-height: 1.7; margin-bottom: 16px;
+    }
+    .as-footer-badges { display: flex; gap: 10px; flex-wrap: wrap; }
+    .as-footer-badge {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+      padding: 6px 12px; border-radius: 6px;
+      background: rgba(255,255,255,0.06); color: var(--text-muted);
+      border: 1px solid var(--rule);
+    }
+    .as-footer-links { display: flex; flex-direction: column; gap: 4px; }
+    .as-footer-link {
+      font-size: 14px; font-weight: 500; color: var(--text-muted);
+      text-decoration: none; line-height: 1.6;
+      transition: color 0.2s; width: fit-content;
+    }
+    .as-footer-link:hover { color: var(--as-accent); }
+    .as-footer-social { display: flex; gap: 10px; margin-top: 12px; }
+    .as-footer-social a {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,0.06); border: 1px solid var(--rule);
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; text-decoration: none;
+    }
+    .as-footer-social a:hover { background: var(--as-accent); border-color: var(--as-accent); }
+    .as-footer-social a:hover svg { color: var(--as-dark); }
+    .as-footer-social svg { width: 16px; height: 16px; color: var(--text-muted); transition: color 0.2s; }
+    .as-footer-bottom {
+      border-top: 1px solid var(--rule); padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .as-footer-copy { font-size: 12px; font-weight: 400; color: var(--text-dim); }
+    .as-footer-bottom-links { display: flex; gap: 20px; }
+    .as-footer-bottom-links a {
+      font-size: 12px; font-weight: 400; color: var(--text-dim);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .as-footer-bottom-links a:hover { color: var(--text-primary); }
+    @media (max-width: 600px) {
+      .as-footer-stickers { gap: 4px; }
+      .as-sticker-letter { height: clamp(34px, 10vw, 54px); }
+      .as-sticker-dot { height: clamp(14px, 4vw, 24px); }
+    }
+    @media (max-width: 900px) {
+      .as-footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .as-footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 768px) {
+      footer { padding: 56px 28px 36px; }
+    }
+    @media (max-width: 480px) {
+      footer { padding: 48px 20px 32px; }
+      .as-footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .as-footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ─── LOADER ─── */
+    .loader{position:fixed;inset:0;z-index:20000;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--as-dark);gap:20px;transition:opacity .8s ease,visibility .8s ease}
+    .loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+    .loader-logo{display:flex;align-items:center;gap:12px;opacity:0;transform:translateY(-8px);animation:lLogo 1.2s ease forwards;animation-delay:.2s}
+    .loader-logo svg{width:40px;height:40px}
+    .loader-wordmark{font-size:1.5rem;font-weight:700;letter-spacing:-.02em;color:#fff}
+    .loader-bar-wrap{width:min(280px,50vw);height:2px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;opacity:0;animation:lFade .6s forwards;animation-delay:.4s}
+    .loader-bar{height:100%;width:0;background:var(--as-accent);border-radius:2px;animation:lProg 1.6s ease forwards;animation-delay:.5s}
+    @keyframes lLogo{to{opacity:1;transform:translateY(0)}}
+    @keyframes lFade{to{opacity:1}}
+    @keyframes lProg{to{width:100%}}
+    .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  </style>
+  </head>
+<body>
+
+<div class="loader" id="loader">
+  <div class="loader-logo">
+    <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#F2B947"/><path d="M12 28V16l8-6 8 6v12h-5v-7h-6v7H12z" fill="#0D0D0D"/></svg>
+    <span class="loader-wordmark">Attic Shield</span>
+  </div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+</div>
+
+  <section class="as-hero" id="as-hero">
+    <div class="as-hero-bg">
+      <video class="hero-video" autoplay muted loop playsinline poster="images/AtticShield-Hero.webp">
+        <source src="videos/services-bg.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="as-hero-slash"></div>
+    <nav class="as-nav">
+      <a href="#as-hero" class="as-nav-logo">
+        <span class="as-nav-logo-mark">AS</span>
+        Attic Shield
+      </a>
+      <div class="as-nav-links">
+        <a href="#as-services">Services</a>
+        <a href="#as-work">Our Work</a>
+        <a href="#as-about">About</a>
+        <a href="#as-faq">FAQ</a>
+        <a href="#as-contact">Contact</a>
+      </div>
+      <a href="tel:+18584020066" class="as-nav-phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (858) 402-0066
+      </a>
+    </nav>
+    <div class="as-hero-body">
+      <div class="as-hero-content">
+        <div class="as-trust">
+          <span class="as-trust-dot"></span>
+          Licensed &amp; Insured &middot; C-2 #1127450
+        </div>
+        <h1 class="as-headline">
+          <span class="as-word-wrap"><span class="as-word">Shield.</span></span>
+          <span class="as-word-wrap"><span class="as-word">Insulate.</span></span>
+          <span class="as-word-wrap"><span class="as-word"><span class="as-accent">Protect.</span></span></span>
+        </h1>
+        <div class="as-tagline">
+          <p>
+            San Diego's trusted attic insulation, rodent proofing, and duct specialists.
+            <strong>Free estimates</strong> &mdash; backed by 20+ years of experience.
+          </p>
+        </div>
+        <div class="as-ctas">
+          <a href="#as-contact" class="as-btn-primary">
+            Free Inspection
+            <span class="as-btn-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+          <a href="#as-services" class="as-btn-secondary">
+            View Services
+            <span class="as-btn-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+        </div>
+        <div class="as-trust-row">
+          <span class="as-trust-item">
+            <svg viewBox="0 0 24 24"><path class="as-check" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            20+ Years Experience
+          </span>
+          <span class="as-trust-item">
+            <svg viewBox="0 0 24 24"><path class="as-check" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            Free Estimates
+          </span>
+          <span class="as-trust-item">
+            <svg viewBox="0 0 24 24"><path class="as-check" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            Licensed &amp; Insured
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="as-scroll" aria-hidden="true">
+      <div class="as-scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ══════════ TRUST BADGES ══════════ -->
+  <section class="as-trust-badges" id="as-trust">
+    <div class="as-trust-badges-inner">
+      <p class="as-trust-badges-title">Join Thousands of Families Who Trust Us to Protect What Matters Most</p>
+      <div class="as-trust-badges-marquee">
+        <div class="as-trust-badges-track">
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/cslb.jpg" alt="CSLB" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">CSLB Licensed</span>
+              <span class="as-trust-badge-sub">#1127450 • C-2 Insulation</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/san-diego-county.webp" alt="San Diego County" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">San Diego County</span>
+              <span class="as-trust-badge-sub">Approved Contractor</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/energy-star.webp" alt="Energy Star" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">Energy Star</span>
+              <span class="as-trust-badge-sub">Certified Partner</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/bbb.webp" alt="BBB" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">Better Business Bureau</span>
+              <span class="as-trust-badge-sub">A+ Rated</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/owens-corning.webp" alt="Owens Corning" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">Owens Corning</span>
+              <span class="as-trust-badge-sub">Certified Installer</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/homeadvisor.webp" alt="HomeAdvisor" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">HomeAdvisor</span>
+              <span class="as-trust-badge-sub">Top Rated • Screened</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/icaa.webp" alt="ICAA" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">Insulation Contractors</span>
+              <span class="as-trust-badge-sub">ICAA Member</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/yelp.webp" alt="Yelp" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">Yelp</span>
+              <span class="as-trust-badge-sub">5 ★ • Top Rated</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/vista.webp" alt="City of Vista" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">City of Vista</span>
+              <span class="as-trust-badge-sub">Approved Contractor</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon" style="background:var(--as-dark);color:var(--as-accent);border:1px solid rgba(242,185,71,.3);">20+</div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">Years Experience</span>
+              <span class="as-trust-badge-sub">Since 2002</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon" style="background:var(--as-accent);color:var(--as-dark);">4.9</div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">Average Rating</span>
+              <span class="as-trust-badge-sub">★★★★★</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon" style="background:rgba(255,255,255,.08);color:#fff;">2.5K</div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">Homes Protected</span>
+              <span class="as-trust-badge-sub">San Diego &amp; Beyond</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/partner-1.webp" alt="Partner 1" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">Trade Partner</span>
+              <span class="as-trust-badge-sub">Certified</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/partner-2.webp" alt="Partner 2" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">Trade Partner</span>
+              <span class="as-trust-badge-sub">Certified</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/partner-3.webp" alt="Partner 3" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">Trade Partner</span>
+              <span class="as-trust-badge-sub">Certified</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/partner-4.webp" alt="Partner 4" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">Trade Partner</span>
+              <span class="as-trust-badge-sub">Certified</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/partner-5.webp" alt="Partner 5" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">Trade Partner</span>
+              <span class="as-trust-badge-sub">Certified</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/partner-6.webp" alt="Partner 6" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">Trade Partner</span>
+              <span class="as-trust-badge-sub">Certified</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/partner-7.webp" alt="Partner 7" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">Trade Partner</span>
+              <span class="as-trust-badge-sub">Certified</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/partner-8.webp" alt="Partner 8" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">Trade Partner</span>
+              <span class="as-trust-badge-sub">Certified</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/license-1.webp" alt="License 1" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">License</span>
+              <span class="as-trust-badge-sub">Verified</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/license-2.webp" alt="License 2" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">License</span>
+              <span class="as-trust-badge-sub">Verified</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/cert-1.webp" alt="Cert 1" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">Certification</span>
+              <span class="as-trust-badge-sub">Verified</span>
+            </div>
+          </div>
+          <div class="as-trust-badge">
+            <div class="as-trust-badge-icon"><img src="images/cert-2.webp" alt="Cert 2" /></div>
+            <div class="as-trust-badge-info">
+              <span class="as-trust-badge-name">Certification</span>
+              <span class="as-trust-badge-sub">Verified</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="as-svcs" id="as-services">
+    <div class="as-svcs-inner">
+      <div class="as-svcs-header">
+        <div class="as-svcs-left">
+          <span class="as-svcs-eyebrow">Our Services</span>
+          <h2 class="as-svcs-title">Complete Protection for Your <em>Attic &amp; Crawl Space</em></h2>
+        </div>
+        <div class="as-svcs-right">
+          <a href="/services/" class="as-svcs-link">
+            View All Services
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="as-svcs-grid">
+        <div class="as-card card-hidden theme-cleaning">
+          <div class="as-card-tape"></div>
+          <div class="as-card-ribbon">Most Popular</div>
+          <div class="as-card-visual">
+            <div class="as-card-visual-bg" style="background:url(images/AtticShield-attic-cleanup-1-1.jpg) center/cover no-repeat"></div>
+            <div class="as-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+          </div>
+          <div class="as-card-body">
+            <span class="as-card-cat">San Diego</span>
+            <h3 class="as-card-title">Attic Cleaning &amp; Sanitization</h3>
+            <p class="as-card-desc">Remove old insulation, debris, and contaminants. Full sanitation and decontamination for a healthier home.</p>
+            <div class="as-card-footer">
+              <a href="/services/attic-cleaning/" class="as-card-cta">
+                Explore More
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <span class="as-card-price">Free Estimate</span>
+            </div>
+          </div>
+        </div>
+        <div class="as-card card-hidden theme-insulation">
+          <div class="as-card-tape"></div>
+          <div class="as-card-visual">
+            <div class="as-card-visual-bg" style="background:url(images/AtticShield-Insulation-1-1.jpg) center/cover no-repeat"></div>
+            <div class="as-card-icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="2" ry="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            </div>
+          </div>
+          <div class="as-card-body">
+            <span class="as-card-cat">Energy Savings</span>
+            <h3 class="as-card-title">Attic Insulation Installation</h3>
+            <p class="as-card-desc">Blow-in, fiberglass batt, spray foam, and radiant barrier solutions. Cut energy bills by up to 30%.</p>
+            <div class="as-card-footer">
+              <a href="/services/insulation/" class="as-card-cta">
+                Explore More
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <span class="as-card-price">Free Estimate</span>
+            </div>
+          </div>
+        </div>
+        <div class="as-card card-hidden theme-rodent">
+          <div class="as-card-tape"></div>
+          <div class="as-card-visual">
+            <div class="as-card-visual-bg" style="background:url(images/Attic-Shield-rodent-2.jpg) center/cover no-repeat"></div>
+            <div class="as-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 12h8M12 8v8"/></svg>
+            </div>
+          </div>
+          <div class="as-card-body">
+            <span class="as-card-cat">Pest Exclusion</span>
+            <h3 class="as-card-title">Rodent Proofing &amp; Cleanup</h3>
+            <p class="as-card-desc">Seal entry points, remove droppings, and prevent re-entry. Complete pest exclusion and wildlife cleanup.</p>
+            <div class="as-card-footer">
+              <a href="/services/rodent-proofing/" class="as-card-cta">
+                Explore More
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <span class="as-card-price">Free Estimate</span>
+            </div>
+          </div>
+        </div>
+        <div class="as-card card-hidden theme-crawl">
+          <div class="as-card-tape"></div>
+          <div class="as-card-visual">
+            <div class="as-card-visual-bg" style="background:url(images/AtticShield-CS-Cleaing-1.jpg) center/cover no-repeat"></div>
+            <div class="as-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+          </div>
+          <div class="as-card-body">
+            <span class="as-card-cat">Moisture Control</span>
+            <h3 class="as-card-title">Crawl Space Encapsulation</h3>
+            <p class="as-card-desc">Cleaning, encapsulation, vapor barriers, and insulation for crawl spaces. Prevent mold and structural damage.</p>
+            <div class="as-card-footer">
+              <a href="/services/crawl-space/" class="as-card-cta">
+                Explore More
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <span class="as-card-price">Free Estimate</span>
+            </div>
+          </div>
+        </div>
+        <div class="as-shelf"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ WHY YOUR ATTIC & CRAWL SPACE MATTER ══════════ -->
+  <section class="as-why" id="as-why">
+    <div class="as-why-inner">
+      <div class="as-why-right">
+        <img class="as-why-image" src="images/AtticShield-attic-cleanup-1-1.jpg" alt="Attic cleanup and insulation" />
+        <div class="as-why-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          5,000+ Homes Protected
+        </div>
+      </div>
+      <div class="as-why-left">
+        <span class="as-why-eyebrow">Why It Matters</span>
+        <h2 class="as-why-title">Why Your Attic &amp; <em>Crawl Space</em> Matter</h2>
+        <p class="as-why-desc">
+          These often-forgotten areas can be the biggest sources of heat loss, pests, and air contamination.
+          When neglected, they cost you money and compromise your comfort. When maintained, they add value,
+          safety, and peace of mind. <strong style="color:#fff;font-weight:600;">Attic Shield makes it easy.</strong>
+        </p>
+        <div class="as-why-list">
+          <div class="as-why-item">
+            <div class="as-why-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
+            <div class="as-why-item-info">
+              <span class="as-why-item-name">Certified &amp; Experienced Technicians</span>
+              <span class="as-why-item-desc">Trained technicians delivering trusted, professional service.</span>
+            </div>
+          </div>
+          <div class="as-why-item">
+            <div class="as-why-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+            </div>
+            <div class="as-why-item-info">
+              <span class="as-why-item-name">Free Inspections, Honest Quotes</span>
+              <span class="as-why-item-desc">No-obligation quotes with honest, upfront pricing.</span>
+            </div>
+          </div>
+          <div class="as-why-item">
+            <div class="as-why-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22c1.25-2.5 3.54-5 7-6 2.74-.79 5.5-2.5 7-5 1.53 2.47 1.53 6.5 1 10"/><path d="M16 2c-2.5.5-5 2.5-5 7 0 2.5.5 4.5 2 6"/></svg>
+            </div>
+            <div class="as-why-item-info">
+              <span class="as-why-item-name">Eco-Friendly Materials &amp; Practices</span>
+              <span class="as-why-item-desc">Safe materials and sustainable practices for your home.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="as-testi" id="as-testimonials">
+    <div class="as-testi-inner">
+      <div class="as-testi-header">
+        <div class="as-testi-left">
+          <span class="as-testi-eyebrow">Testimonials</span>
+          <h2 class="as-testi-title">Why Families Choose <em style="font-style:normal;color:var(--as-accent)">Attic Shield</em></h2>
+        </div>
+        <div class="as-testi-rating">
+          <div class="as-testi-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span class="as-testi-score"><strong>4.9</strong> / 5.0</span>
+        </div>
+      </div>
+    </div>
+    <div class="as-testi-marquee">
+      <div class="as-testi-track">
+        <div class="as-testi-card" style="--ti:0">
+          <div class="as-testi-blob"></div>
+          <span class="as-testi-quote">"</span>
+          <p class="as-testi-text">Attic Shield did an incredible job insulating our attic. The team was professional, on time, and left everything spotless. Our energy bill dropped noticeably the first month.</p>
+          <div class="as-testi-person">
+            <div class="as-testi-avatar" style="background:#FFE8D0;color:#7A3800;">M</div>
+            <div>
+              <div class="as-testi-name">Michael T.</div>
+              <div class="as-testi-role">San Diego, CA</div>
+            </div>
+            <span class="as-testi-service">Insulation</span>
+          </div>
+        </div>
+        <div class="as-testi-card" style="--ti:1">
+          <div class="as-testi-blob"></div>
+          <span class="as-testi-quote">"</span>
+          <p class="as-testi-text">We had a serious rodent issue in our crawl space. Attic Shield sealed every entry point and cleaned everything thoroughly. Haven't seen a single sign of pests since.</p>
+          <div class="as-testi-person">
+            <div class="as-testi-avatar" style="background:#D4EDBC;color:#2D4800;">S</div>
+            <div>
+              <div class="as-testi-name">Sarah K.</div>
+              <div class="as-testi-role">Escondido, CA</div>
+            </div>
+            <span class="as-testi-service">Rodent Proofing</span>
+          </div>
+        </div>
+        <div class="as-testi-card" style="--ti:2">
+          <div class="as-testi-blob"></div>
+          <span class="as-testi-quote">"</span>
+          <p class="as-testi-text">From the free estimate to the final walkthrough, everything was smooth. They explained every step and the pricing was transparent. Rare to find that level of honesty.</p>
+          <div class="as-testi-person">
+            <div class="as-testi-avatar" style="background:#C8E0F8;color:#1A3A6B;">D</div>
+            <div>
+              <div class="as-testi-name">David R.</div>
+              <div class="as-testi-role">Carlsbad, CA</div>
+            </div>
+            <span class="as-testi-service">Attic Cleaning</span>
+          </div>
+        </div>
+        <div class="as-testi-card" style="--ti:3">
+          <div class="as-testi-blob"></div>
+          <span class="as-testi-quote">"</span>
+          <p class="as-testi-text">We had our crawl space encapsulated and it made a huge difference. No more musty smell, and the vapor barrier looks great. Highly recommend this team.</p>
+          <div class="as-testi-person">
+            <div class="as-testi-avatar" style="background:#FFD4E4;color:#5C1A35;">L</div>
+            <div>
+              <div class="as-testi-name">Lisa M.</div>
+              <div class="as-testi-role">Poway, CA</div>
+            </div>
+            <span class="as-testi-service">Crawl Space</span>
+          </div>
+        </div>
+        <div class="as-testi-card" style="--ti:4">
+          <div class="as-testi-blob"></div>
+          <span class="as-testi-quote">"</span>
+          <p class="as-testi-text">The team removed all the old blown-in insulation from our attic and replaced it with new. Night and day difference in how our home holds temperature. Worth every penny.</p>
+          <div class="as-testi-person">
+            <div class="as-testi-avatar" style="background:#E5D4FF;color:#3A0066;">J</div>
+            <div>
+              <div class="as-testi-name">James P.</div>
+              <div class="as-testi-role">Oceanside, CA</div>
+            </div>
+            <span class="as-testi-service">Insulation</span>
+          </div>
+        </div>
+        <div class="as-testi-card" style="--ti:5">
+          <div class="as-testi-blob"></div>
+          <span class="as-testi-quote">"</span>
+          <p class="as-testi-text">Very thorough rodent proofing job. They found gaps I never would have noticed and sealed them all. The follow-up inspection gave me total peace of mind.</p>
+          <div class="as-testi-person">
+            <div class="as-testi-avatar" style="background:#FFDDD4;color:#5C1A00;">A</div>
+            <div>
+              <div class="as-testi-name">Alex W.</div>
+              <div class="as-testi-role">Encinitas, CA</div>
+            </div>
+            <span class="as-testi-service">Rodent Proofing</span>
+          </div>
+        </div>
+        <div class="as-testi-card" style="--ti:6">
+          <div class="as-testi-blob"></div>
+          <span class="as-testi-quote">"</span>
+          <p class="as-testi-text">I run a small business out of my home and the attic insulation was outdated. Attic Shield made the whole process easy, clean, and fast. My workspace is so much more comfortable now.</p>
+          <div class="as-testi-person">
+            <div class="as-testi-avatar" style="background:#C8F4E8;color:#0A4A30;">R</div>
+            <div>
+              <div class="as-testi-name">Rita N.</div>
+              <div class="as-testi-role">Vista, CA</div>
+            </div>
+            <span class="as-testi-service">Attic Cleaning</span>
+          </div>
+        </div>
+        <div class="as-testi-card" style="--ti:7">
+          <div class="as-testi-blob"></div>
+          <span class="as-testi-quote">"</span>
+          <p class="as-testi-text">Had Attic Shield install a radiant barrier and new ventilation. The attic used to be unbearable in summer &mdash; now it's actually usable storage space. Great work.</p>
+          <div class="as-testi-person">
+            <div class="as-testi-avatar" style="background:#FFF4C0;color:#4A3000;">T</div>
+            <div>
+              <div class="as-testi-name">Tom B.</div>
+              <div class="as-testi-role">San Marcos, CA</div>
+            </div>
+            <span class="as-testi-service">Insulation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="as-blog" id="as-blog">
+    <div class="as-blog-inner">
+      <div class="as-blog-header">
+        <div class="as-blog-left">
+          <span class="as-blog-eyebrow">Latest &amp; Insights</span>
+          <h2 class="as-blog-title">Tips &amp; Advice for Your <em>Home</em></h2>
+        </div>
+        <a href="/blogs/" class="as-blog-link">
+          View All Posts
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      <div class="as-blog-grid">
+        <a href="/blog/attic-insulation-guide/" class="as-blog-card card-hidden theme-warm">
+          <div class="as-blog-tape"></div>
+          <div class="as-blog-img">
+            <div class="as-blog-img-bg" style="background:url(images/AtticShield-Insulation-1-1.jpg) center/cover no-repeat"></div>
+            <span class="as-blog-cat">Insulation</span>
+          </div>
+          <div class="as-blog-body">
+            <h3 class="as-blog-card-title">The Complete Guide to Attic Insulation in San Diego</h3>
+            <p class="as-blog-excerpt">Everything you need to know about R-values, materials, and why proper insulation saves you money year-round.</p>
+            <div class="as-blog-footer">
+              <span class="as-blog-date">Jan 12, 2026</span>
+              <span class="as-blog-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+        <a href="/blog/rodent-proofing-tips/" class="as-blog-card card-hidden theme-cool">
+          <div class="as-blog-tape"></div>
+          <div class="as-blog-img">
+            <div class="as-blog-img-bg" style="background:url(images/Attic-Shield-rodent-2.jpg) center/cover no-repeat"></div>
+            <span class="as-blog-cat">Rodent Proofing</span>
+          </div>
+          <div class="as-blog-body">
+            <h3 class="as-blog-card-title">5 Signs You Have Rodents in Your Attic (And What to Do)</h3>
+            <p class="as-blog-excerpt">Scratching sounds, droppings, and chewed wires — spot the warning signs before the damage adds up.</p>
+            <div class="as-blog-footer">
+              <span class="as-blog-date">Dec 28, 2025</span>
+              <span class="as-blog-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+        <a href="/blog/crawl-space-moisture/" class="as-blog-card card-hidden theme-green">
+          <div class="as-blog-tape"></div>
+          <div class="as-blog-img">
+            <div class="as-blog-img-bg" style="background:url(images/AtticShield-CS-Cleaing-1.jpg) center/cover no-repeat"></div>
+            <span class="as-blog-cat">Crawl Space</span>
+          </div>
+          <div class="as-blog-body">
+            <h3 class="as-blog-card-title">Why Crawl Space Moisture Is Ruining Your Home</h3>
+            <p class="as-blog-excerpt">Mold, rot, and structural damage start below your feet. Learn how encapsulation protects your biggest investment.</p>
+            <div class="as-blog-footer">
+              <span class="as-blog-date">Dec 15, 2025</span>
+              <span class="as-blog-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+        <a href="/blog/energy-saving-tips/" class="as-blog-card card-hidden theme-rose">
+          <div class="as-blog-tape"></div>
+          <div class="as-blog-img">
+            <div class="as-blog-img-bg" style="background:url(images/AtticShield-attic-cleanup-1-1.jpg) center/cover no-repeat"></div>
+            <span class="as-blog-cat">Energy Savings</span>
+          </div>
+          <div class="as-blog-body">
+            <h3 class="as-blog-card-title">How Proper Attic Ventilation Lowers Your Energy Bill</h3>
+            <p class="as-blog-excerpt">Good ventilation does more than regulate temperature — it protects your roof, your HVAC, and your wallet.</p>
+            <div class="as-blog-footer">
+              <span class="as-blog-date">Nov 30, 2025</span>
+              <span class="as-blog-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="as-about" id="as-about">
+    <div class="as-about-bg">
+      <video autoplay muted loop playsinline poster="images/AtticShield-attic-cleanup-3-1.jpg">
+        <source src="videos/hero-video-ezremove.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="as-about-inner">
+      <div class="as-about-eyebrow">
+        <span class="as-about-eyebrow-lbl">About</span>
+      </div>
+      <h2 class="as-about-title">Your Home's <em>First Line of Defense</em> — 20+ Years of Trust</h2>
+      <div class="as-about-grid">
+        <div class="as-about-photo-wrap">
+          <div class="as-about-photo-card">
+            <div class="as-about-photo-bg" style="background:url(images/atticshield.webp) center/cover no-repeat">
+              <span class="as-about-photo-mono">AS</span>
+            </div>
+            <svg class="as-about-sticker as-about-sticker-1" viewBox="0 0 60 60" width="56" height="56">
+              <polygon points="30,3 33.1,18.4 43.5,6.6 38.5,21.5 53.4,16.5 41.6,26.9 57,30 41.6,33.1 53.4,43.5 38.5,38.5 43.5,53.4 33.1,41.6 30,57 26.9,41.6 16.5,53.4 21.5,38.5 6.6,43.5 18.4,33.1 3,30 18.4,26.9 6.6,16.5 21.5,21.5 16.5,6.6 26.9,18.4" fill="#F2B947" stroke="#1A1A1A" stroke-width="2.5" stroke-linejoin="round"/>
+            </svg>
+            <svg class="as-about-sticker as-about-sticker-2" viewBox="0 0 60 60" width="46" height="46">
+              <path d="M30,2 C34,16 44,26 58,30 C44,34 34,44 30,58 C26,44 16,34 2,30 C16,26 26,16 30,2 Z" fill="#4ADE80" stroke="#1A1A1A" stroke-width="2.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="as-about-right">
+          <div class="as-about-stats">
+            <div class="as-about-stat">
+              <span class="as-about-stat-num" data-count="2500" data-suffix="+">0+</span>
+              <span class="as-about-stat-lbl">Homes Protected</span>
+            </div>
+            <div class="as-about-stat-divider"></div>
+            <div class="as-about-stat">
+              <span class="as-about-stat-num" data-count="20" data-suffix="+">0+</span>
+              <span class="as-about-stat-lbl">Years Experience</span>
+            </div>
+            <div class="as-about-stat-divider"></div>
+            <div class="as-about-stat">
+              <span class="as-about-stat-num">4.9</span>
+              <span class="as-about-stat-lbl">★ Rating</span>
+            </div>
+            <a href="#as-contact" class="as-about-cta">
+              Let's Talk
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+          <div class="as-about-tags-box">
+            <span class="as-about-tags-lbl">What We Do</span>
+            <div class="as-about-tags">
+              <span class="as-ab-tag gold" style="--ai:0">Insulation</span>
+              <span class="as-ab-tag green" style="--ai:1;--rot:1.5deg">Rodent Proofing</span>
+              <span class="as-ab-tag blue" style="--ai:2;--rot:-1deg">Air Sealing</span>
+              <span class="as-ab-tag pink" style="--ai:3;--rot:2deg">Sanitization</span>
+              <span class="as-ab-tag lavender" style="--ai:4;--rot:-1.5deg">Duct Work</span>
+              <span class="as-ab-tag gold" style="--ai:5;--rot:1deg">Crawl Spaces</span>
+              <span class="as-ab-tag peach" style="--ai:6;--rot:-2deg">Free Estimates</span>
+              <span class="as-ab-tag green" style="--ai:7;--rot:1.5deg">Licensed C-2</span>
+            </div>
+          </div>
+          <div class="as-about-why">
+            <span class="as-about-why-lbl">Why Choose Us</span>
+            <span class="as-about-why-pill">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Certified Techs
+            </span>
+            <span class="as-about-why-pill">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Free Inspections
+            </span>
+            <span class="as-about-why-pill">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Eco-Friendly
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ OUR WORK ══════════ -->
+  <section class="as-work" id="as-work">
+    <div class="as-work-bg"></div>
+    <div class="as-work-inner">
+      <div class="as-work-header">
+        <span class="as-work-eyebrow">Our Work</span>
+        <h2 class="as-work-title">See How We Protect Homes<br><em>From the Inside Out</em></h2>
+        <p class="as-work-sub">Every project tells a story. Browse our transformations — from rodent-infested attics to clean, insulated, protected spaces.</p>
+      </div>
+      <div class="as-work-filters" id="workFilters">
+        <button class="as-work-filter active" data-filter="all">All Projects</button>
+        <button class="as-work-filter" data-filter="insulation">Attic Insulation</button>
+        <button class="as-work-filter" data-filter="removal">Insulation Removal</button>
+        <button class="as-work-filter" data-filter="rodent">Rodent Proofing</button>
+        <button class="as-work-filter" data-filter="sanitation">Attic Sanitation</button>
+        <button class="as-work-filter" data-filter="sealing">Air Sealing</button>
+        <button class="as-work-filter" data-filter="crawl">Crawl Space</button>
+        <button class="as-work-filter" data-filter="vapor">Vapor Barrier</button>
+      </div>
+      <div class="as-work-grid" id="workGrid">
+        <!-- Attic Insulation -->
+        <div class="as-work-card" data-category="insulation">
+          <div class="as-work-card-img" style="background-image:url(images/AtticShield-Insulation-1-1.jpg)"></div>
+          <div class="as-work-card-overlay">
+            <span class="as-work-card-tag">Attic Insulation</span>
+            <h3 class="as-work-card-title">R-38 Blown-In Upgrade</h3>
+            <p class="as-work-card-desc">Escondido, CA — Full insulation replacement with energy-efficient blown-in fiberglass.</p>
+            <span class="as-work-card-cta">View Project</span>
+          </div>
+        </div>
+        <div class="as-work-card" data-category="insulation">
+          <div class="as-work-card-img" style="background-image:url(images/AtticShield-Insulation-2-1.jpg)"></div>
+          <div class="as-work-card-overlay">
+            <span class="as-work-card-tag">Attic Insulation</span>
+            <h3 class="as-work-card-title">Radiant Barrier + Insulation</h3>
+            <p class="as-work-card-desc">Carlsbad, CA — Combined radiant barrier with blown-in insulation for max efficiency.</p>
+            <span class="as-work-card-cta">View Project</span>
+          </div>
+        </div>
+        <div class="as-work-card" data-category="insulation">
+          <div class="as-work-card-img" style="background-image:url(images/AtticShield-Insulation-3-1.jpg)"></div>
+          <div class="as-work-card-overlay">
+            <span class="as-work-card-tag">Attic Insulation</span>
+            <h3 class="as-work-card-title">Fiberglass Batt Installation</h3>
+            <p class="as-work-card-desc">San Diego, CA — Precision batt installation meeting Title 24 requirements.</p>
+            <span class="as-work-card-cta">View Project</span>
+          </div>
+        </div>
+        <div class="as-work-card" data-category="insulation">
+          <div class="as-work-card-img" style="background-image:url(images/AtticShield-Insulation-4-1.jpg)"></div>
+          <div class="as-work-card-overlay">
+            <span class="as-work-card-tag">Attic Insulation</span>
+            <h3 class="as-work-card-title">Complete Attic Restoration</h3>
+            <p class="as-work-card-desc">Poway, CA — Full removal, sanitization, and R-38 re-insulation.</p>
+            <span class="as-work-card-cta">View Project</span>
+          </div>
+        </div>
+        <!-- Insulation Removal -->
+        <div class="as-work-card" data-category="removal">
+          <div class="as-work-card-img" style="background-image:url(images/AtticShield-attic-cleanup-1-1.jpg)"></div>
+          <div class="as-work-card-overlay">
+            <span class="as-work-card-tag">Insulation Removal</span>
+            <h3 class="as-work-card-title">Old Insulation Extraction</h3>
+            <p class="as-work-card-desc">Vista, CA — Commercial vacuum removal of 20+ year old contaminated insulation.</p>
+            <span class="as-work-card-cta">View Project</span>
+          </div>
+        </div>
+        <div class="as-work-card" data-category="removal">
+          <div class="as-work-card-img" style="background-image:url(images/AtticShield-attic-cleanup-2-1.jpg)"></div>
+          <div class="as-work-card-overlay">
+            <span class="as-work-card-tag">Insulation Removal</span>
+            <h3 class="as-work-card-title">Rodent Damaged Removal</h3>
+            <p class="as-work-card-desc">Oceanside, CA — Full extraction of rodent-damaged insulation and debris.</p>
+            <span class="as-work-card-cta">View Project</span>
+          </div>
+        </div>
+        <div class="as-work-card" data-category="removal">
+          <div class="as-work-card-img" style="background-image:url(images/AtticShield-attic-cleanup-3-1.jpg)"></div>
+          <div class="as-work-card-overlay">
+            <span class="as-work-card-tag">Insulation Removal</span>
+            <h3 class="as-work-card-title">Complete Strip & Clean</h3>
+            <p class="as-work-card-desc">San Marcos, CA — Stripped to bare deck, sanitized, ready for new insulation.</p>
+            <span class="as-work-card-cta">View Project</span>
+          </div>
+        </div>
+        <!-- Rodent Proofing -->
+        <div class="as-work-card" data-category="rodent">
+          <div class="as-work-card-img" style="background-image:url(images/Attic-Shield-rodent-2.jpg)"></div>
+          <div class="as-work-card-overlay">
+            <span class="as-work-card-tag">Rodent Proofing</span>
+            <h3 class="as-work-card-title">Full Perimeter Seal</h3>
+            <p class="as-work-card-desc">Encinitas, CA — Galvanized mesh sealing of all roofline entry points.</p>
+            <span class="as-work-card-cta">View Project</span>
+          </div>
+        </div>
+        <div class="as-work-card" data-category="rodent">
+          <div class="as-work-card-img" style="background-image:url(images/Attic-Shield-rodent-3.jpg)"></div>
+          <div class="as-work-card-overlay">
+            <span class="as-work-card-tag">Rodent Proofing</span>
+            <h3 class="as-work-card-title">Vent &amp; Eave Exclusion</h3>
+            <p class="as-work-card-desc">La Jolla, CA — Custom metal flashing and mesh for permanent exclusion.</p>
+            <span class="as-work-card-cta">View Project</span>
+          </div>
+        </div>
+        <div class="as-work-card" data-category="rodent">
+          <div class="as-work-card-img" style="background-image:url(images/Attic-Shield-rodent-4.jpg)"></div>
+          <div class="as-work-card-overlay">
+            <span class="as-work-card-tag">Rodent Proofing</span>
+            <h3 class="as-work-card-title">Crawl Space Fortification</h3>
+            <p class="as-work-card-desc">San Diego, CA — Full crawl space rodent seal with 3-year warranty.</p>
+            <span class="as-work-card-cta">View Project</span>
+          </div>
+        </div>
+        <!-- Attic Sanitation -->
+        <div class="as-work-card" data-category="sanitation">
+          <div class="as-work-card-img" style="background-image:url(images/AtticShield-attic-cleanup-4-1.jpg)"></div>
+          <div class="as-work-card-overlay">
+            <span class="as-work-card-tag">Attic Sanitation</span>
+            <h3 class="as-work-card-title">Deep Decontamination</h3>
+            <p class="as-work-card-desc">Chula Vista, CA — Hospital-grade sanitization after rodent infestation.</p>
+            <span class="as-work-card-cta">View Project</span>
+          </div>
+        </div>
+        <div class="as-work-card" data-category="sanitation">
+          <div class="as-work-card-img" style="background-image:url(images/AtticShield-attic-cleanup-5-1.jpg)"></div>
+          <div class="as-work-card-overlay">
+            <span class="as-work-card-tag">Attic Sanitation</span>
+            <h3 class="as-work-card-title">Mold &amp; Odor Remediation</h3>
+            <p class="as-work-card-desc">Rancho Bernardo, CA — Complete biohazard cleanup and deodorization.</p>
+            <span class="as-work-card-cta">View Project</span>
+          </div>
+        </div>
+        <!-- Air Sealing -->
+        <div class="as-work-card" data-category="sealing">
+          <div class="as-work-card-img" style="background-image:url(images/AtticShield-attic-cleanup-2-1.jpg)"></div>
+          <div class="as-work-card-overlay">
+            <span class="as-work-card-tag">Air Sealing</span>
+            <h3 class="as-work-card-title">Top Plate &amp; Penetration Seal</h3>
+            <p class="as-work-card-desc">Del Mar, CA — Foam sealing of all bypasses, top plates, and wiring holes.</p>
+            <span class="as-work-card-cta">View Project</span>
+          </div>
+        </div>
+        <div class="as-work-card" data-category="sealing">
+          <div class="as-work-card-img" style="background-image:url(images/AtticShield-Insulation-2-1.jpg)"></div>
+          <div class="as-work-card-overlay">
+            <span class="as-work-card-tag">Air Sealing</span>
+            <h3 class="as-work-card-title">Complete Building Envelope</h3>
+            <p class="as-work-card-desc">Solana Beach, CA — Comprehensive air sealing before new insulation.</p>
+            <span class="as-work-card-cta">View Project</span>
+          </div>
+        </div>
+        <!-- Crawl Space -->
+        <div class="as-work-card" data-category="crawl">
+          <div class="as-work-card-img" style="background-image:url(images/AtticShield-CS-Cleaing-1.jpg)"></div>
+          <div class="as-work-card-overlay">
+            <span class="as-work-card-tag">Crawl Space</span>
+            <h3 class="as-work-card-title">Full Clean &amp; Encapsulation</h3>
+            <p class="as-work-card-desc">Temecula, CA — Debris removal, vapor barrier, and insulation restoration.</p>
+            <span class="as-work-card-cta">View Project</span>
+          </div>
+        </div>
+        <div class="as-work-card" data-category="crawl">
+          <div class="as-work-card-img" style="background-image:url(images/AtticShield-CS-Cleaing-2.jpg)"></div>
+          <div class="as-work-card-overlay">
+            <span class="as-work-card-tag">Crawl Space</span>
+            <h3 class="as-work-card-title">Moisture Barrier Install</h3>
+            <p class="as-work-card-desc">Murrieta, CA — 20-mil vapor barrier with sealed seams and terminations.</p>
+            <span class="as-work-card-cta">View Project</span>
+          </div>
+        </div>
+        <div class="as-work-card" data-category="crawl">
+          <div class="as-work-card-img" style="background-image:url(images/AtticShield-CS-Cleaing-3.jpg)"></div>
+          <div class="as-work-card-overlay">
+            <span class="as-work-card-tag">Crawl Space</span>
+            <h3 class="as-work-card-title">Rodent Cleanout &amp; Seal</h3>
+            <p class="as-work-card-desc">Lake Elsinore, CA — Full crawl space restoration after rodent infestation.</p>
+            <span class="as-work-card-cta">View Project</span>
+          </div>
+        </div>
+        <div class="as-work-card" data-category="crawl">
+          <div class="as-work-card-img" style="background-image:url(images/AtticShield-CS-Cleaing-4.jpg)"></div>
+          <div class="as-work-card-overlay">
+            <span class="as-work-card-tag">Crawl Space</span>
+            <h3 class="as-work-card-title">Insulation &amp; Vapor Barrier</h3>
+            <p class="as-work-card-desc">Fallbrook, CA — Combined insulation and vapor barrier encapsulation.</p>
+            <span class="as-work-card-cta">View Project</span>
+          </div>
+        </div>
+        <!-- Vapor Barrier -->
+        <div class="as-work-card" data-category="vapor">
+          <div class="as-work-card-img" style="background-image:url(images/AtticShield-CS-Cleaing-11.jpg)"></div>
+          <div class="as-work-card-overlay">
+            <span class="as-work-card-tag">Vapor Barrier</span>
+            <h3 class="as-work-card-title">Crawl Space Vapor Seal</h3>
+            <p class="as-work-card-desc">San Diego, CA — Complete vapor barrier with crawl space door insulation.</p>
+            <span class="as-work-card-cta">View Project</span>
+          </div>
+        </div>
+        <div class="as-work-card" data-category="vapor">
+          <div class="as-work-card-img" style="background-image:url(images/AtticShield-CS-Cleaning-1.jpeg)"></div>
+          <div class="as-work-card-overlay">
+            <span class="as-work-card-tag">Vapor Barrier</span>
+            <h3 class="as-work-card-title">Encapsulation + Drainage</h3>
+            <p class="as-work-card-desc">Oceanside, CA — Vapor barrier with perimeter drainage and sump prep.</p>
+            <span class="as-work-card-cta">View Project</span>
+          </div>
+        </div>
+      </div>
+      <div class="as-work-cta">
+        <p>Ready to transform your attic or crawl space?</p>
+        <a href="#as-contact" class="as-work-cta-btn">
+          Schedule Free Inspection
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="as-areas" id="as-areas">
+    <div class="as-areas-inner">
+      <div class="as-areas-header">
+        <span class="as-areas-eyebrow">Service Areas</span>
+        <h2 class="as-areas-title">Protecting Homes Across <em>Southern California</em></h2>
+        <p class="as-areas-sub">From San Diego to Orange County, we bring licensed attic and crawl space expertise to your neighborhood.</p>
+      </div>
+      <div class="as-areas-map">
+        <div class="as-areas-map-bg"></div>
+        <div class="as-areas-map-content">
+          <div class="as-areas-map-visual">
+            <div class="as-areas-county-bar">
+              <div class="as-areas-county-icon sd">SD</div>
+              <div class="as-areas-county-info">
+                <div class="as-areas-county-name">San Diego County</div>
+                <div class="as-areas-county-cities">Escondido, San Diego, Carlsbad, Oceanside, Vista &amp; 55+ more</div>
+              </div>
+              <svg class="as-areas-county-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+            <div class="as-areas-county-bar">
+              <div class="as-areas-county-icon rv">RV</div>
+              <div class="as-areas-county-info">
+                <div class="as-areas-county-name">Southwest Riverside County</div>
+                <div class="as-areas-county-cities">Temecula, Murrieta, Lake Elsinore, Menifee &amp; 5 more</div>
+              </div>
+              <svg class="as-areas-county-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+            <div class="as-areas-county-bar">
+              <div class="as-areas-county-icon oc">OC</div>
+              <div class="as-areas-county-info">
+                <div class="as-areas-county-name">South Orange County</div>
+                <div class="as-areas-county-cities">San Clemente, Mission Viejo, Laguna Niguel &amp; 7 more</div>
+              </div>
+              <svg class="as-areas-county-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </div>
+          <div class="as-areas-stats">
+            <div class="as-areas-stat"><div class="as-areas-stat-num">79+</div><div class="as-areas-stat-lbl">Cities Served</div></div>
+            <div class="as-areas-stat"><div class="as-areas-stat-num">3</div><div class="as-areas-stat-lbl">Counties</div></div>
+            <div class="as-areas-stat"><div class="as-areas-stat-num">2,500+</div><div class="as-areas-stat-lbl">Homes Protected</div></div>
+            <div class="as-areas-stat"><div class="as-areas-stat-num">20+</div><div class="as-areas-stat-lbl">Years Experience</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="as-areas-counties">
+        <div class="as-areas-county-col card-hidden">
+          <div class="as-areas-col-header">
+            <span class="as-areas-col-dot sd"></span>
+            <span class="as-areas-col-name">San Diego County</span>
+            <span class="as-areas-col-count">60+ cities</span>
+          </div>
+          <div class="as-areas-pills">
+            <span class="as-areas-pill" style="--ai:0;--rot:-1.5deg">San Diego</span>
+            <span class="as-areas-pill" style="--ai:1;--rot:2deg">Escondido</span>
+            <span class="as-areas-pill" style="--ai:2;--rot:-1deg">Carlsbad</span>
+            <span class="as-areas-pill" style="--ai:3;--rot:1.5deg">Oceanside</span>
+            <span class="as-areas-pill" style="--ai:4;--rot:-2deg">Vista</span>
+            <span class="as-areas-pill" style="--ai:5;--rot:1deg">San Marcos</span>
+            <span class="as-areas-pill" style="--ai:6;--rot:-1deg">Encinitas</span>
+            <span class="as-areas-pill" style="--ai:7;--rot:2.5deg">Poway</span>
+            <span class="as-areas-pill" style="--ai:8;--rot:-1.5deg">Chula Vista</span>
+            <span class="as-areas-pill" style="--ai:9;--rot:1deg">El Cajon</span>
+            <span class="as-areas-pill" style="--ai:10;--rot:-2deg">La Mesa</span>
+            <span class="as-areas-pill" style="--ai:11;--rot:2deg">Santee</span>
+            <span class="as-areas-pill" style="--ai:12;--rot:-1deg">Del Mar</span>
+            <span class="as-areas-pill" style="--ai:13;--rot:1.5deg">Solana Beach</span>
+            <span class="as-areas-pill" style="--ai:14;--rot:-1.5deg">Rancho Santa Fe</span>
+            <span class="as-areas-pill" style="--ai:15;--rot:2deg">Valley Center</span>
+            <span class="as-areas-pill" style="--ai:16;--rot:-1deg">Fallbrook</span>
+            <span class="as-areas-pill" style="--ai:17;--rot:1deg">Ramona</span>
+            <span class="as-areas-pill" style="--ai:18;--rot:-2.5deg">La Jolla</span>
+            <span class="as-areas-pill" style="--ai:19;--rot:1.5deg">Pacific Beach</span>
+            <span class="as-areas-pill" style="--ai:20;--rot:-1deg">Point Loma</span>
+            <span class="as-areas-pill" style="--ai:21;--rot:2deg">Hillcrest</span>
+            <span class="as-areas-pill" style="--ai:22;--rot:-1.5deg">Mira Mesa</span>
+            <span class="as-areas-pill" style="--ai:23;--rot:1deg">Rancho Bernardo</span>
+            <span class="as-areas-pill" style="--ai:24;--rot:-2deg">University City</span>
+            <span class="as-areas-pill" style="--ai:25;--rot:1.5deg">Imperial Beach</span>
+            <span class="as-areas-pill" style="--ai:26;--rot:-1deg">National City</span>
+            <span class="as-areas-pill" style="--ai:27;--rot:2.5deg">Lemon Grove</span>
+            <span class="as-areas-pill" style="--ai:28;--rot:-1.5deg">Bonsall</span>
+            <span class="as-areas-pill" style="--ai:29;--rot:1deg">Lakeside</span>
+            <span class="as-areas-pill" style="--ai:30;--rot:-2deg">Alpine</span>
+            <span class="as-areas-pill" style="--ai:31;--rot:1.5deg">Jamul</span>
+            <span class="as-areas-pill" style="--ai:32;--rot:-1deg">San Ysidro</span>
+            <span class="as-areas-pill" style="--ai:33;--rot:2deg">Otay Mesa</span>
+            <span class="as-areas-pill" style="--ai:34;--rot:-1.5deg">Rainbow</span>
+            <span class="as-areas-pill" style="--ai:35;--rot:1deg">Pala Mesa</span>
+          </div>
+        </div>
+        <div class="as-areas-county-col card-hidden">
+          <div class="as-areas-col-header">
+            <span class="as-areas-col-dot rv"></span>
+            <span class="as-areas-col-name">Riverside County</span>
+            <span class="as-areas-col-count">9 cities</span>
+          </div>
+          <div class="as-areas-pills">
+            <span class="as-areas-pill" style="--ai:0;--rot:2deg">Temecula</span>
+            <span class="as-areas-pill" style="--ai:1;--rot:-1.5deg">Murrieta</span>
+            <span class="as-areas-pill" style="--ai:2;--rot:1deg">Lake Elsinore</span>
+            <span class="as-areas-pill" style="--ai:3;--rot:-2deg">Menifee</span>
+            <span class="as-areas-pill" style="--ai:4;--rot:1.5deg">Hemet</span>
+            <span class="as-areas-pill" style="--ai:5;--rot:-1deg">Wildomar</span>
+            <span class="as-areas-pill" style="--ai:6;--rot:2.5deg">Canyon Lake</span>
+            <span class="as-areas-pill" style="--ai:7;--rot:-1.5deg">Sun City</span>
+            <span class="as-areas-pill" style="--ai:8;--rot:1deg">Perris</span>
+          </div>
+        </div>
+        <div class="as-areas-county-col card-hidden">
+          <div class="as-areas-col-header">
+            <span class="as-areas-col-dot oc"></span>
+            <span class="as-areas-col-name">Orange County</span>
+            <span class="as-areas-col-count">10 cities</span>
+          </div>
+          <div class="as-areas-pills">
+            <span class="as-areas-pill" style="--ai:0;--rot:-1deg">San Clemente</span>
+            <span class="as-areas-pill" style="--ai:1;--rot:2deg">Mission Viejo</span>
+            <span class="as-areas-pill" style="--ai:2;--rot:-1.5deg">Aliso Viejo</span>
+            <span class="as-areas-pill" style="--ai:3;--rot:1deg">Laguna Niguel</span>
+            <span class="as-areas-pill" style="--ai:4;--rot:-2deg">Lake Forest</span>
+            <span class="as-areas-pill" style="--ai:5;--rot:1.5deg">Ladera Ranch</span>
+            <span class="as-areas-pill" style="--ai:6;--rot:-1deg">Coto De Caza</span>
+            <span class="as-areas-pill" style="--ai:7;--rot:2.5deg">Rancho Santa Margarita</span>
+            <span class="as-areas-pill" style="--ai:8;--rot:-1.5deg">Trabuco Canyon</span>
+            <span class="as-areas-pill" style="--ai:9;--rot:1deg">Dana Point</span>
+          </div>
+        </div>
+      </div>
+      <div class="as-areas-cta">
+        <p>Don't see your city? Give us a call — we may still cover your area.</p>
+        <a href="#as-contact" class="as-areas-cta-btn">
+          Request an Inspection
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="as-faq" id="as-faq">
+    <div class="as-faq-inner">
+      <div class="as-faq-header">
+        <span class="as-faq-eyebrow">FAQs</span>
+        <h2 class="as-faq-title">Have Questions? <em>Get Answers.</em></h2>
+        <p class="as-faq-sub">Most homeowners search for answers because something feels off — hot rooms, rising bills, strange odors, or signs of rodents. Here's what we see every day in attics across <strong>Southern California</strong>.</p>
+      </div>
+      <div class="as-faq-list">
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>What services does Attic Shield provide?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              Attic Shield specializes in <strong>attic insulation installation and removal</strong>, full <strong>rodent proofing with sanitation</strong>, <strong>air duct replacement</strong>, <strong>crawl space cleanup &amp; encapsulation</strong>, <strong>attic fans</strong>, and <strong>air sealing</strong> for energy efficiency. We offer comprehensive attic solutions designed to improve your comfort, safety, and home value.
+            </div>
+          </div>
+        </div>
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>Why should I replace or upgrade my attic insulation?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              Old, damaged, or insufficient insulation leads to <strong>high energy bills</strong>, uncomfortable indoor temperatures, and poor air quality. Upgrading your attic insulation improves your home's energy efficiency, increases comfort year-round, and may qualify you for rebates or <strong>federal tax credits</strong> like the 25C Energy Efficient Home Improvement Credit.
+            </div>
+          </div>
+        </div>
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>How does your rodent proofing service work?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              Our rodent proofing includes a <strong>full inspection</strong> of your attic and exterior entry points, sealing with <strong>galvanized steel mesh</strong>, flashing, and permanent materials — no foam, ever. We offer an optional <strong>1-year warranty</strong> covering all work performed. Our goal is to stop rodents from entering — permanently.
+            </div>
+          </div>
+        </div>
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>Do you offer a warranty on your work?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              Yes. We provide a <strong>1-year warranty on rodent proofing</strong> for the specific areas we serviced. Our insulation materials come with manufacturer warranties (typically <strong>10–25 years</strong>), and we stand behind our labor with a quality guarantee. If any issues arise, we'll make it right.
+            </div>
+          </div>
+        </div>
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>Are you licensed and insured?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              Absolutely. Attic Shield is fully licensed in California with a <strong>C-2 Insulation Contractor License (#1127450)</strong> — the only classification legally allowed to perform insulation work under the CSLB. We are also <strong>bonded and insured</strong> for your protection. Many competitors only hold general licenses or no license at all — we do it by the book.
+            </div>
+          </div>
+        </div>
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>What areas do you serve?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              We proudly serve <strong>all of San Diego County</strong> (San Diego, Escondido, Oceanside, Carlsbad, Vista, San Marcos, Poway, and 50+ more cities), <strong>Southwest Riverside County</strong> (Temecula, Murrieta, Lake Elsinore, Menifee, and more), and <strong>South Orange County</strong> (San Clemente, Mission Viejo, Laguna Niguel, Lake Forest, and more). If you're unsure, give us a call!
+            </div>
+          </div>
+        </div>
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>How much does attic insulation or rodent proofing cost?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              Prices vary based on <strong>square footage, access, condition, and scope</strong>. We offer <strong>free in-home inspections and quotes</strong> so you get an accurate price upfront — no surprises or hidden fees. We also provide <strong>bundled service discounts</strong> and seasonal promotions.
+            </div>
+          </div>
+        </div>
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>Can you work in homes with active rodent infestations?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              Yes. We regularly work in attics with signs of rodent activity. Our process: <strong>remove old insulation</strong>, <strong>sanitize</strong> with commercial-grade disinfectants, <strong>seal all entry points</strong> with permanent materials, install traps, and <strong>install new insulation</strong> once the attic is fully prepped. We make it safe and clean before we rebuild.
+            </div>
+          </div>
+        </div>
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>How long does a typical job take?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              Most jobs are completed in <strong>one full day</strong>. Insulation removal and installation for a standard home takes <strong>6–10 hours</strong>. Rodent proofing with sanitation and duct replacement may take longer depending on scope. We'll give you a detailed time estimate when we inspect your attic.
+            </div>
+          </div>
+        </div>
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>How do I schedule a free estimate?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              It's easy! Call us at <strong><a href="tel:+18584020066">(858) 402-0066</a></strong>, email <strong><a href="mailto:info@atticshield.com">info@atticshield.com</a></strong>, or fill out our contact form. One of our specialists will reach out to confirm your appointment. We offer flexible scheduling and prompt service — often <strong>same-week</strong>.
+            </div>
+          </div>
+        </div>
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>What makes Attic Shield different from other contractors?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              Attic Shield is <strong>specialized</strong> — we focus on attics, crawl spaces, and duct systems only. We follow the correct sequence: <strong>remove → seal → sanitize → restore</strong>. We provide <strong>major-step photo documentation</strong>, use permanent materials (never foam-only), protect your home with floor runners and barriers, and we're <strong>family-operated</strong> — not a franchise or call center.
+            </div>
+          </div>
+        </div>
+        <div class="as-faq-item">
+          <button class="as-faq-q" aria-expanded="false">
+            <span>Do you provide photo documentation of the work?</span>
+            <span class="as-faq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div class="as-faq-a-wrap">
+            <div class="as-faq-a">
+              Yes. We document <strong>each major step</strong> so you can see what we found and what we corrected — rodent activity, air sealing locations, insulation condition, and restoration progress. This transparency is valuable for homeowners and <strong>essential during real estate transactions</strong> when documentation supports negotiations and repairs.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="as-faq-cta">
+        <p>Still have questions? We're here to help.</p>
+        <a href="#as-contact" class="as-faq-cta-btn">
+          Request an Inspection
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="as-contact" id="as-contact">
+    <div class="as-contact-inner">
+      <div class="as-contact-header">
+        <span class="as-contact-eyebrow">Contact</span>
+        <h2 class="as-contact-title">Contact us today to learn more.</h2>
+      </div>
+      <div class="as-contact-grid">
+        <div class="as-contact-form-card">
+          <form onsubmit="event.preventDefault(); alert('Form submitted — implement POST endpoint.');">
+            <div class="as-contact-field">
+              <label for="cf-name">Name</label>
+              <input type="text" id="cf-name" placeholder="Your name" required />
+            </div>
+            <div class="as-contact-field">
+              <label for="cf-email">Email</label>
+              <input type="email" id="cf-email" placeholder="your@email.com" required />
+            </div>
+            <div class="as-contact-field">
+              <label for="cf-phone">Phone Number</label>
+              <input type="tel" id="cf-phone" placeholder="(858) 555-0123" required />
+            </div>
+            <div class="as-contact-field">
+              <label for="cf-msg">Message</label>
+              <textarea id="cf-msg" placeholder="Tell us about your attic or crawl space..."></textarea>
+            </div>
+            <button type="submit" class="as-contact-submit">
+              Send Message
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </form>
+        </div>
+        <div class="as-contact-info-card">
+          <div class="as-contact-info-item">
+            <div class="as-contact-info-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="as-contact-info-label">Call Us</div>
+              <div class="as-contact-info-value"><a href="tel:+18584020066">(858) 402-0066</a></div>
+            </div>
+          </div>
+          <div class="as-contact-info-item">
+            <div class="as-contact-info-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="as-contact-info-label">Mail Us</div>
+              <div class="as-contact-info-value"><a href="mailto:info@atticshield.com">Info@AtticShield.com</a></div>
+            </div>
+          </div>
+          <div class="as-contact-info-item">
+            <div class="as-contact-info-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="as-contact-info-label">Location</div>
+              <div class="as-contact-info-value">632 Rock Springs Rd, Escondido CA 92025</div>
+            </div>
+          </div>
+          <div class="as-contact-info-item">
+            <div class="as-contact-info-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div style="flex:1">
+              <div class="as-contact-info-label">Office Hours</div>
+              <div class="as-contact-hours">
+                <span class="as-contact-hours-day">Mon-Fri</span>
+                <span class="as-contact-hours-time">7:00 AM - 5:00 PM</span>
+                <span class="as-contact-hours-day">Saturday</span>
+                <span class="as-contact-hours-time as-contact-hours-closed">Closed</span>
+                <span class="as-contact-hours-day">Sunday</span>
+                <span class="as-contact-hours-time">9:00 AM - 2:00 PM</span>
+              </div>
+            </div>
+          </div>
+          <div class="as-contact-badges">
+            <span class="as-contact-badge">
+              <svg class="check" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Site Encryption Verified
+            </span>
+            <span class="as-contact-badge">
+              <svg class="check" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              CSLB Licensed
+            </span>
+            <span class="as-contact-badge">Verified 06/27/2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ══════════ FOOTER (from mirror-footer.html) ══════════ -->
+  <div class="as-footer-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <defs>
+        <filter id="as-shadow"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="rgba(0,0,0,0.4)"/></filter>
+      </defs>
+      <rect width="1440" height="60" fill="#0D0D0D"/>
+      <g class="as-wave-group">
+        <path fill="#0D0D0D" filter="url(#as-shadow)" d="M0,0 L1440,0 L1440,20 L1416,18 L1392,22 L1368,28 L1344,36 L1318,42 L1294,38 L1270,28 L1250,20 L1231,16 L1208,14 L1185,18 L1162,12 L1140,4 L1120,6 L1100,14 L1080,22 L1056,26 L1032,22 L1010,30 L986,42 L962,46 L938,40 L914,28 L892,14 L868,16 L844,20 L820,16 L796,20 L773,28 L749,38 L725,32 L702,20 L679,8 L655,2 L632,8 L610,18 L586,22 L562,30 L536,40 L508,44 L482,38 L456,24 L433,14 L410,12 L385,14 L357,16 L329,14 L301,18 L274,8 L250,2 L226,4 L202,12 L180,22 L157,26 L134,34 L110,38 L86,26 L62,18 L38,14 L14,16 L0,14 Z"/>
+      </g>
+    </svg>
+  </div>
+
+  <footer>
+    <div class="as-footer-inner">
+      <div class="as-footer-name-wrap" role="img" aria-label="Attic Shield">
+        <img src="images/atticshield-logo.png" alt="Attic Shield" style="display:block;width:160px;margin:0 0 20px;height:auto">
+        <div class="as-footer-stickers">
+          <svg class="as-sticker-letter" style="--rot:-2deg;--i:0" viewBox="0 0 142 156" fill="none">
+            <rect x="6" y="6" width="130" height="144" rx="22" fill="#F2B947" stroke="#1A1A1A" stroke-width="6"/>
+            <text x="71" y="78" text-anchor="middle" dominant-baseline="central" font-family="'Roboto Slab',serif" font-weight="800" font-size="116" fill="#1A1A1A">A</text>
+          </svg>
+          <svg class="as-sticker-letter" style="--rot:1.5deg;--i:1" viewBox="0 0 132 156" fill="none">
+            <rect x="6" y="6" width="120" height="144" rx="18" fill="#555555" stroke="#1A1A1A" stroke-width="6"/>
+            <text x="66" y="78" text-anchor="middle" dominant-baseline="central" font-family="'Roboto Slab',serif" font-weight="800" font-size="105" fill="white">S</text>
+          </svg>
+          <svg class="as-sticker-letter as-sticker-dot" style="--rot:-3deg;--i:2" viewBox="0 0 82 82" fill="none">
+            <polygon points="41,5 49,23 66,16 59,33 77,41 59,49 66,66 49,59 41,77 33,59 16,66 23,49 5,41 23,33 16,16 33,23" fill="#F2B947" stroke="#1A1A1A" stroke-width="4"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="as-footer-grid">
+        <div class="as-footer-brand">
+          <p class="as-footer-col-label">Attic Shield</p>
+          <p>Protect your attic and crawl space with expert insulation, rodent proofing, and air sealing done right the first time.</p>
+          <div class="as-footer-badges">
+            <span class="as-footer-badge">C-2 #1127450</span>
+            <span class="as-footer-badge">Bonded &amp; Insured</span>
+            <span class="as-footer-badge">20+ Years</span>
+          </div>
+        </div>
+
+        <div class="as-footer-links">
+          <p class="as-footer-col-label">Quick Links</p>
+          <a href="/about-us/" class="as-footer-link">About Us</a>
+          <a href="/blogs/" class="as-footer-link">Blogs</a>
+          <a href="/faqs/" class="as-footer-link">FAQs</a>
+          <a href="#" class="as-footer-link">Join Our Team</a>
+          <a href="#" class="as-footer-link">Testimonials</a>
+        </div>
+
+        <div class="as-footer-links">
+          <p class="as-footer-col-label">Services</p>
+          <a href="/services/" class="as-footer-link">Homeowners</a>
+          <a href="/services/" class="as-footer-link">Home Sellers</a>
+          <a href="/services/" class="as-footer-link">Home Buyers</a>
+          <a href="/services/" class="as-footer-link">Real Estate Agents</a>
+          <a href="/services/" class="as-footer-link">HOA &amp; Property Mgmt</a>
+        </div>
+
+        <div class="as-footer-links">
+          <p class="as-footer-col-label">Contact</p>
+          <a href="tel:+18584020066" class="as-footer-link">(858) 402-0066</a>
+          <a href="mailto:info@atticshield.com" class="as-footer-link">info@atticshield.com</a>
+          <span class="as-footer-link" style="cursor:default;color:var(--text-dim)">632 Rock Springs Rd<br/>Escondido, CA 92025</span>
+          <div class="as-footer-social">
+            <a href="#" aria-label="Yelp"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="Google"><svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="currentColor"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="currentColor"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="as-footer-bottom">
+        <p class="as-footer-copy">&copy; 2026 Attic Shield. All rights reserved.</p>
+        <div class="as-footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════ POPUP ══════════ -->
+  <div class="as-popup-overlay" id="asPopup">
+    <div class="as-popup">
+      <div class="as-popup-bar"></div>
+      <button class="as-popup-close" id="asPopupClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="as-popup-blob as-popup-blob-1"></div>
+      <div class="as-popup-blob as-popup-blob-2"></div>
+      <div class="as-popup-body">
+        <div class="as-popup-badge">
+          <span class="as-popup-badge-dot"></span>
+          Limited Time Offer
+        </div>
+        <div class="as-popup-amount">
+          <span class="dollar">$750</span><span class="off"> OFF</span>
+        </div>
+        <p class="as-popup-title">Any insulation or air duct installation</p>
+        <p class="as-popup-desc">
+          Limited availability — spots are filling fast. Schedule your free inspection today and lock in this exclusive discount.
+        </p>
+        <a href="#as-contact" class="as-popup-btn">
+          Claim Now
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <p class="as-popup-footnote">Cannot be combined with other offers. Expires soon.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ CHATBOT ══════════ -->
+  <button class="as-chat-toggle" id="as-chat-toggle" aria-label="Open chat">
+    <svg class="chat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <div class="as-chat-panel" id="as-chat-panel">
+    <div class="as-chat-head">
+      <div class="as-chat-head-icon">AS</div>
+      <div class="as-chat-head-info">
+        <span class="as-chat-head-name">Attic Shield AI</span>
+        <span class="as-chat-head-status">Online</span>
+      </div>
+    </div>
+    <div class="as-chat-msgs" id="as-chat-msgs"></div>
+    <div class="as-chat-foot">
+      <input class="as-chat-input" id="as-chat-input" type="text" placeholder="Ask about our services..." />
+      <button class="as-chat-send" id="as-chat-send" aria-label="Send">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // ─── SERVICES reveal ───
+      var svcSection = document.getElementById('as-services');
+      if (svcSection) {
+        var svcCards = svcSection.querySelectorAll('.as-card');
+        var svcObs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              svcCards.forEach(function(c, i) {
+                setTimeout(function() {
+                  c.classList.remove('card-hidden');
+                  c.classList.add('card-revealed');
+                }, i * 130 + 60);
+              });
+            } else {
+              svcCards.forEach(function(c) {
+                c.classList.remove('card-revealed');
+                c.classList.add('card-hidden');
+              });
+            }
+          });
+        }, { threshold: 0.1 });
+        svcObs.observe(svcSection);
+      }
+
+      // ─── TESTIMONIALS marquee clone ───
+      var testiTrack = document.querySelector('.as-testi-track');
+      if (testiTrack) {
+        Array.from(testiTrack.children).forEach(function(c) {
+          testiTrack.appendChild(c.cloneNode(true));
+        });
+      }
+
+      // ─── TRUST BADGES marquee clone ───
+      var trustTrack = document.querySelector('.as-trust-badges-track');
+      if (trustTrack) {
+        Array.from(trustTrack.children).forEach(function(c) {
+          trustTrack.appendChild(c.cloneNode(true));
+        });
+      }
+
+      // ─── BLOG reveal ───
+      var blogSection = document.getElementById('as-blog');
+      if (blogSection) {
+        var blogCards = blogSection.querySelectorAll('.as-blog-card');
+        var blogObs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              blogCards.forEach(function(c, i) {
+                setTimeout(function() {
+                  c.classList.remove('card-hidden');
+                  c.classList.add('card-revealed');
+                }, i * 120 + 50);
+              });
+            } else {
+              blogCards.forEach(function(c) {
+                c.classList.remove('card-revealed');
+                c.classList.add('card-hidden');
+              });
+            }
+          });
+        }, { threshold: 0.1 });
+        blogObs.observe(blogSection);
+      }
+
+      // ─── ABOUT reveal ───
+      var abSection = document.getElementById('as-about');
+      if (abSection) {
+        var abObs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              abSection.classList.add('as-about-visible');
+              abSection.querySelectorAll('.as-about-tags').forEach(function(t) { t.classList.add('as-about-tags-visible'); });
+              abSection.querySelectorAll('.as-about-stat-num[data-count]').forEach(function(el, i) {
+                setTimeout(function() {
+                  var target = parseInt(el.getAttribute('data-count'), 10);
+                  var suffix = el.getAttribute('data-suffix') || '';
+                  var duration = 1800;
+                  var start = null;
+                  function step(ts) {
+                    if (!start) start = ts;
+                    var p = Math.min((ts - start) / duration, 1);
+                    var eased = 1 - Math.pow(1 - p, 3);
+                    el.textContent = Math.round(eased * target) + suffix;
+                    if (p < 1) requestAnimationFrame(step);
+                  }
+                  requestAnimationFrame(step);
+                }, i * 200);
+              });
+            } else {
+              abSection.classList.remove('as-about-visible');
+              abSection.querySelectorAll('.as-about-tags').forEach(function(t) { t.classList.remove('as-about-tags-visible'); });
+              abSection.querySelectorAll('.as-about-stat-num[data-count]').forEach(function(el) {
+                el.textContent = '0' + (el.getAttribute('data-suffix') || '');
+              });
+            }
+          });
+        }, { threshold: 0.15 });
+        abObs.observe(abSection);
+      }
+
+      // ─── AREAS reveal ───
+      var arSection = document.getElementById('as-areas');
+      if (arSection) {
+        var arCols = arSection.querySelectorAll('.as-areas-county-col');
+        var arObs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              arCols.forEach(function(c, i) {
+                setTimeout(function() {
+                  c.classList.remove('card-hidden');
+                  c.classList.add('card-revealed');
+                }, i * 120 + 50);
+              });
+              setTimeout(function() {
+                arCols.forEach(function(col) {
+                  var pills = col.querySelector('.as-areas-pills');
+                  if (pills) pills.classList.add('as-areas-pills-visible');
+                });
+              }, 400);
+            } else {
+              arCols.forEach(function(c) {
+                c.classList.remove('card-revealed');
+                c.classList.add('card-hidden');
+                var pills = c.querySelector('.as-areas-pills');
+                if (pills) pills.classList.remove('as-areas-pills-visible');
+              });
+            }
+          });
+        }, { threshold: 0.08 });
+        arObs.observe(arSection);
+      }
+
+      // ─── OUR WORK filter + reveal ───
+      var workGrid = document.getElementById('workGrid');
+      var workCards = workGrid.querySelectorAll('.as-work-card');
+      var workFilters = document.querySelectorAll('.as-work-filter');
+
+      // Scroll reveal
+      var workObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var cards = entry.target.querySelectorAll('.as-work-card');
+            cards.forEach(function(c, i) {
+              setTimeout(function() {
+                c.classList.add('revealed');
+              }, i * 60 + 80);
+            });
+            workObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      workObs.observe(document.getElementById('as-work'));
+
+      // Filter
+      workFilters.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          workFilters.forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          var filter = btn.dataset.filter;
+          workGrid.classList.add('filtering');
+          setTimeout(function() {
+            workCards.forEach(function(card) {
+              var match = filter === 'all' || card.dataset.category === filter;
+              if (match) {
+                card.style.display = '';
+                setTimeout(function() { card.style.opacity = '1'; card.style.transform = ''; }, 20);
+              } else {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px) scale(.95)';
+                setTimeout(function() { card.style.display = 'none'; }, 350);
+              }
+            });
+            workGrid.classList.remove('filtering');
+          }, 100);
+        });
+      });
+
+      // ─── FAQ accordion ───
+      var faqItems = document.querySelectorAll('.as-faq-item');
+      faqItems.forEach(function(item) {
+        var btn = item.querySelector('.as-faq-q');
+        btn.addEventListener('click', function() {
+          var isActive = item.classList.contains('active');
+          faqItems.forEach(function(el) {
+            el.classList.remove('active');
+            el.querySelector('.as-faq-q').setAttribute('aria-expanded', 'false');
+          });
+          if (!isActive) {
+            item.classList.add('active');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      // ─── POPUP ───
+      var overlay = document.getElementById('asPopup');
+      var closeBtn = document.getElementById('asPopupClose');
+      function openPopup() { if (overlay) overlay.classList.add('open'); }
+      function closePopup() { if (overlay) overlay.classList.remove('open'); }
+      if (closeBtn) closeBtn.addEventListener('click', closePopup);
+      if (overlay) overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closePopup();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closePopup();
+      });
+      // Auto-show popup after 8s
+      setTimeout(openPopup, 8000);
+
+      // ─── LOADER ───
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          document.getElementById('loader').classList.add('hidden');
+        }, 1800);
+      });
+    })();
+
+    // ─── CHATBOT ───
+    (function() {
+      var toggle = document.getElementById('as-chat-toggle');
+      var panel = document.getElementById('as-chat-panel');
+      var msgs = document.getElementById('as-chat-msgs');
+      var input = document.getElementById('as-chat-input');
+      var sendBtn = document.getElementById('as-chat-send');
+
+      if (!toggle || !panel || !msgs || !input || !sendBtn) return;
+
+      var WEBHOOK_URL = 'https://letitallworkout.app.n8n.cloud/webhook/da3a4cd2-33fe-4c32-a1bc-4c2dd3b97e41/chat';
+
+      function toggleChat() {
+        var isOpen = panel.classList.toggle('open');
+        toggle.classList.toggle('open', isOpen);
+        if (isOpen) { input.focus(); msgs.scrollTop = msgs.scrollHeight; }
+      }
+
+      toggle.addEventListener('click', toggleChat);
+
+      function addMsg(text, role) {
+        var el = document.createElement('div');
+        el.className = 'as-chat-msg ' + role;
+        el.textContent = text;
+        msgs.appendChild(el);
+        msgs.scrollTop = msgs.scrollHeight;
+      }
+
+      function showTyping() {
+        var el = document.createElement('div');
+        el.className = 'as-chat-msg bot typing';
+        el.id = 'as-chat-typing';
+        for (var i = 0; i < 3; i++) {
+          var dot = document.createElement('span');
+          dot.className = 'dot';
+          el.appendChild(dot);
+        }
+        msgs.appendChild(el);
+        msgs.scrollTop = msgs.scrollHeight;
+      }
+
+      function hideTyping() {
+        var el = document.getElementById('as-chat-typing');
+        if (el) el.remove();
+      }
+
+      function sendMessage() {
+        var text = input.value.trim();
+        if (!text) return;
+        input.value = '';
+        addMsg(text, 'user');
+        if (!WEBHOOK_URL) {
+          addMsg('Thanks for your message! Connect to n8n to enable AI responses.', 'bot');
+          return;
+        }
+        showTyping();
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chatInput: text, sessionId: Date.now().toString() })
+        })
+        .then(function(r) {
+          if (!r.ok) throw new Error('Server error');
+          return r.json();
+        })
+        .then(function(data) {
+          hideTyping();
+          addMsg(data.output || data.reply || data.response || 'Thanks for your question!', 'bot');
+        })
+        .catch(function() {
+          hideTyping();
+          addMsg('Sorry, something went wrong. Try again.', 'bot');
+        });
+      }
+
+      sendBtn.addEventListener('click', sendMessage);
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') sendMessage();
+      });
+
+      setTimeout(function() {
+        addMsg("Hi there! I'm Attic Shield AI. Ask me about our services!", 'bot');
+      }, 600);
+    })();
+  </script>
+
+</body>
+</html>

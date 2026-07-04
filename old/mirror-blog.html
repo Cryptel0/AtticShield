@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attic Shield — Blog Mirror</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&family=Roboto+Slab:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --as-accent: #F2B947;
+      --as-accent-light: rgba(242,185,71,0.10);
+      --as-dark: #1A1A1A;
+      --as-bg: #F7F5F0;
+      --as-text: #0F0E0C;
+    }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Roboto', sans-serif; background: var(--as-bg); }
+
+    .as-blog {
+      padding: 100px 56px 120px;
+      overflow: hidden;
+      background: #FFFFFF;
+    }
+    .as-blog-inner { max-width: 1360px; margin: 0 auto; }
+
+    /* ─── HEADER ─── */
+    .as-blog-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 56px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .as-blog-left { display: flex; flex-direction: column; gap: 12px; }
+    .as-blog-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(15,14,12,0.3);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .as-blog-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--as-accent);
+      border-radius: 2px;
+    }
+    .as-blog-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(28px, 3.6vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--as-text);
+      letter-spacing: -0.02em;
+      max-width: 480px;
+    }
+    .as-blog-title em { font-style: normal; color: var(--as-accent); }
+    .as-blog-link {
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(15,14,12,0.4);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+      flex-shrink: 0;
+    }
+    .as-blog-link:hover { color: var(--as-text); }
+    .as-blog-link svg { transition: transform 0.2s; }
+    .as-blog-link:hover svg { transform: translateX(4px); }
+
+    /* ─── GRID ─── */
+    .as-blog-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    /* ─── CARD ─── */
+    .as-blog-card {
+      background: var(--as-bg);
+      border: 1.5px solid rgba(15,14,12,0.07);
+      border-radius: 22px;
+      overflow: hidden;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+      cursor: pointer;
+      position: relative;
+    }
+    .as-blog-card.card-hidden { opacity: 0; transform: translateY(32px); }
+    .as-blog-card.card-revealed { opacity: 1; transform: translateY(0); }
+
+    /* Tape */
+    .as-blog-tape {
+      position: absolute;
+      top: -3px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-1.2deg);
+      width: 44px;
+      height: 16px;
+      border-radius: 2px;
+      z-index: 5;
+      pointer-events: none;
+      background: rgba(242,185,71,0.5);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .as-blog-tape::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, transparent 60%);
+      border-radius: inherit;
+    }
+
+    /* Image */
+    .as-blog-img {
+      height: 180px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px 22px 0 0;
+      flex-shrink: 0;
+    }
+    .as-blog-img-bg {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .as-blog-card:hover .as-blog-img-bg {
+      transform: scale(1.08);
+    }
+
+    /* Category sticker */
+    .as-blog-cat {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.92);
+      color: var(--as-dark);
+      z-index: 2;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    /* Body */
+    .as-blog-body {
+      padding: 22px 22px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .as-blog-card-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--as-text);
+      line-height: 1.28;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+    .as-blog-card:hover .as-blog-card-title { color: var(--as-accent); }
+    .as-blog-excerpt {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: rgba(15,14,12,0.55);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 16px;
+    }
+    .as-blog-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1.5px solid rgba(15,14,12,0.06);
+      padding-top: 14px;
+    }
+    .as-blog-date {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: rgba(15,14,12,0.3);
+    }
+    .as-blog-arrow {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(15,14,12,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+      flex-shrink: 0;
+    }
+    .as-blog-arrow svg {
+      width: 13px;
+      height: 13px;
+      color: rgba(15,14,12,0.3);
+      transition: color 0.2s, transform 0.2s;
+    }
+    .as-blog-card:hover .as-blog-arrow {
+      background: var(--as-accent);
+    }
+    .as-blog-card:hover .as-blog-arrow svg {
+      color: var(--as-dark);
+      transform: translateX(2px);
+    }
+
+    /* ─── CARD THEMES ─── */
+    .theme-warm .as-blog-img-bg { background: linear-gradient(135deg, #FFE8B5 0%, #F5C842 100%); }
+    .theme-warm .as-blog-cat { background: rgba(245,200,66,0.9); color: #4A3000; }
+    .theme-cool .as-blog-img-bg { background: linear-gradient(135deg, #C8E0F8 0%, #6AA8E0 100%); }
+    .theme-cool .as-blog-cat { background: rgba(106,168,224,0.9); color: #fff; }
+    .theme-green .as-blog-img-bg { background: linear-gradient(135deg, #D4EDBC 0%, #8AB870 100%); }
+    .theme-green .as-blog-cat { background: rgba(138,184,112,0.9); color: #1A3D00; }
+    .theme-rose .as-blog-img-bg { background: linear-gradient(135deg, #FFD8E0 0%, #E898B0 100%); }
+    .theme-rose .as-blog-cat { background: rgba(232,152,176,0.9); color: #5C1A35; }
+
+    /* Pattern overlay on images */
+    .as-blog-img-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 2px, transparent 2px, transparent 8px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 2px, transparent 2px, transparent 8px);
+      background-size: 14px 14px;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1100px) {
+      .as-blog-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .as-blog { padding: 72px 28px 80px; }
+      .as-blog-header { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 560px) {
+      .as-blog-grid { grid-template-columns: 1fr; }
+      .as-blog { padding: 56px 20px 64px; }
+      .as-blog-img { height: 160px; }
+    }
+
+    /* Staggered delays */
+    .as-blog-card:nth-child(1) { transition-delay: 0s; }
+    .as-blog-card:nth-child(2) { transition-delay: 0.08s; }
+    .as-blog-card:nth-child(3) { transition-delay: 0.16s; }
+    .as-blog-card:nth-child(4) { transition-delay: 0.24s; }
+  </style>
+</head>
+<body>
+  <section class="as-blog" id="as-blog">
+    <div class="as-blog-inner">
+      <div class="as-blog-header">
+        <div class="as-blog-left">
+          <span class="as-blog-eyebrow">Latest &amp; Insights</span>
+          <h2 class="as-blog-title">Tips &amp; Advice for Your <em>Home</em></h2>
+        </div>
+        <a href="/blogs/" class="as-blog-link">
+          View All Posts
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <div class="as-blog-grid">
+        <!-- 1 -->
+        <a href="/blog/attic-insulation-guide/" class="as-blog-card card-hidden theme-warm">
+          <div class="as-blog-tape"></div>
+          <div class="as-blog-img">
+            <div class="as-blog-img-bg"></div>
+            <span class="as-blog-cat">Insulation</span>
+          </div>
+          <div class="as-blog-body">
+            <h3 class="as-blog-card-title">The Complete Guide to Attic Insulation in San Diego</h3>
+            <p class="as-blog-excerpt">Everything you need to know about R-values, materials, and why proper insulation saves you money year-round.</p>
+            <div class="as-blog-footer">
+              <span class="as-blog-date">Jan 12, 2026</span>
+              <span class="as-blog-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 2 -->
+        <a href="/blog/rodent-proofing-tips/" class="as-blog-card card-hidden theme-cool">
+          <div class="as-blog-tape"></div>
+          <div class="as-blog-img">
+            <div class="as-blog-img-bg"></div>
+            <span class="as-blog-cat">Rodent Proofing</span>
+          </div>
+          <div class="as-blog-body">
+            <h3 class="as-blog-card-title">5 Signs You Have Rodents in Your Attic (And What to Do)</h3>
+            <p class="as-blog-excerpt">Scratching sounds, droppings, and chewed wires — spot the warning signs before the damage adds up.</p>
+            <div class="as-blog-footer">
+              <span class="as-blog-date">Dec 28, 2025</span>
+              <span class="as-blog-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 3 -->
+        <a href="/blog/crawl-space-moisture/" class="as-blog-card card-hidden theme-green">
+          <div class="as-blog-tape"></div>
+          <div class="as-blog-img">
+            <div class="as-blog-img-bg"></div>
+            <span class="as-blog-cat">Crawl Space</span>
+          </div>
+          <div class="as-blog-body">
+            <h3 class="as-blog-card-title">Why Crawl Space Moisture Is Ruining Your Home</h3>
+            <p class="as-blog-excerpt">Mold, rot, and structural damage start below your feet. Learn how encapsulation protects your biggest investment.</p>
+            <div class="as-blog-footer">
+              <span class="as-blog-date">Dec 15, 2025</span>
+              <span class="as-blog-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 4 -->
+        <a href="/blog/energy-saving-tips/" class="as-blog-card card-hidden theme-rose">
+          <div class="as-blog-tape"></div>
+          <div class="as-blog-img">
+            <div class="as-blog-img-bg"></div>
+            <span class="as-blog-cat">Energy Savings</span>
+          </div>
+          <div class="as-blog-body">
+            <h3 class="as-blog-card-title">How Proper Attic Ventilation Lowers Your Energy Bill</h3>
+            <p class="as-blog-excerpt">Good ventilation does more than regulate temperature — it protects your roof, your HVAC, and your wallet.</p>
+            <div class="as-blog-footer">
+              <span class="as-blog-date">Nov 30, 2025</span>
+              <span class="as-blog-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function() {
+      var section = document.getElementById('as-blog');
+      if (!section) return;
+      var cards = section.querySelectorAll('.as-blog-card');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            cards.forEach(function(c, i) {
+              setTimeout(function() {
+                c.classList.remove('card-hidden');
+                c.classList.add('card-revealed');
+              }, i * 120 + 50);
+            });
+          } else {
+            cards.forEach(function(c) {
+              c.classList.remove('card-revealed');
+              c.classList.add('card-hidden');
+            });
+          }
+        });
+      }, { threshold: 0.1 });
+      observer.observe(section);
+    })();
+  </script>
+</body>
+</html>
