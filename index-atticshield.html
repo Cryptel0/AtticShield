@@ -189,6 +189,31 @@
       opacity: 0.9;
       transform: translateY(-1px);
     }
+    .as-nav-hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer;
+      padding: 8px; z-index: 20;
+    }
+    .as-nav-hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: #fff; border-radius: 2px;
+      transition: transform .3s, opacity .3s;
+    }
+    .as-nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .as-nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .as-nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .as-nav-overlay {
+      display: none; position: fixed; inset: 0; z-index: 9;
+      background: rgba(0,0,0,.85); backdrop-filter: blur(12px);
+      flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+    }
+    .as-nav-overlay.open { display: flex; }
+    .as-nav-overlay a {
+      font-size: 20px; font-weight: 700; color: #fff;
+      text-decoration: none; letter-spacing: .03em;
+      transition: color .2s;
+    }
+    .as-nav-overlay a:hover { color: var(--as-accent); }
     .as-hero-body {
       position: relative;
       z-index: 6;
@@ -372,11 +397,14 @@
     }
     @media (max-width: 768px) {
       .as-nav-links { display: none; }
+      .as-nav-hamburger { display: flex; }
       .as-nav { padding: 16px 20px; }
       .as-hero-body { padding: 0 20px 70px; }
       .as-headline { font-size: clamp(40px, 10vw, 56px); }
       .as-scroll { left: 20px; bottom: 20px; }
       .as-trust-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .as-hero-bg video { display: none; }
+      .as-hero-bg { background: url(images/AtticShield-Hero.webp) center/cover no-repeat; }
     }
     @media (max-width: 480px) {
       .as-hero-body { padding: 0 20px 60px; }
@@ -2309,7 +2337,10 @@
         <span class="as-nav-logo-mark">AS</span>
         Attic Shield
       </a>
-      <div class="as-nav-links">
+      <button class="as-nav-hamburger" id="as-nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="as-nav-links" id="as-nav-links">
         <a href="#as-services">Services</a>
         <a href="#as-work">Our Work</a>
         <a href="#as-about">About</a>
@@ -2321,6 +2352,13 @@
         (858) 402-0066
       </a>
     </nav>
+    <div class="as-nav-overlay" id="as-nav-overlay">
+      <a href="#as-services">Services</a>
+      <a href="#as-work">Our Work</a>
+      <a href="#as-about">About</a>
+      <a href="#as-faq">FAQ</a>
+      <a href="#as-contact">Contact</a>
+    </div>
     <div class="as-hero-body">
       <div class="as-hero-content">
         <div class="as-trust">
@@ -3972,6 +4010,25 @@
         setTimeout(function() {
           document.getElementById('loader').classList.add('hidden');
         }, 1800);
+      });
+    })();
+
+    // ─── HAMBURGER ───
+    (function() {
+      var ham = document.getElementById('as-nav-hamburger');
+      var overlay = document.getElementById('as-nav-overlay');
+      if (!ham || !overlay) return;
+      ham.addEventListener('click', function() {
+        ham.classList.toggle('open');
+        overlay.classList.toggle('open');
+        document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : '';
+      });
+      overlay.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          ham.classList.remove('open');
+          overlay.classList.remove('open');
+          document.body.style.overflow = '';
+        });
       });
     })();
 

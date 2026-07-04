@@ -1,0 +1,74 @@
+[
+  {
+    "id": "pricing-estimates",
+    "title": "Pricing & Free Estimates",
+    "content": "Attic Shield offers free, no-obligation estimates for all services. Pricing varies based on attic square footage, accessibility, extent of contamination, and type of service required. A typical attic insulation installation ranges from $1,500 to $4,500 for most San Diego homes. Insulation removal costs $500 to $2,000 depending on debris volume. Rodent proofing averages $800 to $2,500. Crawl space encapsulation ranges from $2,000 to $7,000. Vapor barrier installation is $1.50 to $3.00 per square foot. Air sealing adds $300 to $1,200. We accept cash, check, and all major credit cards. Financing options available through approved credit. Call (858) 402-0066 for a personalized quote. We service San Diego County, Southwest Riverside County, and South Orange County.",
+    "category": "Pricing"
+  },
+  {
+    "id": "attic-insulation-process",
+    "title": "Attic Insulation Installation Process",
+    "content": "Our attic insulation process begins with a thorough inspection and assessment of your current attic condition. First, we remove any existing contaminated or damaged insulation. Next, we seal all air leaks including gaps around pipes, wires, recessed lighting, and attic hatches using fire-blocking sealant and expandable foam. We then install baffles to ensure proper soffit ventilation and prevent insulation from blocking airflow. Finally, we blow in cellulose or fiberglass insulation to the recommended R-value (typically R-38 to R-60 for San Diego climate zones). We use Owens Corning PINK Fiberglass and GreenFiber cellulose insulation. The entire process typically takes 4-8 hours for a standard 1,500 sq ft attic. We clean up all debris and vacate the premises. All work comes with a satisfaction guarantee.",
+    "category": "Services"
+  },
+  {
+    "id": "rodent-proofing-process",
+    "title": "Rodent Proofing & Exclusion Process",
+    "content": "Our rodent proofing service uses an exclusion-based approach — we permanently seal every entry point rats and mice can use. We start with a comprehensive exterior and interior inspection to identify all holes, gaps, and access points. Common entry points include roof eaves, soffit gaps, pipe penetrations, foundation cracks, and unsealed vents. We seal holes with heavy-duty stainless steel mesh, copper mesh, and urethane foam — materials rodents cannot chew through. Larger gaps are repaired with sheet metal, cement, or hardware cloth. We install vent screens on all attic, crawl space, and gable vents. One-way exclusion doors are placed where active rodents are present, allowing them to leave but not re-enter. All exclusion work carries a 1-year warranty against re-entry. Follow-up inspections are included to verify effectiveness.",
+    "category": "Services"
+  },
+  {
+    "id": "warranty-information",
+    "title": "Warranty & Guarantee Information",
+    "content": "Attic Shield stands behind all work with robust warranties. Insulation installation: 10-year workmanship warranty against settling, gaps, or improper installation. Rodent proofing exclusion: 1-year warranty against re-entry through sealed points (does not cover new damage caused by rodents). Crawl space encapsulation: 5-year warranty on materials and workmanship. Attic sanitation: satisfaction guarantee — if you're not happy with the cleanliness, we'll re-clean at no charge. All warranties are transferable to new homeowners within the warranty period. Warranties cover defects in workmanship but do not cover damage from new rodent activity, acts of nature, or modifications made by other contractors. Warranty claims must be reported within 30 days of discovery. Contact (858) 402-0066 to file a claim.",
+    "category": "Company"
+  },
+  {
+    "id": "crawl-space-encapsulation",
+    "title": "Crawl Space Encapsulation",
+    "content": "Crawl space encapsulation creates a sealed, moisture-controlled environment under your home. The process includes: removing debris, old insulation, and pest waste; installing a heavy-duty 20-mil vapor barrier over the entire crawl space floor; sealing the barrier to foundation walls, piers, and pipes with termination bars and acoustical sealant; encapsulating foundation walls with rigid foam insulation; installing a dehumidifier to control humidity below 60%; and potentially adding a sump pump if water intrusion is present. Benefits include: lower energy bills (up to 20% savings), improved indoor air quality, prevention of mold and mildew, protection against wood rot and structural damage, and elimination of pest harborage areas. Encapsulation typically takes 2-3 days and includes a 5-year warranty.",
+    "category": "Services"
+  },
+  {
+    "id": "vapor-barrier-details",
+    "title": "Vapor Barrier Installation",
+    "content": "Vapor barriers are heavy-duty polyethylene sheets installed over crawl space floors to block ground moisture from entering your home. Attic Shield uses 20-mil reinforced vapor barrier — thicker and more durable than standard 6-mil sheeting. Installation includes: clearing and leveling the crawl space floor; overlapping barrier seams by 12 inches; sealing seams with butyl tape; extending the barrier 6 inches up foundation walls; securing with termination bars and masonry anchors; sealing around all pipe and wire penetrations. Benefits include preventing mold growth, reducing humidity, protecting HVAC equipment, and improving energy efficiency. Vapor barrier installation costs $1.50 to $3.00 per square foot. Most San Diego homes need 1,000 to 2,000 square feet of coverage. The vapor barrier carries a 5-year warranty against tearing or degradation.",
+    "category": "Services"
+  },
+  {
+    "id": "air-sealing-process",
+    "title": "Air Sealing Services",
+    "content": "Air sealing is the process of closing gaps and cracks in your home's building envelope to stop conditioned air from escaping. Attic Shield targets the most common air leaks: attic penetrations (wiring, plumbing, recessed lights, ductwork); rim joists and band boards; attic hatches and pull-down stairs; window and door frames; baseboards and floor penetrations; ductwork connections; fireplace dampers; and exterior wall penetrations. We use fire-blocking sealant for small gaps (<1/4 inch), expandable spray foam for medium gaps (1/4 to 1 inch), and rigid materials with sealant for larger gaps. Air sealing is typically done alongside insulation installation for maximum efficiency. Benefits include: 10-20% reduction in energy bills, improved comfort (fewer drafts), better HVAC performance, and reduced pest entry. A blower door test can measure your home's air leakage before and after sealing.",
+    "category": "Services"
+  },
+  {
+    "id": "attic-sanitation-process",
+    "title": "Attic Sanitation & Cleaning",
+    "content": "Attic sanitation is a specialized cleaning service for attics contaminated by rodents, pests, or old debris. The process includes: full HEPA vacuuming of all loose debris, droppings, urine residue, and pest nests; removal of contaminated insulation; application of an enzyme-based antimicrobial treatment that breaks down organic waste and neutralizes odors; fogging with a botanical disinfectant to kill bacteria, viruses, and mold spores; installation of new insulation after sanitation is complete. We use EPA-approved sanitizers including Benefect (thymol-based botanical) and Microban disinfectant. All workers wear full Tyvek suits and respirators for safety. The attic is sealed after sanitation to prevent re-contamination. Attic sanitation is recommended after rodent infestations, before insulation replacement, and when moving into a new home with a dirty attic. Cost ranges from $1,200 to $3,500 depending on contamination level and attic size.",
+    "category": "Services"
+  },
+  {
+    "id": "insulation-removal-details",
+    "title": "Insulation Removal Service",
+    "content": "Insulation removal is necessary when existing insulation is contaminated by rodent waste, mold, moisture damage, or is simply old and compacted. We use a commercial-grade HEPA vacuum system to remove all existing insulation — typically cellulose, fiberglass batts, or loose-fill fiberglass. The vacuum system collects debris into sealed bags for proper disposal. After removal, the attic is inspected for decayed wood, water damage, and structural issues. All droppings, nests, and debris are removed. We then apply antimicrobial treatment before installing new insulation. Removal is recommended when: you see rodent droppings in the attic; old insulation is compressed and less than R-19; you notice musty odors from the attic; high energy bills indicate poor insulation performance; or you've had a pest infestation. Insulation removal adds 2-4 hours to the overall project time. Removal only: $500 to $2,000 depending on attic size.",
+    "category": "Services"
+  },
+  {
+    "id": "financing-options",
+    "title": "Financing & Payment Options",
+    "content": "Attic Shield offers flexible financing options through approved credit providers. We partner with Wells Fargo and Synchrony Home for financing. Options include: 12-month same-as-cash financing (no interest if paid in full within 12 months); up to 60-month extended payment plans with low APR; and no-money-down financing for qualified customers. Credit scores of 620+ typically qualify for financing. Apply online or over the phone — approvals usually within minutes. We also accept: cash, check, Visa, MasterCard, American Express, and Discover. California homeowners may qualify for energy efficiency rebates through SDG&E and California Energy Wise programs. We help file all rebate paperwork. Contact (858) 402-0066 to discuss payment options and get pre-qualified.",
+    "category": "Pricing"
+  },
+  {
+    "id": "health-benefits",
+    "title": "Health Benefits of Attic Services",
+    "content": "A dirty or infested attic directly impacts your home's indoor air quality. Rodent droppings and urine release ammonia and harmful pathogens into the air your family breathes. Common health issues linked to contaminated attics include: allergic reactions (sneezing, watery eyes, skin rashes); respiratory problems including asthma exacerbation; sinus infections and persistent cough; hantavirus (in rare cases with deer mice); and aggravation of existing conditions like COPD. Attic Shield's sanitation process eliminates these health risks by: removing all contaminated material; applying antimicrobial treatments that kill bacteria and viruses; sealing entry points to prevent re-infestation; and installing fresh, clean insulation. Improved attic health leads to better indoor air quality, reduced allergy symptoms, and peace of mind knowing your family is breathing clean air. We recommend annual attic inspections to catch problems early.",
+    "category": "Health"
+  },
+  {
+    "id": "energy-savings",
+    "title": "Energy Savings from Attic Services",
+    "content": "Your attic is responsible for up to 40% of your home's heat loss in winter and heat gain in summer. Proper attic insulation and air sealing can reduce your energy bills by 10-25% annually. For a typical San Diego home with $200/month energy bills, that's $240-$600 saved per year. Crawl space encapsulation saves 15-20% on HVAC costs by preventing ground moisture from affecting heating and cooling efficiency. Air sealing alone can save 10-15% by stopping drafts and reducing HVAC workload. The combination of air sealing + insulation + crawl space encapsulation typically pays for itself within 3-5 years through energy savings alone. SDG&E offers rebates up to $500 for qualifying energy efficiency improvements. Attic Shield helps customers apply for all available rebates. Properly insulated homes also qualify for lower energy rates with some providers. Call (858) 402-0066 for an energy savings assessment.",
+    "category": "Health"
+  }
+]
