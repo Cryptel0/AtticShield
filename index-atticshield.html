@@ -366,26 +366,7 @@
       flex-shrink: 0;
     }
     .as-trust-item .as-check { fill: var(--as-accent); }
-    .as-scroll {
-      position: absolute;
-      bottom: 36px;
-      left: 48px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 11px;
-      font-weight: 700;
-      color: rgba(255,255,255,0.35);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      z-index: 3;
-      animation: asFadeUp 0.6s ease 1.3s both;
-    }
-    .as-scroll-line {
-      width: 36px;
-      height: 1.5px;
-      background: rgba(255,255,255,0.25);
-    }
+
     @keyframes asFadeUp {
       from { opacity: 0; transform: translateY(22px); }
       to { opacity: 1; transform: translateY(0); }
@@ -393,7 +374,6 @@
     @media (max-width: 1024px) {
       .as-nav { padding: 20px 28px; }
       .as-hero-body { padding: 0 28px 80px; }
-      .as-scroll { left: 28px; }
     }
     @media (max-width: 768px) {
       .as-nav-links { display: none; }
@@ -403,7 +383,7 @@
       .as-headline { font-size: clamp(40px, 10vw, 56px); }
       .as-scroll { left: 20px; bottom: 20px; }
       .as-trust-row { flex-direction: column; align-items: flex-start; gap: 12px; }
-      .as-hero-bg { background: url(images/AtticShield-Hero.webp) center/cover no-repeat; }
+      .as-hero-bg { background: #0D0D0D; }
       .as-hero-bg video { object-fit: cover; }
       .as-trust-badges { padding: 50px 20px 60px; }
       .as-trust-badge { padding: 18px 24px 18px 20px; gap: 16px; }
@@ -2331,7 +2311,7 @@
 
   <section class="as-hero" id="as-hero">
     <div class="as-hero-bg">
-      <video class="hero-video" autoplay muted loop playsinline poster="images/AtticShield-Hero.webp">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect fill='%230D0D0D' width='1' height='1'/%3E%3C/svg%3E">
         <source src="videos/services-bg.mp4" type="video/mp4">
       </video>
     </div>
@@ -2410,10 +2390,7 @@
         </div>
       </div>
     </div>
-    <div class="as-scroll" aria-hidden="true">
-      <div class="as-scroll-line"></div>
-      Scroll
-    </div>
+
   </section>
 
   <!-- ══════════ TRUST BADGES ══════════ -->
