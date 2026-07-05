@@ -1,7 +1,5 @@
 {
   "rewrites": [
     { "source": "/", "destination": "/index-atticshield.html" }
-  ],
-  "cleanUrls": true,
-  "trailingSlash": false
+  ]
 }
